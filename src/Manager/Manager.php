@@ -1,6 +1,8 @@
 <?php 
 
-namespace OpenClassrooms\ProBlog\Model;
+namespace Problog\src\Manager;
+
+use PDO;
 
 class Manager{
 

@@ -1,6 +1,6 @@
 <?php 
 
-namespace OpenClassrooms\ProBlog\Model;
+namespace Problog\src\Manager;
 
 require('Manager.php');
 

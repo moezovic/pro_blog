@@ -13,7 +13,7 @@ class BlogPostsManager extends Manager{
 		return $result
 	}
 
-	public function getSinglepost($postId){
+	public function getSinglePost($postId){
 		$sql = 'SELECT title, topic_sentence, content, author, DATE_FORMAT(update_time, \'%d/%m/%Y à %Hh/%imin/%ss\') AS last_update FROM blogposts WHERE id = :id ORDER BY update_time DESC';
 
 		$result = $this->sql($sql, [$postId]);

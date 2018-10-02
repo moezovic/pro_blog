@@ -1,6 +1,7 @@
 <?php 
 
  namespace App\config;
+ use App\src\controller\Controller;
 
  class Router
  {
@@ -10,12 +11,15 @@
 		 {
 		 		if ($_GET['route'] === 'list') 
 		 		{
-		 			require '../templates/blogListView.php';
+		 			$controller = new controller();
+		 			$controller ->SingleBlogPost($_GET['idArt']);
+
 		 		}
 
 		 		elseif ($_GET['route'] === 'single') 
 		 		{
-		 			require '../templates/singlePostView.php';
+		 			$controller = new Controller();
+		 			$controller->blogPosts();
 		 		}
 		 		else
 		 		{

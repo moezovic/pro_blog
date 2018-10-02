@@ -1,24 +1,8 @@
 <?php 
 require '../config/Autoloader.php';
+require '../config/dev.php';
+
 \ProBlog\config\Autoloader::register();
  
- if(isset($_GET['action']))
- {
- 		if ($_GET['route'] === 'list') 
- 		{
- 			require '../templates/blogListView.php';
- 		}
-
- 		elseif ($_GET['route'] === 'single') 
- 		{
- 			require '../templates/singlePostView.php';
- 		}
- 		else
- 		{
- 			echo 'Page inconnu';
- 		}
- }
- else
- {
- 		require '../templates/home.php';
- }
+ $router = new \ProBlog\config\Router();
+ $router->run();

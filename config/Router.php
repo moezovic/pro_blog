@@ -5,21 +5,31 @@
 
  class Router
  {
+
+ 	private $controller;
+
+ 	public function __construct()
+ 	{
+ 		$this->controller = new Controller();
+ 	}
+
+
  	public function run()
  	{
  		if(isset($_GET['action']))
 		 {
-		 		if ($_GET['route'] === 'list') 
+		 		if ($_GET['action'] === 'list') 
 		 		{
-		 			$controller = new controller();
-		 			$controller ->SingleBlogPost($_GET['idArt']);
+		 		
+		 			$this->controller->blogPosts();
 
 		 		}
 
-		 		elseif ($_GET['route'] === 'single') 
+		 		elseif ($_GET['action'] === 'single') 
 		 		{
-		 			$controller = new Controller();
-		 			$controller->blogPosts();
+		 			
+		 			$this->controller->singleBlogPost($_GET['postId']);
+
 		 		}
 		 		else
 		 		{

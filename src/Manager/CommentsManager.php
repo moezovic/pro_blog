@@ -2,6 +2,7 @@
 
 namespace Problog\src\Manager;
 
+
 class CommentsManager extends Manager{
 
 	public function getComments($postId){

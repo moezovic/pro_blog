@@ -8,9 +8,9 @@ use PDO;
 class Manager{
 
 
-	protected $connection;
+	private $connection;
 
-	protected function checkConnection(){
+	private function checkConnection(){
 		if ($this->connection === null) 
 		{
 			return $this->getConnection();
@@ -19,13 +19,13 @@ class Manager{
 		return $this->connection;
 	}
 
-	protected function getConnection(){
+	private function getConnection(){
 		$this->connection = new PDO(DB_HOST, DB_USER, DB_PSW);
 		$this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		return $this->$connection;
 
-	protected function sql($sql,$parameters = null)
+	protected function sql($sql, $parameters = null)
 	{
 		if ($parameters)
 		{

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\src\controller;
+namespace ProBlog\src\controller;
 
 class ErrorController
 {

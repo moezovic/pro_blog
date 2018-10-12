@@ -1,8 +1,8 @@
 <?php 
 
- namespace App\config;
- use App\src\controller\Controller;
- use App\src\controller\ErrorController;
+ namespace ProBlog\config;
+ use ProBlog\src\controller\Controller;
+ use ProBlog\src\controller\ErrorController;
 
  class Router
  {

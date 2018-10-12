@@ -2,7 +2,7 @@
 <?php 
  namespace ProBlog\src\model;
 
- class Commentaire
+ class Commentary
  {
 
  	private $id;

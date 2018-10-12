@@ -1,6 +1,6 @@
 <?php 
 
- namespace App\src\controller;
+ namespace ProBlog\src\controller;
 
  use Problog\src\Manager\BlogPostsManager;
  use Problog\src\Manager\CommentsManager;

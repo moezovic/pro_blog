@@ -4,12 +4,14 @@
 
  use Problog\src\Manager\BlogPostsManager;
  use Problog\src\Manager\CommentsManager;
+ use Problog\src\model\View;
 
  class Controller
  {
 
  	private $blogPostDAO;
  	private $commentDAO;
+ 	private $viewObj;
 
 
  	public function __construct()
@@ -17,6 +19,7 @@
 
  		$this->blogPostDAO = new BlogPostsManager();
  		$this->commentDAO = new CommentsManager();
+ 		$this->view = new View();
 
  	}
 
@@ -25,7 +28,9 @@
  	{
  		
  		$blogPosts = $this->blogPostDAO->getBlogPosts();
- 		require '../templates/blogListView.php';
+ 		$this->view->render('blogListView',[
+ 			'blogPosts' => $blogPosts
+ 		]);
  	}
 
  	public function singleBlogPost($postId)
@@ -35,7 +40,10 @@
  		
  		$comments = $this->commentDAO->getComments($postId)
 
- 		require '../templates/SinglePostView.php';
+ 		$this->view->render('singlePostView', [
+ 			'blogPost' => $blogPost;
+ 			'comments' => $comments;
+ 		])
  	}
 
  }

@@ -1,16 +1,26 @@
 <?php
 
 namespace ProBlog\src\controller;
+use ProBlog\src\model\View;
 
 class ErrorController
 {
+
+	private $viewObj;
+
+
+	public function __construct()
+	{
+		$this->viewObj = new View();
+	}
+
 	public function unknown()
 	{
-		require '../templates/unknown.php';
+		$this->viewObj->render('unknown',[]);
 	}
 
 	public function error()
 	{
-		require '../templates/error.php';
+		$this->viewObj->render('error', []);
 	}
 }

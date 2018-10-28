@@ -1,7 +1,7 @@
 <?php 
 
-namespace Problog\src\Manager;
-require '../config/dev.php';
+namespace ProBlog\src\Manager;
+require_once'../config/dev.php';
 
 use PDO;
 
@@ -23,7 +23,8 @@ class Manager{
 		$this->connection = new PDO(DB_HOST, DB_USER, DB_PSW);
 		$this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-		return $this->$connection;
+		return $this->connection;
+	}
 
 	protected function sql($sql, $parameters = null)
 	{
@@ -41,5 +42,4 @@ class Manager{
 		}
 	}
 
-	}
 }

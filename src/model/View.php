@@ -1,4 +1,5 @@
 <?php 
+namespace Problog\src\model;
 
 class View
 {
@@ -7,11 +8,11 @@ class View
 
 	public function render($template, $data = [])
 	{
-		$this->file = '../template'.$template.'php';
+		$this->file = '../templates/'.$template.'.php';
 		$content = $this->renderFile($this->file, $data);
 		$view = $this->renderFile('../templates/base.php',[
-			'title' => $this->title;
-			'content' => $content; 
+			'title' => $this->title,
+			'content' => $content
 		]);
 		echo $view;
 

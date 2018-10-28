@@ -1,4 +1,3 @@
-
 <?php 
  namespace ProBlog\src\model;
 
@@ -9,6 +8,7 @@
  	private $blog_post_id;
  	private $content;
  	private $author;
+ 	private $insert_date;
 
  	public function getId()
  	{
@@ -48,6 +48,16 @@
  	public function setAuthor($author)
  	{
  		$this->author = $author;
+ 	}
+
+ 	public function getInsertDate()
+ 	{
+ 		return $this->insert_date;
+ 	}
+
+ 	public function setInsertDate($time)
+ 	{
+ 		$this->insert_date = $time;
  	}
 
  }

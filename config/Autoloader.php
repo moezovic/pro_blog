@@ -11,8 +11,11 @@ class Autoloader
 
 	public static function autoload($class)
 	{
+
 		$class = str_replace('ProBlog', '', $class);
+
 		$class = str_replace('\\', '/', $class);
-		$require '../'.$class.'php';
+
+		require '../'.$class.'.php';
 	}
 }

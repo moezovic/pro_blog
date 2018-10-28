@@ -2,9 +2,9 @@
 
  namespace ProBlog\src\controller;
 
- use Problog\src\Manager\BlogPostsManager;
- use Problog\src\Manager\CommentsManager;
- use Problog\src\model\View;
+ use ProBlog\src\Manager\BlogPostsManager;
+ use ProBlog\src\Manager\CommentsManager;
+ use ProBlog\src\model\View;
 
  class Controller
  {
@@ -38,12 +38,11 @@
  		
  		$blogPost = $this->blogPostDAO->getSinglePost($postId);
  		
- 		$comments = $this->commentDAO->getComments($postId)
-
+ 		$comments = $this->commentDAO->getComments($postId);
  		$this->view->render('singlePostView', [
- 			'blogPost' => $blogPost;
- 			'comments' => $comments;
- 		])
+ 			'blogPost' => $blogPost,
+ 			'comments' => $comments
+ 		]);
  	}
 
  }

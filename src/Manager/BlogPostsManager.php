@@ -1,29 +1,28 @@
 <?php 
 
-namespace Problog\src\Manager;
-use ProBlog\src\model\Article();
+namespace ProBlog\src\Manager;
+use ProBlog\src\model\Article;
 
 class BlogPostsManager extends Manager
 {
 
 	public function getBlogPosts()
 	{
-		$sql = 'SELECT id, title, topic_sentence, author, DATE_FORMAT(update_time, \'%d/%m/Y à %Hh%imin%ss\') AS last_update FROM blogposts ORDER BY update_time DESC';
+		$sql = 'SELECT id, title, topic_sentence, author, DATE_FORMAT(update_time, \'%d/%m/Y à %Hh%imin%ss\') AS update_time FROM blogposts ORDER BY update_time DESC';
 
 		$result = $this->sql($sql);
 		$articles = [];
 		foreach ($result as $row) {
 			$articleId = $row['id'];
-			$articles[$articleId] = $this->hydrate($row)
+			$articles[$articleId] = $this->hydrate($row);
 		}
 		return $articles;
 	}
 
 	public function getSinglePost($postId)
 	{
-		$sql = 'SELECT id, title, topic_sentence, content, author, DATE_FORMAT(update_time, \'%d/%m/%Y à %Hh/%imin/%ss\') AS last_update FROM blogposts WHERE id = :id ORDER BY update_time DESC';
-
-		$result = $this->sql($sql, [$postId]);
+		$sql = 'SELECT id, title, topic_sentence, content, author, DATE_FORMAT(update_time, \'%d/%m/%Y à %Hh/%imin/%ss\') AS update_time FROM blogposts WHERE id = :id ORDER BY update_time DESC';
+		$result = $this->sql($sql, [':id'=>$postId]);
 		$row = $result->fetch();
 		if ($row) 
 		{

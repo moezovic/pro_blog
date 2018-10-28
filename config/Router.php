@@ -1,7 +1,7 @@
 <?php 
 
  namespace ProBlog\config;
- use ProBlog\src\controller\Controller;
+ use ProBlog\src\controller\controller;
  use ProBlog\src\controller\ErrorController;
 
  class Router
@@ -43,7 +43,8 @@
 			 }
 			 else
 			 {
-			 		require '../templates/home.php';
+			 		
+			 		$this->controller->blogPosts();
 			 }
  		}
  		catch(Exception $e)

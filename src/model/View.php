@@ -1,5 +1,6 @@
 <?php 
-namespace Problog\src\model;
+namespace ProBlog\src\model;
+use Exception;
 
 class View
 {
@@ -30,7 +31,8 @@ class View
 		}
 		else
 		{
-			echo 'Fichier inexistant';
+			throw new Exception('Le template est introuvable');
+			  
 		}
 	}
 }

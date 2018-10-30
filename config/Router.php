@@ -3,17 +3,20 @@
  namespace ProBlog\config;
  use ProBlog\src\controller\controller;
  use ProBlog\src\controller\ErrorController;
+ use ProBlog\src\controller\HomeController;
 
  class Router
  {
 
- 	private $controller;
- 	private $errorController;
+ 	private $controllerObj;
+ 	private $homeControllerObj;
+ 	private $errorControllerObj;
 
  	public function __construct()
  	{
- 		$this->controller = new Controller();
- 		$this->errorController = new ErrorController();
+ 		$this->controllerObj = new Controller();
+ 		$this->homeControllerObj = new HomeController();
+ 		$this->errorControllerObj = new ErrorController();
  	}
 
 
@@ -26,30 +29,31 @@
 			 		if ($_GET['action'] === 'list') 
 			 		{
 			 		
-			 			$this->controller->blogPosts();
+			 			$this->controllerObj->blogPosts();
 
 			 		}
 
 			 		elseif ($_GET['action'] === 'single') 
 			 		{
 			 			
-			 			$this->controller->singleBlogPost($_GET['postId']);
+			 			$this->controllerObj->singleBlogPost($_GET['postId']);
 
 			 		}
 			 		else
 			 		{
-			 			$this->errorController->unknown();
+			 			$this->errorControllerObj->unknown();
 			 		}
 			 }
 			 else
 			 {
 			 		
-			 		$this->controller->blogPosts();
+			 		$this->homeControllerObj->toHomePage();
 			 }
  		}
- 		catch(Exception $e)
+ 		catch(\Exception $e)
  		{
- 			$this->errorController->error();
+ 			// echo $e->getMessage();
+ 			$this->errorControllerObj->error($e);
  		}
 
  	}

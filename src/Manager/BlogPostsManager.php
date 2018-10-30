@@ -6,6 +6,7 @@ use ProBlog\src\model\Article;
 class BlogPostsManager extends Manager
 {
 
+
 	public function getBlogPosts()
 	{
 		$sql = 'SELECT id, title, topic_sentence, author, DATE_FORMAT(update_time, \'%d/%m/Y à %Hh%imin%ss\') AS update_time FROM blogposts ORDER BY update_time DESC';
@@ -16,6 +17,7 @@ class BlogPostsManager extends Manager
 			$articleId = $row['id'];
 			$articles[$articleId] = $this->hydrate($row);
 		}
+	
 		return $articles;
 	}
 

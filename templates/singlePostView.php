@@ -2,6 +2,7 @@
 $this->title = "détail d'articles";
 ?>
 <div>
+	<p><a href="index.php?action=list">Retourner à la page precedante</a></p>
 	<h3><?= htmlspecialchars($blogPost->getTitle()); ?></h3>
 	<span><?= htmlspecialchars($blogPost->getTopicSentence()); ?></span>
 	<p><?= htmlspecialchars($blogPost->getContent()); ?></p>

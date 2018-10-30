@@ -19,16 +19,15 @@
 
  		$this->blogPostDAO = new BlogPostsManager();
  		$this->commentDAO = new CommentsManager();
- 		$this->view = new View();
-
+ 		$this->viewObj = new View();
+ 		
  	}
 
 
  	public function blogPosts()
  	{
- 		
  		$blogPosts = $this->blogPostDAO->getBlogPosts();
- 		$this->view->render('blogListView',[
+ 		$this->viewObj->render('blogListView',[
  			'blogPosts' => $blogPosts
  		]);
  	}
@@ -39,7 +38,7 @@
  		$blogPost = $this->blogPostDAO->getSinglePost($postId);
  		
  		$comments = $this->commentDAO->getComments($postId);
- 		$this->view->render('singlePostView', [
+ 		$this->viewObj->render('singlePostView', [
  			'blogPost' => $blogPost,
  			'comments' => $comments
  		]);

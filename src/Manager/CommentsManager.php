@@ -1,6 +1,6 @@
 <?php 
 
-namespace Problog\src\Manager;
+namespace ProBlog\src\Manager;
 use ProBlog\src\model\Commentary;
 
 

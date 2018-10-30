@@ -19,8 +19,8 @@ class ErrorController
 		$this->viewObj->render('unknown',[]);
 	}
 
-	public function error()
+	public function error($e)
 	{
-		$this->viewObj->render('error', []);
+		$this->viewObj->render('error', ['e'=>$e]);
 	}
 }

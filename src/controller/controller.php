@@ -40,7 +40,7 @@
  		$comments = $this->commentDAO->getComments($postId);
  		$this->viewObj->render('singlePostView', [
  			'blogPost' => $blogPost,
- 			'comments' => $comments
+ 			'comments' => $comments,
  		]);
  	}
 

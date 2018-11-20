@@ -1,7 +1,7 @@
 <?php 
 
 namespace ProBlog\src\Manager;
-use ProBlog\src\model\Commentary;
+use ProBlog\src\model\Comments;
 
 
 class CommentsManager extends Manager{
@@ -23,7 +23,7 @@ class CommentsManager extends Manager{
 
 	public function hydrate(array $row)
 	{
-		$commentObj = new Commentary();
+		$commentObj = new Comments();
 		foreach ($row as $key => $value) 
 		{
 			if (preg_match('/_/', $key))

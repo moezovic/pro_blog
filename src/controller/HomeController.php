@@ -1,6 +1,7 @@
 <?php 
 
 namespace ProBlog\src\controller;
+
 use ProBlog\src\model\View;
 
  class HomeController

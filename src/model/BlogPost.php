@@ -2,7 +2,7 @@
 
 namespace ProBlog\src\model;
 
-class Article
+class BlogPost
 {
 	private $id;
 	private $title;

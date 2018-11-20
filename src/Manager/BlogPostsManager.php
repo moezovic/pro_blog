@@ -1,7 +1,7 @@
 <?php 
 
 namespace ProBlog\src\Manager;
-use ProBlog\src\model\Article;
+use ProBlog\src\model\BlogPost;
 
 class BlogPostsManager extends Manager
 {
@@ -39,7 +39,7 @@ class BlogPostsManager extends Manager
 
 	private function hydrate(array $row)
 	{
-		$articleObj = new Article();
+		$articleObj = new BlogPost();
 		foreach ($row as $key => $value) 
 		{
 			if (preg_match('/_/', $key))

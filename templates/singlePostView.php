@@ -1,3 +1,6 @@
+<?php  
+$this->title = "détail d'articles";
+?>
 
 <!-- Page Header -->
 

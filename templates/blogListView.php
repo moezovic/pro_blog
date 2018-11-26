@@ -1,5 +1,27 @@
-<?php 
+<?php
+session_start(); 
 $this->title ="Liste d'articles";
+
+if (isset($_SESSION['name'])) 
+{
+	ob_start(); ?>
+	<li class="nav-item">
+		<a class ="nav-link" href="index.php?action&access=sessionend">Déconnexion</a>
+	</li>
+	<?php $this->menu = ob_get_clean(); 
+}
+else
+{
+	ob_start(); ?>
+	<li class="nav-item">
+		<a class="nav-link" href="index.php?action&access=connexion">Connexion</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="index.php?action&access=subscribe">Inscription</a>
+	</li>
+	<?php $this->menu = ob_get_clean();
+
+}
 ?>
 
 <!-- Page Header -->
@@ -36,7 +58,7 @@ foreach ($blogPosts as $blogPost)
 		 		
 		 	</div>
 		 	<div class="card-footer">
-		 		<a class="btn btn-primary" href="index.php?action=single&postId=<?=$blogPost->getId(); ?>">Lire la suite</a>
+		 		<a class="btn btn-primary" href="index.php?action&bp=single&postId=<?=$blogPost->getId(); ?>">Lire la suite</a>
 		 	</div>
  		 </div>
 		

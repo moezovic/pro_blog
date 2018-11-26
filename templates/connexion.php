@@ -1,5 +1,26 @@
 <?php 
 $this->title ="Connexion";
+
+if (isset($_SESSION['name'])) 
+{
+	ob_start(); ?>
+	<li class="nav-item">
+		<a class ="nav-link" href="index.php?action&access=sessionend">Déconnexion</a>
+	</li>
+	<?php $this->menu = ob_get_clean(); 
+}
+else
+{
+	ob_start(); ?>
+	<li class="nav-item">
+		<a class="nav-link" href="index.php?action&access=connexion">Connexion</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="index.php?action&access=subscribe">Inscription</a>
+	</li>
+	<?php $this->menu = ob_get_clean();
+
+}
 ?>
 
 <header class="masthead" style="background-image: url('../public/img/connexion.jpg')">
@@ -23,7 +44,7 @@ $this->title ="Connexion";
 	<div class="row">
 	  <div class="mx-auto">
 			<h2>Se Connecter</h2>
-			 <form method="POST" action="" class="form">
+			 <form method="POST" action="index.php?action&access=authentify" class="form">
 
 				<div class="form-group ">
 					<label for="name">Nom</label>

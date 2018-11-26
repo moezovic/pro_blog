@@ -6,6 +6,7 @@ class View
 {
 	private $file;
 	private $title;
+	private $menu;
 
 	public function render($template, $data = [])
 	{
@@ -13,7 +14,8 @@ class View
 		$content = $this->renderFile($this->file, $data);
 		$view = $this->renderFile('../templates/base.php',[
 			'title' => $this->title,
-			'content' => $content
+			'content' => $content,
+			'menu' => $this->menu
 		]);
 		echo $view;
 

@@ -1,5 +1,27 @@
-<?php  
+<?php 
+session_start(); 
 $this->title = "détail d'articles";
+
+if (isset($_SESSION['name'])) 
+{
+	ob_start(); ?>
+	<li class="nav-item">
+		<a class ="nav-link" href="index.php?action&access=sessionend">Déconnexion</a>
+	</li>
+	<?php $this->menu = ob_get_clean(); 
+}
+else
+{
+	ob_start(); ?>
+	<li class="nav-item">
+		<a class="nav-link" href="index.php?action&access=connexion">Connexion</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="index.php?action&access=subscribe">Inscription</a>
+	</li>
+	<?php $this->menu = ob_get_clean();
+
+}
 ?>
 
 <!-- Page Header -->
@@ -22,7 +44,7 @@ $this->title = "détail d'articles";
 
 <div class="container">
 	<div>
-			<a href="index.php?action=list" class="btn btn-primary">Page précédante</a>
+			<a href="index.php?action&bp=list" class="btn btn-primary">Page précédante</a>
 			<p><?= htmlspecialchars($blogPost->getContent()); ?></p>
 			<span><?= htmlspecialchars($blogPost->getAuthor()); ?></span>
 			<span><?= htmlspecialchars($blogPost->getUpdateTime()); ?></span>

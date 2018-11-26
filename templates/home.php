@@ -1,6 +1,43 @@
 <?php 
+session_start();
 $this->title ="Acceuil";
- ?>
+ 
+
+  if (isset($session)) 
+ {
+ 	$_SESSION['name'] = $session;
+ }
+
+ if (isset($_GET['access'])) 
+ {
+ 	if($_GET['access'] === 'sessionend')
+ 	{
+ 		$_SESSION = array();
+ 		session_destroy();
+ 	}
+ }
+
+if (isset($_SESSION['name'])) 
+{
+	ob_start(); ?>
+	<li class="nav-item">
+		<a class ="nav-link" href="index.php?action&access=sessionend">Déconnexion</a>
+	</li>
+	<?php $this->menu = ob_get_clean(); 
+}
+else
+{
+	ob_start(); ?>
+	<li class="nav-item">
+		<a class="nav-link" href="index.php?action&access=connexion">Connexion</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="index.php?action&access=subscribe">Inscription</a>
+	</li>
+	<?php $this->menu = ob_get_clean();
+
+}
+?>
 
 <!-- Page Header -->
 

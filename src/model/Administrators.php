@@ -20,14 +20,14 @@ class Administrators
 		$this->id = $id;
 	}
 
-	public function getname()
+	public function getName()
 	{
 		return $this->name;
 	}
 
 	public function setName($name)
 	{
-		$this->name = $name
+		$this->name = $name;
 	}
 
 	public function getPassword()
@@ -35,9 +35,9 @@ class Administrators
 		return $this->password;
 	}
 
-	public function setPaswword($password)
+	public function setPassword($password)
 	{
-		$this->password =$password;
+		$this->password = $password;
 	}
 
 	public function getEmail()

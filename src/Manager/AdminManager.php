@@ -3,7 +3,7 @@
 namespace ProBlog\src\Manager;
 use ProBlog\src\model\Administrators;
 
-class SessionManager extends Manager
+class AdminManager extends Manager
 {
 	public function getAdmin()
 	{
@@ -15,6 +15,8 @@ class SessionManager extends Manager
 			$adminId = $row['id'];
 			$admins[$adminId] = $this->hydrate($row);
 		}
+
+		return $admins;
 	}
 
 	private function hydrate(array $row)
@@ -25,8 +27,9 @@ class SessionManager extends Manager
 			if(preg_match('/_/', $key))
 			{
 				$explodString = explode('_', $key);
-				foreach ($explodString as $index => $value) {
-					$explodString[$index] = ucfirst($value)
+				foreach ($explodString as $index => $value) 
+				{
+					$explodString[$index] = ucfirst($value);
 				}
 				$key = implode($explodString);
 			}

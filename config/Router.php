@@ -28,30 +28,60 @@
  		try
  		{
 	 		 if(isset($_GET['action']))
-			 {
-			 		if ($_GET['action'] === 'list') 
-			 		{
-			 		
-			 			$this->controllerObj->blogPosts();
+			 {	
 
+			 	// routes to  the blog posts controller
+
+			 		if(isset($_GET['bp']))
+			 		{
+				 		if ($_GET['bp'] === 'list') 
+				 		{
+				 		
+				 			$this->controllerObj->blogPosts();
+
+				 		}
+
+				 		elseif ($_GET['bp'] === 'single') 
+				 		{
+				 			
+				 			$this->controllerObj->singleBlogPost($_GET['postId']);
+
+				 		}			 			
 			 		}
 
-			 		elseif ($_GET['action'] === 'single') 
-			 		{
-			 			
-			 			$this->controllerObj->singleBlogPost($_GET['postId']);
+			 		// routes to the the session controller
 
-			 		}
-			 		elseif ($_GET['action'] === 'connexion') 
+			 		elseif (isset($_GET['access'])) 
 			 		{
-			 			
-			 			$this->sessionControllerObj->authentification();
+				 		if ($_GET['access'] === 'connexion') 
+				 		{
+				 			
+				 			$this->sessionControllerObj->authentification();
 
-			 		}
-			 		elseif ($_GET['action'] === 'subscribe') 
-			 		{
-			 			
-			 			$this->sessionControllerObj->subscription();
+				 		}
+				 		elseif ($_GET['access'] === 'subscribe') 
+				 		{
+				 			
+				 			$this->sessionControllerObj->subscription();
+
+				 		}
+				 		elseif ($_GET['access'] === 'authentify') 
+				 		{
+				 			if (!empty($_POST['name']) && !empty($_POST['password'])) 
+				 			{
+				 				
+				 				$this->sessionControllerObj->adminAccess();
+
+				 			}
+				 			else
+				 			{
+				 				echo "veuillez renseignez tous les champs";
+				 			}
+				 		}
+				 		elseif ($_GET['access']=== 'sessionend') 
+				 		{
+				 			$this->sessionControllerObj->destroySession();
+				 		}
 
 			 		}
 			 		else
@@ -59,6 +89,7 @@
 			 			$this->errorControllerObj->unknown();
 			 		}
 			 }
+			 // routes to the home page controller
 			 else
 			 {
 			 		

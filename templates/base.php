@@ -25,8 +25,9 @@
               <a class="nav-link" href="index.php">Accueil</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.php?action=list">Articles</a>
+              <a class="nav-link" href="index.php?action&bp=list">Articles</a>
             </li>
+            <?= $menu ?>
           </ul>
         </div>
       </div>

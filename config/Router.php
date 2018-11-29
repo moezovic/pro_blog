@@ -46,7 +46,15 @@
 				 			
 				 			$this->controllerObj->singleBlogPost($_GET['postId']);
 
-				 		}			 			
+				 		}
+				 		elseif ($_GET['bp'] === 'new') 
+				 		{
+				 			if (!empty($_POST['title']) && !empty($_POST['topic_sentence']) && !empty($_POST['main_content']) && !empty($_POST['author']) ) 
+				 			{
+				 				$this->controllerObj->newBlogPost();
+				 			}
+				 			 
+				 		}	 			
 			 		}
 
 			 		// routes to the the session controller
@@ -56,7 +64,7 @@
 				 		if ($_GET['access'] === 'connexion') 
 				 		{
 				 			
-				 			$this->sessionControllerObj->authentification();
+				 			$this->sessionControllerObj->connexion();
 
 				 		}
 				 		elseif ($_GET['access'] === 'subscribe') 
@@ -77,6 +85,33 @@
 				 			{
 				 				echo "veuillez renseignez tous les champs";
 				 			}
+				 		}
+				 		elseif ($_GET['access'] === 'connected') 
+				 		{
+				 			if (isset($_GET['admin'])) 
+				 			{
+				 					if ($_GET['admin'] === 'add_blogpost') 
+						 			{
+						 				$this->sessionControllerObj->addBlogPost();
+						 			}
+						 			elseif ($_GET['admin'] === 'manage_blogposts') 
+						 			{
+						 				$this->sessionControllerObj->manageBlogPosts();
+						 			}
+						 			elseif ($_GET['admin'] === 'manage_comments') 
+						 			{
+						 				$this->sessionControllerObj->manageComments();
+						 			}
+						 			else
+						 			{
+						 				echo "unauthorized action";
+						 			}
+				 			}
+				 			else
+				 			{
+				 				echo "missing admin param";
+				 			}
+
 				 		}
 				 		elseif ($_GET['access']=== 'sessionend') 
 				 		{

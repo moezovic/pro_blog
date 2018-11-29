@@ -4,6 +4,23 @@ $this->title ="Inscription";
 if (isset($_SESSION['name'])) 
 {
 	ob_start(); ?>
+
+	<li class="nav-item dropdown">
+		<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button">Administration</a>
+
+		<ul class="dropdown-menu">
+			<li class="nav-item">
+				<a class ="nav-link" href="index.php?action&access=connected&admin=add_blogpost">Ajouter articles</a>
+			</li>
+			<li class="nav-item">
+				<a class ="nav-link" href="index.php?action&access=connected&admin=manage_blogposts">Gérer articles</a>
+			</li>
+			<li class="nav-item">
+				<a class ="nav-link" href="index.php?action&access=connected&admin=manage_comments">Gérer commentaires</a>
+			</li>
+		</ul>
+	</li>
+
 	<li class="nav-item">
 		<a class ="nav-link" href="index.php?action&access=sessionend">Déconnexion</a>
 	</li>

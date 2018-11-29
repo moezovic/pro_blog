@@ -21,7 +21,7 @@ Class SessionController
 		$this->viewObj->render('subscribe',[]);
 	}
 
-	public function authentification()
+	public function connexion()
 	{
 		$this->viewObj->render('connexion',[]);
 	}

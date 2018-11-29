@@ -44,4 +44,19 @@
  		]);
  	}
 
+ 	public function newBlogPost()
+ 	{
+ 		$title = htmlspecialchars($_POST['title']);
+ 		$topicSentence = htmlspecialchars($_POST['topic_sentence']);
+ 		$content = htmlspecialchars($_POST['main_content']);
+ 		$author = htmlspecialchars($_POST['author']);
+
+ 		$this->blogPostDAO->insertBlogPost($title, $topicSentence, $content, $author);
+ 		$this->viewObj->render('home',[]);
+ 	}
+
  }
+
+
+
+

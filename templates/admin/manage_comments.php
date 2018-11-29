@@ -1,27 +1,35 @@
 <?php 
 
 session_start();
+
 if (isset($_SESSION['name'])) 
 {
-	$this->menu =?>
-	<ul class="nav-item">
+	ob_start(); ?>
+	<li class="nav-item">
+		<a class ="nav-link" href="index.php?action&access=connected&admin=add_blogpost">Ajouter articles</a>
+	</li>
+	<li class="nav-item">
+		<a class ="nav-link" href="index.php?action&access=connected&admin=manage_blogposts">Gérer articles</a>
+	</li>
+	<li class="nav-item">
+		<a class ="nav-link" href="index.php?action&access=connected&admin=manage_comments">Gérer commentaires</a>
+	</li>
+	<li class="nav-item">
 		<a class ="nav-link" href="index.php?action&access=sessionend">Déconnexion</a>
-	</ul>
-	
-<?php
+	</li>
+	<?php $this->menu = ob_get_clean(); 
 }
 else
 {
-	$this->menu =?>
-
-	<ul class="nav-item">
-		<a class="nav-link" href="index.php?action&access=Connexion">Connexion</a>
-	</ul>
-	<ul class="nav-item">
+	ob_start(); ?>
+	<li class="nav-item">
+		<a class="nav-link" href="index.php?action&access=connexion">Connexion</a>
+	</li>
+	<li class="nav-item">
 		<a class="nav-link" href="index.php?action&access=subscribe">Inscription</a>
-	</ul>
+	</li>
+	<?php $this->menu = ob_get_clean();
 
-<?php	
 }
 
 if (isset($_SESSION['name'])) 

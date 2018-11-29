@@ -37,6 +37,12 @@ class BlogPostsManager extends Manager
 
 	}
 
+	public function insertBlogPost($title, $topicSentence, $content, $author)
+	{
+		$sql = 'INSERT INTO blogposts (title, topic_sentence, content, author, update_time) VALUES (:title, :topic_sentence, :content, :author, NOW())';
+		$result = $this->sql($sql, [':title'=>$title, ':topic_sentence'=>$topicSentence, ':content'=>$content, ':author'=>$author]);
+	}
+
 	private function hydrate(array $row)
 	{
 		$articleObj = new BlogPost();

@@ -1,10 +1,30 @@
 <?php
 session_start(); 
+
 $this->title ="Liste d'articles";
+
+// customize menu links
 
 if (isset($_SESSION['name'])) 
 {
 	ob_start(); ?>
+
+	<li class="nav-item dropdown">
+		<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button">Administration</a>
+
+		<ul class="dropdown-menu">
+			<li class="nav-item">
+				<a class ="nav-link" href="index.php?action&access=connected&admin=add_blogpost">Ajouter articles</a>
+			</li>
+			<li class="nav-item">
+				<a class ="nav-link" href="index.php?action&access=connected&admin=manage_blogposts">Gérer articles</a>
+			</li>
+			<li class="nav-item">
+				<a class ="nav-link" href="index.php?action&access=connected&admin=manage_comments">Gérer commentaires</a>
+			</li>
+		</ul>
+	</li>
+
 	<li class="nav-item">
 		<a class ="nav-link" href="index.php?action&access=sessionend">Déconnexion</a>
 	</li>
@@ -44,12 +64,12 @@ else
 
 <div class="container">
 	<div class="row">
-		<div class="card-deck">
-<?php
-foreach ($blogPosts as $blogPost) 
-{
- ?>
-		
+		<div class="card-deck mx-auto">
+
+			<?php 
+				foreach ($blogPosts as $blogPost) {
+ 			?>
+
 		 <div class="card text-center">
 		 	<div class="card-body">
 		 		<h3 class="card-title"><?= htmlspecialchars($blogPost->getTitle());?></h3>
@@ -61,10 +81,11 @@ foreach ($blogPosts as $blogPost)
 		 		<a class="btn btn-primary" href="index.php?action&bp=single&postId=<?=$blogPost->getId(); ?>">Lire la suite</a>
 		 	</div>
  		 </div>
-		
- <?php 
-}
- ?>
+
+	 		 <?php 
+	 		 }
+	 		 ?>
+
  	 </div>
 	</div>
 </div>

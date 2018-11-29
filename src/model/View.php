@@ -15,7 +15,7 @@ class View
 		$view = $this->renderFile('../templates/base.php',[
 			'title' => $this->title,
 			'content' => $content,
-			'menu' => $this->menu
+			'menu' => $this->menu,
 		]);
 		echo $view;
 

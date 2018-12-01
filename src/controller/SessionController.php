@@ -4,16 +4,19 @@ namespace ProBlog\src\controller;
 
 use ProBlog\src\model\View;
 use ProBlog\src\Manager\AdminManager;
+use ProBlog\src\Manager\BlogPostsManager;
 
 Class SessionController
 {
 	private $adminObj;
 	private $viewObj;
+	private $blogPostObj;
 
 	public function __construct()
 	{
 		$this->viewObj = new View();
 		$this->adminObj = new AdminManager();
+		$this->blogPostObj = new BlogPostsManager();
 	}
 
 	public function subscription()
@@ -36,9 +39,16 @@ Class SessionController
 		$this->viewObj->render('admin/manage_comments', []);
 	}
 
+	public function editBlogPost($blogPostId)
+	{
+		$blogPost = $this->blogPostObj->getSinglePost($blogPostId);
+		$this->viewObj->render('admin/edit_blogpost', ['blogPost' => $blogPost]);
+	}
+
 	public function manageBlogPosts()
 	{
-		$this->viewObj->render('admin/manage_bp', []);
+		$blogPosts = $this->blogPostObj->getBlogPosts();
+		$this->viewObj->render('admin/manage_bp', ['blogPosts' => $blogPosts]);
 	}
 
 	public function destroySession()

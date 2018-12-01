@@ -41,4 +41,3 @@ else
 	throw new Exception("L'access à cette page est reservé aux membres enregistrés");
 	
  }
-?>

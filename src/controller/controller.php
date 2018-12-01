@@ -44,15 +44,24 @@
  		]);
  	}
 
- 	public function newBlogPost()
+ 	public function addBlogPost()
  	{
- 		$title = htmlspecialchars($_POST['title']);
- 		$topicSentence = htmlspecialchars($_POST['topic_sentence']);
- 		$content = htmlspecialchars($_POST['main_content']);
- 		$author = htmlspecialchars($_POST['author']);
-
- 		$this->blogPostDAO->insertBlogPost($title, $topicSentence, $content, $author);
+ 		$this->blogPostDAO->insertBlogPost();
  		$this->viewObj->render('home',[]);
+ 	}
+
+ 	public function updateBlogPost($id)
+ 	{
+ 		$this->blogPostDAO->updateBlogPost($id);
+ 		$blogPosts = $this->blogPostDAO->getBlogPosts();
+ 		$this->viewObj->render('admin/manage_bp', ['blogPosts' => $blogPosts]);
+ 	}
+
+ 	public function deleteBlogPost($id)
+ 	{
+ 		$this->blogPostDAO->deleteBlogPost($id);
+ 		$blogPosts = $this->blogPostDAO->getBlogPosts();
+ 		$this->viewObj->render('admin/manage_bp', ['blogPosts' => $blogPosts]);
  	}
 
  }

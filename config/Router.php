@@ -51,10 +51,27 @@
 				 		{
 				 			if (!empty($_POST['title']) && !empty($_POST['topic_sentence']) && !empty($_POST['main_content']) && !empty($_POST['author']) ) 
 				 			{
-				 				$this->controllerObj->newBlogPost();
+				 				$this->controllerObj->addBlogPost();
 				 			}
 				 			 
-				 		}	 			
+				 		}	 
+				 		elseif ($_GET['bp'] === 'update') 
+				 		{
+				 			if (!empty($_POST['title']) && !empty($_POST['topic_sentence']) && !empty($_POST['main_content']) && !empty($_POST['author']) ) 
+				 			{
+				 				$this->controllerObj->updateBlogPost($_GET['id']);
+				 			}
+
+				 		}
+				 		elseif ($_GET['bp'] === 'delete') 
+				 		{
+				 			if ($_GET['id'] ) 
+				 			{
+				 				$this->controllerObj->deleteBlogPost($_GET['id']);
+				 			}
+
+				 		}	
+
 			 		}
 
 			 		// routes to the the session controller
@@ -101,6 +118,10 @@
 						 			elseif ($_GET['admin'] === 'manage_comments') 
 						 			{
 						 				$this->sessionControllerObj->manageComments();
+						 			}
+						 			elseif ($_GET['admin'] === 'edit') 
+						 			{
+						 				$this->sessionControllerObj->editBlogPost($_GET['id']);
 						 			}
 						 			else
 						 			{

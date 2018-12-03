@@ -5,18 +5,21 @@ namespace ProBlog\src\controller;
 use ProBlog\src\model\View;
 use ProBlog\src\Manager\AdminManager;
 use ProBlog\src\Manager\BlogPostsManager;
+use ProBlog\src\Manager\CommentsManager;
 
 Class SessionController
 {
 	private $adminObj;
 	private $viewObj;
 	private $blogPostObj;
+	private $commentDAO;
 
 	public function __construct()
 	{
 		$this->viewObj = new View();
 		$this->adminObj = new AdminManager();
 		$this->blogPostObj = new BlogPostsManager();
+		$this->commentDAO = new CommentsManager;
 	}
 
 	public function subscription()
@@ -36,7 +39,8 @@ Class SessionController
 
 	public function manageComments()
 	{
-		$this->viewObj->render('admin/manage_comments', []);
+		$pendingComments = $this->commentDAO->getAllPending();
+ 		$this->viewObj->render('admin/manage_comments', ['pendingComments'=>$pendingComments]);
 	}
 
 	public function editBlogPost($blogPostId)

@@ -21,6 +21,43 @@ class CommentsManager extends Manager{
 
 	}
 
+	public function insertComments($comment)
+	{
+		$sql = 'INSERT INTO comments (blog_post_id, content, author, insert_date) VALUES (:blogpost_id, :content, :author, :insert_date)';
+		$this->sql($sql, [':blogpost_id'=>$comment['blogpost_id'], ':content' => $comment['content'], ':author' => $comment['author'], ':insert_date' => $comment['insertion_date']]);
+	}
+
+	public function insertPending($postId)
+	{
+		$author = htmlspecialchars($_POST['name']);
+		$content = htmlspecialchars($_POST['commentary']);
+		
+		$sql = 'INSERT INTO pending_comments (blogpost_id, author, content, insertion_date) VALUES(:id, :author, :content, NOW())';
+		$this->sql($sql,[':id'=>$postId, ':author'=>$author, ':content'=>$content]);
+
+	}
+
+	public function getAllPending()
+	{
+		$sql = 'SELECT id, author, content, DATE_FORMAT(insertion_date, \'%d/%m/%Y à %Hh%imin%ss \') AS insert_date FROM pending_comments ORDER BY insert_date DESC';
+		$pendingList = $this->sql($sql);
+		return $pendingList;
+	}
+
+	public function getSinglePending($id)
+	{
+		$sql = 'SELECT * FROM pending_comments WHERE id = :id';
+		$result = $this->sql($sql, [':id'=>$id]);	
+		$row = $result->fetch();
+		return $row;
+	}
+
+	public function deleteSinglePending($id)
+	{
+		$sql = 'DELETE FROM pending_comments WHERE id = :id';
+		$this->sql($sql, [':id'=>$id]);
+	}
+
 	public function hydrate(array $row)
 	{
 		$commentObj = new Comments();

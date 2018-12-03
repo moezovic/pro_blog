@@ -30,7 +30,7 @@
 	 		 if(isset($_GET['action']))
 			 {	
 
-			 	// routes to  the blog posts controller
+			 	// routes to  the blog posts and comments controller 
 
 			 		if(isset($_GET['bp']))
 			 		{
@@ -72,6 +72,39 @@
 
 				 		}	
 
+			 		}
+
+			 		elseif (isset($_GET['comments'])) 
+			 		{
+			 			if ($_GET['comments'] === 'new')
+			 			{
+			 				if (isset($_GET['id'])) 
+			 				{
+			 					if (!empty($_POST['commentary']) && !empty($_POST['name'])) 
+			 					{
+			 						$this->controllerObj->addPendingComment($_GET['id']);
+			 					}
+			 				}
+			 				
+			 			}
+			 			elseif ($_GET['comments'] === 'validate') 
+			 			{
+			 				if (isset($_GET['id'])) 
+			 				{
+			 					$this->controllerObj->validateComment($_GET['id']);
+			 				}
+			 			}
+			 			elseif ($_GET['comments'] === 'delete') 
+			 			{
+			 				if (isset($_GET['id'])) 
+			 				{
+			 					$this->controllerObj->deleteComment($_GET['id']);
+			 				}
+			 			}
+			 			else
+			 			{
+
+			 			}
 			 		}
 
 			 		// routes to the the session controller

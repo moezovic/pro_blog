@@ -47,7 +47,8 @@
  	public function addBlogPost()
  	{
  		$this->blogPostDAO->insertBlogPost();
- 		$this->viewObj->render('home',[]);
+ 		$blogPosts = $this->blogPostDAO->getBlogPosts();
+ 		$this->viewObj->render('blogListView',['blogPosts' => $blogPosts]);
  	}
 
  	public function updateBlogPost($id)
@@ -62,6 +63,25 @@
  		$this->blogPostDAO->deleteBlogPost($id);
  		$blogPosts = $this->blogPostDAO->getBlogPosts();
  		$this->viewObj->render('admin/manage_bp', ['blogPosts' => $blogPosts]);
+ 	}
+
+ 	public function addPendingComment($id)
+ 	{
+ 		$this->commentDAO->insertPending($id);
+ 	}
+
+ 	public function validateComment($id)
+ 	{
+ 		$row = $this->commentDAO->getSinglePending($id);
+ 		$this->commentDAO->deleteSinglePending($id);
+ 		$this->commentDAO->insertComments($row);
+ 		$this->viewObj->render('home', []);
+ 	}
+
+ 	public function deleteComment($id)
+ 	{
+ 		$this->commentDAO->deleteSinglePending($id);
+ 		$this->viewObj->render('home', []);
  	}
 
  }

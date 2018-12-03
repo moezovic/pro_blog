@@ -35,6 +35,42 @@ else
 if (isset($_SESSION['name'])) 
 {
 	echo "Pour gerer les commentaires vous etes au bon endroit";
+?>
+		<div class="container">
+
+		<div class="row">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Auteur</th>
+						<th>Commentaire</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php
+						foreach ($pendingComments as $comment) {
+							?>
+							<tr>
+								<td><?= htmlspecialchars($comment['author']); ?></td>
+								<td><?= htmlspecialchars($comment['content']); ?></td>
+								<td>
+									<a href="index.php?action&comments=validate&id=<?= $comment['id']?>" class="btn btn-warning">Valider</a>
+
+									<a href="index.php?action&comments=delete&id=<?= $comment['id']?>" class="btn btn-danger">Supprimer</a>
+								</td>
+								
+							</tr>
+						<?php	
+						}
+
+					?>
+				</tbody>
+			</table>
+		</div>
+		
+	</div>
+<?php
 }
 else 
 {

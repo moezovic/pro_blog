@@ -63,18 +63,73 @@ else
 <!-- Main Content -->
 
 <div class="container">
-	<div>
+	<div class="row">
+		<p>
 			<a href="index.php?action&bp=list" class="btn btn-primary">Page précédante</a>
-			<p><?= htmlspecialchars($blogPost->getContent()); ?></p>
-			<span><?= htmlspecialchars($blogPost->getAuthor()); ?></span>
-			<span><?= htmlspecialchars($blogPost->getUpdateTime()); ?></span>
+		</p>
 	</div>
-	<div>
-		<?php 
-		foreach ($comments as $comment) {
-			
-			echo '<p><strong>'. $comment->getAuthor().'</strong> '.  $comment->getContent().' <strong>'. $comment->getInsertDate().'</strong></p>';
-		 } 
-		 ?>
+	<div class="row">
+			<p class="col-12"><?= nl2br(htmlspecialchars($blogPost->getContent())); ?></p>
+			<span class="col-12">Articlé écrit par : <strong><?= htmlspecialchars($blogPost->getAuthor()); ?></strong></span>
+			<span class="col-12">Dernière modification le : <strong><?= htmlspecialchars($blogPost->getUpdateTime()); ?></strong></span>
 	</div>
 </div>
+
+<hr>
+
+<div class="container">
+	<div class="table-responsive">
+		<table class="table table-bordered table-sm">
+			<thead class="thead-light">
+				<tr>
+					<th>Auteur</td>
+					<th>Commentaire</td>
+					<th>Date d'ajout</td>
+				</th>
+			</thead>
+			<tbody>
+			<?php 
+				foreach ($comments as $comment) 
+				{
+				?>
+					<tr>
+					<td><?= $comment->getAuthor(); ?></td>
+					<td><?= $comment->getContent(); ?></td>
+					<td><?= $comment->getInsertDate(); ?></td>
+				</tr>
+				<?php
+				}
+			 ?>
+			 </tbody>
+		</table>
+	</div>
+</div>
+
+<hr>
+
+<div class="container">
+
+	<form method="POST" action="index.php?action&comments=new&id=<?=$comment->getId();?>" class="form">
+
+		<div class="form-group ">
+			<label for="commentary">Commentaire</label>
+			<input type="text" name="commentary" class="form-control " id="commentary" />
+		</div>
+
+		<div class="form-group ">
+			<label for="name">Nom</label>
+			<input type="text" name="name" class="form-control " id="name" />
+		</div>
+
+		<div class="form-group ">
+			<input type="submit" value="Ajouter" class="btn btn-outline-primary submit" />
+		</div>
+
+		</form>	
+	
+</div>
+
+
+
+
+

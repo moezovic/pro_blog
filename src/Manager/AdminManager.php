@@ -19,6 +19,15 @@ class AdminManager extends Manager
 		return $admins;
 	}
 
+	public function insertAdmin()
+	{
+		$name = htmlspecialchars($_POST['name']);
+		$pswd = password_hash(htmlspecialchars($_POST['pswd']), PASSWORD_DEFAULT) ;
+
+		$sql = 'INSERT INTO administrators (name, password) VALUES(:name, :pswd)';
+		$this->sql($sql, [':name' => $name, ':pswd' => $pswd]);
+	}
+
 	private function hydrate(array $row)
 	{
 		$adminObj = new Administrators();

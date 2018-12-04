@@ -7,6 +7,7 @@ class View
 	private $file;
 	private $title;
 	private $menu;
+	private $custom;
 
 	public function render($template, $data = [])
 	{
@@ -16,6 +17,7 @@ class View
 			'title' => $this->title,
 			'content' => $content,
 			'menu' => $this->menu,
+			'custom'=>$this->custom,
 		]);
 		echo $view;
 

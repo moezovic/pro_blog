@@ -7,39 +7,12 @@ $this->title = "détail d'articles";
 
 if (isset($_SESSION['name'])) 
 {
-	ob_start(); ?>
-
-	<li class="nav-item dropdown">
-		<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button">Administration</a>
-
-		<ul class="dropdown-menu">
-			<li class="nav-item">
-				<a class ="nav-link" href="index.php?action&access=connected&admin=add_blogpost">Ajouter articles</a>
-			</li>
-			<li class="nav-item">
-				<a class ="nav-link" href="index.php?action&access=connected&admin=manage_blogposts">Gérer articles</a>
-			</li>
-			<li class="nav-item">
-				<a class ="nav-link" href="index.php?action&access=connected&admin=manage_comments">Gérer commentaires</a>
-			</li>
-		</ul>
-	</li>
-
-	<li class="nav-item">
-		<a class ="nav-link" href="index.php?action&access=sessionend">Déconnexion</a>
-	</li>
-	<?php $this->menu = ob_get_clean(); 
+ $this->menu = true; 
 }
 else
 {
-	ob_start(); ?>
-	<li class="nav-item">
-		<a class="nav-link" href="index.php?action&access=connexion">Connexion</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link" href="index.php?action&access=subscribe">Inscription</a>
-	</li>
-	<?php $this->menu = ob_get_clean();
+	
+ $this->menu = false;
 
 }
 ?>
@@ -76,40 +49,47 @@ else
 </div>
 
 <hr>
+<?php
 
-<div class="container">
-	<div class="table-responsive">
-		<table class="table table-bordered table-sm">
-			<thead class="thead-light">
-				<tr>
-					<th>Auteur</td>
-					<th>Commentaire</td>
-					<th>Date d'ajout</td>
-				</th>
-			</thead>
-			<tbody>
-			<?php 
-				foreach ($comments as $comment) 
-				{
-				?>
+	if (0 < count($comments)) 
+	{
+?>
+	<div class="container">
+		<div class="table-responsive">
+			<table class="table table-bordered table-sm">
+				<thead class="thead-light">
 					<tr>
-					<td><?= $comment->getAuthor(); ?></td>
-					<td><?= $comment->getContent(); ?></td>
-					<td><?= $comment->getInsertDate(); ?></td>
-				</tr>
-				<?php
-				}
-			 ?>
-			 </tbody>
-		</table>
+						<th>Auteur</td>
+						<th>Commentaire</td>
+						<th>Date d'ajout</td>
+					</th>
+				</thead>
+				<tbody>
+				<?php 
+					foreach ($comments as $comment) 
+					{
+					?>
+						<tr>
+						<td><?= $comment->getAuthor(); ?></td>
+						<td><?= $comment->getContent(); ?></td>
+						<td><?= $comment->getInsertDate(); ?></td>
+					</tr>
+					<?php
+					}
+				 ?>
+				 </tbody>
+			</table>
+		</div>
 	</div>
-</div>
 
-<hr>
+	<hr>
+<?php
+	} 
+ ?>
 
 <div class="container">
 
-	<form method="POST" action="index.php?action&comments=new&id=<?=$comment->getId();?>" class="form">
+	<form method="POST" action="index.php?action&comments=new&id=<?= $blogPost->getId();?>" class="form">
 
 		<div class="form-group ">
 			<label for="commentary">Commentaire</label>
@@ -119,6 +99,10 @@ else
 		<div class="form-group ">
 			<label for="name">Nom</label>
 			<input type="text" name="name" class="form-control " id="name" />
+		</div>
+
+		<div class="form-group ">
+			<input type="hidden" name="redirection" class="form-control " value="<?= $blogPost->getId(); ?>" />
 		</div>
 
 		<div class="form-group ">

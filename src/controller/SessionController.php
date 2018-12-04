@@ -32,6 +32,12 @@ Class SessionController
 		$this->viewObj->render('connexion',[]);
 	}
 
+	public function addNewAdmin()
+	{
+		$this->adminObj->insertAdmin();
+		$this->viewObj->render('connexion',[]);
+	}
+
 	public function addBlogPost()
 	{
 		$this->viewObj->render('admin/add_blogpost', []);
@@ -70,14 +76,10 @@ Class SessionController
 		{
 			$adminName = $admin->getName();
 			$adminPass = $admin->getPassword();
-			if ($adminName == $name && $password == $adminPass) 
+			if ($adminName == $name && password_verify($password, $adminPass)) 
 			{
 				
 				return $this->viewObj->render('home',['session' => $adminName]);
-			}
-			else
-			{
-				echo "nothing found";
 			}
 		}
 	}

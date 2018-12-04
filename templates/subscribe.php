@@ -3,41 +3,15 @@ $this->title ="Inscription";
 
 if (isset($_SESSION['name'])) 
 {
-	ob_start(); ?>
-
-	<li class="nav-item dropdown">
-		<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button">Administration</a>
-
-		<ul class="dropdown-menu">
-			<li class="nav-item">
-				<a class ="nav-link" href="index.php?action&access=connected&admin=add_blogpost">Ajouter articles</a>
-			</li>
-			<li class="nav-item">
-				<a class ="nav-link" href="index.php?action&access=connected&admin=manage_blogposts">Gérer articles</a>
-			</li>
-			<li class="nav-item">
-				<a class ="nav-link" href="index.php?action&access=connected&admin=manage_comments">Gérer commentaires</a>
-			</li>
-		</ul>
-	</li>
-
-	<li class="nav-item">
-		<a class ="nav-link" href="index.php?action&access=sessionend">Déconnexion</a>
-	</li>
-	<?php $this->menu = ob_get_clean(); 
+ $this->menu = true; 
 }
 else
 {
-	ob_start(); ?>
-	<li class="nav-item">
-		<a class="nav-link" href="index.php?action&access=connexion">Connexion</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link" href="index.php?action&access=subscribe">Inscription</a>
-	</li>
-	<?php $this->menu = ob_get_clean();
+	
+ $this->menu = false;
 
 }
+
 ?>
 
 <header class="masthead" style="background-image: url('../public/img/subscribe.jpg')">
@@ -60,7 +34,7 @@ else
 	<div class="row">
 	  <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
 			<h2>Créer un compte administrateur</h2>
-			 <form method="POST" action="" class="form">
+			 <form method="POST" action="index.php?action&access=newadmin" class="form">
 
 				<div class="form-group ">
 					<label for="name">Nom</label>
@@ -68,13 +42,13 @@ else
 				</div>
 
 				<div class="form-group ">
-					<label for="mail">Mot de passe</label>
-					<input type="password" name="password" class="form-control " value="" />
+					<label>Mot de passe</label>
+					<input type="password" name="pswd" class="form-control " value="" />
 				</div>
 
 				<div class="form-group ">
-					<label for="mail">Confirmer mot de passe</label>
-					<input type="password" name="password" class="form-control " value="" />
+					<label>Confirmer mot de passe</label>
+					<input type="password" name="pswd-verify" class="form-control " value="" />
 				</div>
 
 		    <div class="form-group ">

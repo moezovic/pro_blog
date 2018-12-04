@@ -3,22 +3,12 @@ $this->title ="Connexion";
 
 if (isset($_SESSION['name'])) 
 {
-	ob_start(); ?>
-	<li class="nav-item">
-		<a class ="nav-link" href="index.php?action&access=sessionend">Déconnexion</a>
-	</li>
-	<?php $this->menu = ob_get_clean(); 
+ $this->menu = true; 
 }
 else
 {
-	ob_start(); ?>
-	<li class="nav-item">
-		<a class="nav-link" href="index.php?action&access=connexion">Connexion</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link" href="index.php?action&access=subscribe">Inscription</a>
-	</li>
-	<?php $this->menu = ob_get_clean();
+	
+ $this->menu = false;
 
 }
 ?>
@@ -52,7 +42,7 @@ else
 				</div>
 
 				<div class="form-group ">
-					<label for="mail">Mot de passe</label>
+					<label>Mot de passe</label>
 					<input type="password" name="password" class="form-control " value="" />
 				</div>
 

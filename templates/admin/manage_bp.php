@@ -1,42 +1,17 @@
 <?php 
 
 session_start();
+$this->title ="Gérer les articles";
+$this->custom = "custom-menu";
 
 if (isset($_SESSION['name'])) 
 {
-	ob_start(); ?>
-
-	<li class="nav-item dropdown">
-		<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button">Administration</a>
-
-		<ul class="dropdown-menu">
-			<li class="nav-item">
-				<a class ="nav-link" href="index.php?action&access=connected&admin=add_blogpost">Ajouter articles</a>
-			</li>
-			<li class="nav-item">
-				<a class ="nav-link" href="index.php?action&access=connected&admin=manage_blogposts">Gérer articles</a>
-			</li>
-			<li class="nav-item">
-				<a class ="nav-link" href="index.php?action&access=connected&admin=manage_comments">Gérer commentaires</a>
-			</li>
-		</ul>
-	</li>
-
-	<li class="nav-item">
-		<a class ="nav-link" href="index.php?action&access=sessionend">Déconnexion</a>
-	</li>
-	<?php $this->menu = ob_get_clean(); 
+ $this->menu = true; 
 }
 else
 {
-	ob_start(); ?>
-	<li class="nav-item">
-		<a class="nav-link" href="index.php?action&access=connexion">Connexion</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link" href="index.php?action&access=subscribe">Inscription</a>
-	</li>
-	<?php $this->menu = ob_get_clean();
+	
+ $this->menu = false;
 
 }
 
@@ -44,26 +19,11 @@ if (isset($_SESSION['name']))
 {
 
 	?>
-<!-- Page Header -->
-
-<header class="masthead" style="background-image: url()">
-	<div class="overlay"></div>
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-8 col-md-10 mx-auto">
-				<div class="page-heading">
-					<h1></h1>
-					<span class="subheading"> </span>
-				</div>
-			</div>
-		</div>
-	</div>
-</header>
 
 	<div class="container">
 
 		<div class="row">
-			<table class="table">
+			<table class="table table-sm table-bordered ">
 				<thead>
 					<tr>
 						<th>Titre</th>
@@ -81,9 +41,9 @@ if (isset($_SESSION['name']))
 								<td><?= htmlspecialchars($blogPost->getAuthor()); ?></td>
 								<td><?= htmlspecialchars($blogPost->getUpdateTime()); ?></td>
 								<td>
-									<a href="index.php?action&access=connected&admin=edit&id=<?= $blogPost->getId()?>" class="btn btn-warning">Modifier</a>
+									<a href="index.php?action&access=connected&admin=edit&id=<?= $blogPost->getId()?>" class="btn btn-warning btn-sm">Modifier</a>
 
-									<a href="index.php?action&bp=delete&id=<?= $blogPost->getId()?>" class="btn btn-danger">Supprimer</a>
+									<a href="index.php?action&bp=delete&id=<?= $blogPost->getId()?>" class="btn btn-danger btn-sm">Supprimer</a>
 								</td>
 								
 							</tr>

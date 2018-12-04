@@ -1,45 +1,32 @@
 <?php 
 
 session_start();
+$this->title ="Gérer les commentaires";
+$this->custom = "custom-menu";
 
 if (isset($_SESSION['name'])) 
 {
-	ob_start(); ?>
-	<li class="nav-item">
-		<a class ="nav-link" href="index.php?action&access=connected&admin=add_blogpost">Ajouter articles</a>
-	</li>
-	<li class="nav-item">
-		<a class ="nav-link" href="index.php?action&access=connected&admin=manage_blogposts">Gérer articles</a>
-	</li>
-	<li class="nav-item">
-		<a class ="nav-link" href="index.php?action&access=connected&admin=manage_comments">Gérer commentaires</a>
-	</li>
-	<li class="nav-item">
-		<a class ="nav-link" href="index.php?action&access=sessionend">Déconnexion</a>
-	</li>
-	<?php $this->menu = ob_get_clean(); 
+ $this->menu = true; 
 }
 else
 {
-	ob_start(); ?>
-	<li class="nav-item">
-		<a class="nav-link" href="index.php?action&access=connexion">Connexion</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link" href="index.php?action&access=subscribe">Inscription</a>
-	</li>
-	<?php $this->menu = ob_get_clean();
+	
+ $this->menu = false;
 
 }
 
 if (isset($_SESSION['name'])) 
 {
-	echo "Pour gerer les commentaires vous etes au bon endroit";
-?>
-		<div class="container">
-
+		?>
+	<div class="container">
 		<div class="row">
-			<table class="table">
+			<?php
+			$comments = $pendingComments->fetchAll();
+			if(0 < count($comments))
+			{
+				
+			?>
+			<table class="table table-sm table-bordered">
 				<thead>
 					<tr>
 						<th>Auteur</th>
@@ -49,31 +36,40 @@ if (isset($_SESSION['name']))
 				</thead>
 				<tbody>
 					<?php
-						foreach ($pendingComments as $comment) {
+					foreach ($comments as $comment) 
+					{
 							?>
 							<tr>
 								<td><?= htmlspecialchars($comment['author']); ?></td>
 								<td><?= htmlspecialchars($comment['content']); ?></td>
 								<td>
-									<a href="index.php?action&comments=validate&id=<?= $comment['id']?>" class="btn btn-warning">Valider</a>
+									<a href="index.php?action&comments=validate&id=<?= $comment['id']?>" class="btn btn-warning btn-sm">Valider</a>
 
-									<a href="index.php?action&comments=delete&id=<?= $comment['id']?>" class="btn btn-danger">Supprimer</a>
+									<a href="index.php?action&comments=delete&id=<?= $comment['id']?>" class="btn btn-danger btn-sm">Supprimer</a>
 								</td>
 								
 							</tr>
 						<?php	
-						}
-
+					}
 					?>
 				</tbody>
 			</table>
+			<?php
+		   }
+		   else
+		   {
+		   ?>
+		   <div class="alert alert-secondary">
+		   		<h3> Vous avez <strong>0</strong> commentaire.</h3>
+		   </div>
+		   <?php
+		   }
+			?>
 		</div>
-		
 	</div>
-<?php
+	<?php
 }
 else 
 {
 	throw new Exception("L'access à cette page est reservé aux membres enregistrés");
-	
- }
+}

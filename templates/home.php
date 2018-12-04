@@ -22,39 +22,12 @@ $this->title ="Acceuil";
  
 if (isset($_SESSION['name'])) 
 {
-	ob_start(); ?>
-
-	<li class="nav-item dropdown">
-		<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button">Administration</a>
-
-		<ul class="dropdown-menu">
-			<li class="nav-item">
-				<a class ="nav-link" href="index.php?action&access=connected&admin=add_blogpost">Ajouter articles</a>
-			</li>
-			<li class="nav-item">
-				<a class ="nav-link" href="index.php?action&access=connected&admin=manage_blogposts">Gérer articles</a>
-			</li>
-			<li class="nav-item">
-				<a class ="nav-link" href="index.php?action&access=connected&admin=manage_comments">Gérer commentaires</a>
-			</li>
-		</ul>
-	</li>
-
-	<li class="nav-item">
-		<a class ="nav-link" href="index.php?action&access=sessionend">Déconnexion</a>
-	</li>
-	<?php $this->menu = ob_get_clean(); 
+ $this->menu = true; 
 }
 else
 {
-	ob_start(); ?>
-	<li class="nav-item">
-		<a class="nav-link" href="index.php?action&access=connexion">Connexion</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link" href="index.php?action&access=subscribe">Inscription</a>
-	</li>
-	<?php $this->menu = ob_get_clean();
+	
+ $this->menu = false;
 
 }
 ?>
@@ -78,7 +51,7 @@ else
 <!-- Main content -->
 
 <div class="card mx-auto text-center" style="width: 18rem;">
-  <img class="card-img-top" src="../public/img/moez-photo.jpg" alt="Card image cap">
+  <img class="card-img-top" src="../public/img/moez-photo.JPG" alt="Card image cap">
   <div class="card-body">
     <ul class="list-group list-group-flush">
     <li class="list-group-item">Moez THABTI</li>
@@ -96,7 +69,7 @@ else
 	<div class="row">
   <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 mx-auto">
 		<h2 class="text-center">Formulaire de contact</h2>
-	 <form method="POST" action="" class="form">
+	 <form method="POST" action="mailto:toto@hotmail.com" class="form">
 	<div class="form-group ">
 		<label for="name">Nom</label>
 		<input type="text" name="name" class="form-control " value="" />
@@ -109,7 +82,7 @@ else
 
     <div class="form-group ">
 			<label for="message">Votre message</label>
-			<textarea name="message" class="form-control"></textarea>
+			<textarea id= "mytextarea"name="message" class="form-control"></textarea>
 	 </div>
 
     <div class="form-group ">

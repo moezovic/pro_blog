@@ -23,8 +23,8 @@ class CommentsManager extends Manager{
 
 	public function insertComments($comment)
 	{
-		$sql = 'INSERT INTO comments (blog_post_id, content, author, insert_date) VALUES (:blogpost_id, :content, :author, :insert_date)';
-		$this->sql($sql, [':blogpost_id'=>$comment['blogpost_id'], ':content' => $comment['content'], ':author' => $comment['author'], ':insert_date' => $comment['insertion_date']]);
+		$sql = 'INSERT INTO comments (blog_post_id, content, author, insert_date) VALUES (:blogpost_id, :content, :author, NOW())';
+		$this->sql($sql, [':blogpost_id'=>$comment['blogpost_id'], ':content' => $comment['content'], ':author' => $comment['author']]);
 	}
 
 	public function insertPending($postId)
@@ -39,7 +39,7 @@ class CommentsManager extends Manager{
 
 	public function getAllPending()
 	{
-		$sql = 'SELECT id, author, content, DATE_FORMAT(insertion_date, \'%d/%m/%Y à %Hh%imin%ss \') AS insert_date FROM pending_comments ORDER BY insert_date DESC';
+		$sql = 'SELECT id, author, content FROM pending_comments';
 		$pendingList = $this->sql($sql);
 		return $pendingList;
 	}

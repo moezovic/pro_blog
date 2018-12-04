@@ -36,54 +36,65 @@
 			 		{
 				 		if ($_GET['bp'] === 'list') 
 				 		{
-				 		
 				 			$this->controllerObj->blogPosts();
-
 				 		}
-
 				 		elseif ($_GET['bp'] === 'single') 
-				 		{
-				 			
+				 		{	
 				 			$this->controllerObj->singleBlogPost($_GET['postId']);
-
 				 		}
 				 		elseif ($_GET['bp'] === 'new') 
 				 		{
 				 			if (!empty($_POST['title']) && !empty($_POST['topic_sentence']) && !empty($_POST['main_content']) && !empty($_POST['author']) ) 
 				 			{
 				 				$this->controllerObj->addBlogPost();
-				 			}
-				 			 
+				 			}	
+				 			else
+				 			{
+				 				throw new \Exception();
+				 				
+				 			}			 			 
 				 		}	 
 				 		elseif ($_GET['bp'] === 'update') 
 				 		{
 				 			if (!empty($_POST['title']) && !empty($_POST['topic_sentence']) && !empty($_POST['main_content']) && !empty($_POST['author']) ) 
 				 			{
-				 				$this->controllerObj->updateBlogPost($_GET['id']);
+				 				if (isset($_GET['id'])) 
+				 				{
+				 					$this->controllerObj->updateBlogPost($_GET['id']);
+				 				}
 				 			}
-
 				 		}
 				 		elseif ($_GET['bp'] === 'delete') 
 				 		{
-				 			if ($_GET['id'] ) 
+				 			if (isset($_GET['id'])) 
 				 			{
 				 				$this->controllerObj->deleteBlogPost($_GET['id']);
 				 			}
-
+				 			else
+				 			{
+				 				throw new \Exception();
+				 				
+				 			}	
+				 		}
+				 		else
+				 		{
+				 			$this->errorControllerObj->unknown();
 				 		}	
-
 			 		}
-
 			 		elseif (isset($_GET['comments'])) 
 			 		{
 			 			if ($_GET['comments'] === 'new')
 			 			{
 			 				if (isset($_GET['id'])) 
 			 				{
-			 					if (!empty($_POST['commentary']) && !empty($_POST['name'])) 
+			 					if (!empty($_POST['commentary']) && !empty($_POST['name'] && $_POST['redirection'])) 
 			 					{
 			 						$this->controllerObj->addPendingComment($_GET['id']);
 			 					}
+			 					else
+				 				{
+				 				throw new \Exception();
+				 				}	
 			 				}
 			 				
 			 			}
@@ -93,6 +104,11 @@
 			 				{
 			 					$this->controllerObj->validateComment($_GET['id']);
 			 				}
+			 				else
+				 			{
+				 				throw new \Exception();
+				 				
+				 			}	
 			 			}
 			 			elseif ($_GET['comments'] === 'delete') 
 			 			{
@@ -100,10 +116,15 @@
 			 				{
 			 					$this->controllerObj->deleteComment($_GET['id']);
 			 				}
+			 				else
+				 			{
+				 				throw new \Exception();
+				 				
+				 			}	
 			 			}
 			 			else
 			 			{
-
+			 				$this->errorControllerObj->unknown();
 			 			}
 			 		}
 
@@ -112,16 +133,31 @@
 			 		elseif (isset($_GET['access'])) 
 			 		{
 				 		if ($_GET['access'] === 'connexion') 
-				 		{
-				 			
+				 		{ 
 				 			$this->sessionControllerObj->connexion();
-
 				 		}
 				 		elseif ($_GET['access'] === 'subscribe') 
-				 		{
-				 			
+				 		{			 			
 				 			$this->sessionControllerObj->subscription();
-
+				 		}
+				 		elseif ($_GET['access']=== 'newadmin') 
+				 		{
+				 			if (!empty($_POST['name']) && !empty($_POST['pswd']) && !empty($_POST['pswd-verify'])) 
+				 			{
+				 				if ($_POST['pswd'] === $_POST['pswd-verify']) 
+				 				{
+				 					$this->sessionControllerObj->addNewAdmin();
+				 				}	
+				 				else
+				 				{
+				 					throw new \Exception();	
+				 				}	
+				 			}
+				 			else 
+				 			{
+				 				$this->errorControllerObj->unknown();
+				 			}
+				 			
 				 		}
 				 		elseif ($_GET['access'] === 'authentify') 
 				 		{
@@ -133,7 +169,7 @@
 				 			}
 				 			else
 				 			{
-				 				echo "veuillez renseignez tous les champs";
+				 				$this->errorControllerObj->unknown();
 				 			}
 				 		}
 				 		elseif ($_GET['access'] === 'connected') 
@@ -158,18 +194,22 @@
 						 			}
 						 			else
 						 			{
-						 				echo "unauthorized action";
+						 				$this->errorControllerObj->unknown();
 						 			}
 				 			}
 				 			else
 				 			{
-				 				echo "missing admin param";
+				 				$this->errorControllerObj->unknown();
 				 			}
 
 				 		}
 				 		elseif ($_GET['access']=== 'sessionend') 
 				 		{
 				 			$this->sessionControllerObj->destroySession();
+				 		}
+				 		else
+				 		{
+				 			$this->errorControllerObj->unknown();
 				 		}
 
 			 		}
@@ -180,8 +220,7 @@
 			 }
 			 // routes to the home page controller
 			 else
-			 {
-			 		
+			 {	
 			 		$this->homeControllerObj->toHomePage();
 			 }
  		}

@@ -67,21 +67,27 @@
 
  	public function addPendingComment($id)
  	{
+ 		$blogPostId = htmlspecialchars($_POST['redirection']);
  		$this->commentDAO->insertPending($id);
+ 		$blogPost = $this->blogPostDAO->getSinglePost($blogPostId);
+ 		$comments = $this->commentDAO->getComments($blogPostId);
+ 		$this->viewObj->render('singlePostView',['blogPost' => $blogPost, 'comments' => $comments]);
  	}
 
  	public function validateComment($id)
  	{
- 		$row = $this->commentDAO->getSinglePending($id);
+ 		$array = $this->commentDAO->getSinglePending($id);
  		$this->commentDAO->deleteSinglePending($id);
- 		$this->commentDAO->insertComments($row);
- 		$this->viewObj->render('home', []);
+ 		$this->commentDAO->insertComments($array);
+ 		$pendingComments = $this->commentDAO->getAllPending();
+ 		$this->viewObj->render('admin/manage_comments', ['pendingComments' => $pendingComments]);
  	}
 
  	public function deleteComment($id)
  	{
  		$this->commentDAO->deleteSinglePending($id);
- 		$this->viewObj->render('home', []);
+ 		$pendingComments = $this->commentDAO->getAllPending();
+ 		$this->viewObj->render('admin/manage_comments', ['pendingComments' => $pendingComments]);
  	}
 
  }

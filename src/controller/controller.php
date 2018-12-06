@@ -2,9 +2,9 @@
 
  namespace ProBlog\src\controller;
 
- use Problog\src\Manager\BlogPostsManager;
- use Problog\src\Manager\CommentsManager;
- use Problog\src\model\View;
+ use ProBlog\src\Manager\BlogPostsManager;
+ use ProBlog\src\Manager\CommentsManager;
+ use ProBlog\src\model\View;
 
  class Controller
  {
@@ -19,16 +19,15 @@
 
  		$this->blogPostDAO = new BlogPostsManager();
  		$this->commentDAO = new CommentsManager();
- 		$this->view = new View();
-
+ 		$this->viewObj = new View();
+ 		
  	}
 
 
  	public function blogPosts()
  	{
- 		
  		$blogPosts = $this->blogPostDAO->getBlogPosts();
- 		$this->view->render('blogListView',[
+ 		$this->viewObj->render('blogListView',[
  			'blogPosts' => $blogPosts
  		]);
  	}
@@ -38,12 +37,61 @@
  		
  		$blogPost = $this->blogPostDAO->getSinglePost($postId);
  		
- 		$comments = $this->commentDAO->getComments($postId)
+ 		$comments = $this->commentDAO->getComments($postId);
+ 		$this->viewObj->render('singlePostView', [
+ 			'blogPost' => $blogPost,
+ 			'comments' => $comments,
+ 		]);
+ 	}
 
- 		$this->view->render('singlePostView', [
- 			'blogPost' => $blogPost;
- 			'comments' => $comments;
- 		])
+ 	public function addBlogPost()
+ 	{
+ 		$this->blogPostDAO->insertBlogPost();
+ 		$blogPosts = $this->blogPostDAO->getBlogPosts();
+ 		$this->viewObj->render('blogListView',['blogPosts' => $blogPosts]);
+ 	}
+
+ 	public function updateBlogPost($id)
+ 	{
+ 		$this->blogPostDAO->updateBlogPost($id);
+ 		$blogPosts = $this->blogPostDAO->getBlogPosts();
+ 		$this->viewObj->render('admin/manage_bp', ['blogPosts' => $blogPosts]);
+ 	}
+
+ 	public function deleteBlogPost($id)
+ 	{
+ 		$this->blogPostDAO->deleteBlogPost($id);
+ 		$blogPosts = $this->blogPostDAO->getBlogPosts();
+ 		$this->viewObj->render('admin/manage_bp', ['blogPosts' => $blogPosts]);
+ 	}
+
+ 	public function addPendingComment($id)
+ 	{
+ 		$blogPostId = htmlspecialchars($_POST['redirection']);
+ 		$this->commentDAO->insertPending($id);
+ 		$blogPost = $this->blogPostDAO->getSinglePost($blogPostId);
+ 		$comments = $this->commentDAO->getComments($blogPostId);
+ 		$this->viewObj->render('singlePostView',['blogPost' => $blogPost, 'comments' => $comments]);
+ 	}
+
+ 	public function validateComment($id)
+ 	{
+ 		$array = $this->commentDAO->getSinglePending($id);
+ 		$this->commentDAO->deleteSinglePending($id);
+ 		$this->commentDAO->insertComments($array);
+ 		$pendingComments = $this->commentDAO->getAllPending();
+ 		$this->viewObj->render('admin/manage_comments', ['pendingComments' => $pendingComments]);
+ 	}
+
+ 	public function deleteComment($id)
+ 	{
+ 		$this->commentDAO->deleteSinglePending($id);
+ 		$pendingComments = $this->commentDAO->getAllPending();
+ 		$this->viewObj->render('admin/manage_comments', ['pendingComments' => $pendingComments]);
  	}
 
  }
+
+
+
+

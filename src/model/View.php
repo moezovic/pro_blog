@@ -1,17 +1,23 @@
 <?php 
+namespace ProBlog\src\model;
+use Exception;
 
 class View
 {
 	private $file;
 	private $title;
+	private $menu;
+	private $custom;
 
 	public function render($template, $data = [])
 	{
-		$this->file = '../template'.$template.'php';
+		$this->file = '../templates/'.$template.'.php';
 		$content = $this->renderFile($this->file, $data);
 		$view = $this->renderFile('../templates/base.php',[
-			'title' => $this->title;
-			'content' => $content; 
+			'title' => $this->title,
+			'content' => $content,
+			'menu' => $this->menu,
+			'custom'=>$this->custom,
 		]);
 		echo $view;
 
@@ -29,7 +35,8 @@ class View
 		}
 		else
 		{
-			echo 'Fichier inexistant';
+			throw new Exception('Le template est introuvable');
+			  
 		}
 	}
 }

@@ -1,0 +1,14 @@
+.custom-menu
+{
+	background-color: grey !important;
+	margin-bottom: 150px;
+}
+
+.custom-menu + *
+{
+	
+	margin-top: 150px;
+}
+.card-deck .row{
+	margin-bottom: 50px !important;
+}

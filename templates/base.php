@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-	<head>
-		<meta charset="utf-8">
-		<title><?= $title ?></title>
+    <head>
+        <meta charset="utf-8">
+        <title><?php echo $title ?></title>
 
-		<link rel="stylesheet" type="text/css" href="css/clean-blog.min.css">
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="css/clean-blog.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.15/css/mdb.min.css" rel="stylesheet">
     <script type="text/javascript" src= js/effect.js></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.15/js/mdb.min.js"></script>
 
 
-	</head>
+    </head>
 
-	<body>
-	    <!-- Navigation -->
-    <nav class="<?= $custom; ?> navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <body>
+        <!-- Navigation -->
+    <nav class="<?php echo $custom; ?> navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
         <a class="navbar-brand" href="index.php">Moez Thabti</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,8 +35,7 @@
             </li>
             <?php
 
-              if ($menu) 
-              {
+            if ($menu) {
                 ?>
                   
                 <li class="nav-item dropdown">
@@ -60,9 +59,9 @@
               </li>
 
                 <?php
-              }
-              else
-              {
+            }
+            else
+            {
 
                 ?>
               <li class="nav-item">
@@ -72,7 +71,7 @@
                 <a class="nav-link" href="index.php?action&access=subscribe">Inscription</a>
               </li>
                 <?php
-              }
+            }
 
             ?>
           </ul>
@@ -82,13 +81,13 @@
 
 <!-- Include page header and main content -->
 
-		<div id="content">
-			<?= $content ?>
-		</div>
+        <div id="content">
+    <?php echo $content ?>
+        </div>
 
-		<!-- Footer -->
+        <!-- Footer -->
 
-	<footer>
+    <footer>
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
@@ -116,7 +115,7 @@
       </div>
     </footer>
 
-		<script src="../public/vendor/jquery.min.js"></script>
-		<script src="../public/vendor/bootstrap.bundle.min.js"></script>
-	</body>
+        <script src="../public/vendor/jquery.min.js"></script>
+        <script src="../public/vendor/bootstrap.bundle.min.js"></script>
+    </body>
 </html>

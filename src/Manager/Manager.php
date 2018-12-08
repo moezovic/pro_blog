@@ -5,41 +5,42 @@ require_once'../config/dev.php';
 
 use PDO;
 
-class Manager{
+class Manager
+{
 
 
-	private $connection;
+    private $connection;
 
-	private function checkConnection(){
-		if ($this->connection === null) 
-		{
-			return $this->getConnection();
-		}
+    private function checkConnection()
+    {
+        if ($this->connection === null) {
+            return $this->getConnection();
+        }
 
-		return $this->connection;
-	}
+        return $this->connection;
+    }
 
-	private function getConnection(){
-		$this->connection = new PDO(DB_HOST, DB_USER, DB_PSW);
-		$this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    private function getConnection()
+    {
+        $this->connection = new PDO(DB_HOST, DB_USER, DB_PSW);
+        $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-		return $this->connection;
-	}
+        return $this->connection;
+    }
 
-	protected function sql($sql, $parameters = null)
-	{
-		if ($parameters)
-		{
-			$result = $this->checkConnection()->prepare($sql);
-			$result->execute($parameters);
-			return $result;
+    protected function sql($sql, $parameters = null)
+    {
+        if ($parameters) {
+            $result = $this->checkConnection()->prepare($sql);
+            $result->execute($parameters);
+            return $result;
 
-		}
-		else
-		{
-			$result = $this->checkConnection()->query($sql);
-			return $result;
-		}
-	}
+        }
+        else
+        {
+            $result = $this->checkConnection()->query($sql);
+            return $result;
+        }
+    }
 
 }

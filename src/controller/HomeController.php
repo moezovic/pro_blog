@@ -4,18 +4,19 @@ namespace ProBlog\src\controller;
 
 use ProBlog\src\model\View;
 
- class HomeController
- {
+class HomeController
+{
 
- 	private $viewObj;
+    private $viewObj;
 
- 	public function __construct()
- 	{
- 		$this->viewObj = new View();
- 	}
+    public function __construct()
+    {
+        $this->viewObj = new View();
+    }
 
- 	public function toHomePage(){
- 		$this->viewObj->render('home', []);
- 	}
+    public function toHomePage()
+    {
+        $this->viewObj->render('home', []);
+    }
 
- }
+}

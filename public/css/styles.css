@@ -1,6 +1,6 @@
 .custom-menu
 {
-	background-color: grey !important;
+	background-color: grey;
 	margin-bottom: 150px;
 }
 
@@ -10,5 +10,5 @@
 	margin-top: 150px;
 }
 .card-deck .row{
-	margin-bottom: 50px !important;
+	margin-bottom: 50px;
 }

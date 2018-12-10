@@ -8,5 +8,3 @@ Clone the project on your machine
 Import the sql folder with you SGBD tool
 Edit the dev.php to meet your local machine requirement (depending on you OS)
 You should be able to access the blog locally
-
-

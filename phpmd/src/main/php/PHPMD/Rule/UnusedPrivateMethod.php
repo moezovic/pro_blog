@@ -62,7 +62,6 @@ class UnusedPrivateMethod extends AbstractRule implements ClassAware
      * by one method.
      *
      * @param \PHPMD\AbstractNode $class
-     * @return void
      */
     public function apply(AbstractNode $class)
     {
@@ -76,11 +75,13 @@ class UnusedPrivateMethod extends AbstractRule implements ClassAware
      * as private and are not used in the same class' context.
      *
      * @param \PHPMD\Node\ClassNode $class
+     *
      * @return \PHPMD\AbstractNode[]
      */
     private function collectUnusedPrivateMethods(ClassNode $class)
     {
         $methods = $this->collectPrivateMethods($class);
+
         return $this->removeUsedMethods($class, $methods);
     }
 
@@ -88,6 +89,7 @@ class UnusedPrivateMethod extends AbstractRule implements ClassAware
      * Collects all private methods declared in the given class node.
      *
      * @param \PHPMD\Node\ClassNode $class
+     *
      * @return \PHPMD\AbstractNode[]
      */
     private function collectPrivateMethods(ClassNode $class)
@@ -98,6 +100,7 @@ class UnusedPrivateMethod extends AbstractRule implements ClassAware
                 $methods[strtolower($method->getImage())] = $method;
             }
         }
+
         return $methods;
     }
 
@@ -105,27 +108,29 @@ class UnusedPrivateMethod extends AbstractRule implements ClassAware
      * Returns <b>true</b> when the given method should be used for this rule's
      * analysis.
      *
-     * @param \PHPMD\Node\ClassNode $class
+     * @param \PHPMD\Node\ClassNode  $class
      * @param \PHPMD\Node\MethodNode $method
-     * @return boolean
+     *
+     * @return bool
      */
     private function acceptMethod(ClassNode $class, MethodNode $method)
     {
-        return (
+        return
             $method->isPrivate() &&
             false === $method->hasSuppressWarningsAnnotationFor($this) &&
-            strcasecmp($method->getImage(), $class->getImage()) !== 0 &&
-            strcasecmp($method->getImage(), '__construct') !== 0 &&
-            strcasecmp($method->getImage(), '__destruct') !== 0 &&
-            strcasecmp($method->getImage(), '__clone') !== 0
-        );
+            0 !== strcasecmp($method->getImage(), $class->getImage()) &&
+            0 !== strcasecmp($method->getImage(), '__construct') &&
+            0 !== strcasecmp($method->getImage(), '__destruct') &&
+            0 !== strcasecmp($method->getImage(), '__clone')
+        ;
     }
 
     /**
      * This method removes all used methods from the given methods array.
      *
-     * @param \PHPMD\Node\ClassNode $class
+     * @param \PHPMD\Node\ClassNode    $class
      * @param \PHPMD\Node\MethodNode[] $methods
+     *
      * @return \PHPMD\AbstractNode[]
      */
     private function removeUsedMethods(ClassNode $class, array $methods)
@@ -135,6 +140,7 @@ class UnusedPrivateMethod extends AbstractRule implements ClassAware
                 unset($methods[strtolower($postfix->getImage())]);
             }
         }
+
         return $methods;
     }
 
@@ -143,18 +149,20 @@ class UnusedPrivateMethod extends AbstractRule implements ClassAware
      * instance or static reference to the given class.
      *
      * @param \PHPMD\Node\ClassNode $class
-     * @param \PHPMD\Node\ASTNode $postfix
-     * @return boolean
+     * @param \PHPMD\Node\ASTNode   $postfix
+     *
+     * @return bool
      */
     private function isClassScope(ClassNode $class, ASTNode $postfix)
     {
         $owner = $postfix->getParent()->getChild(0);
-        return (
+
+        return
         $owner->isInstanceOf('MethodPostfix') ||
             $owner->isInstanceOf('SelfReference') ||
             $owner->isInstanceOf('StaticReference') ||
-            strcasecmp($owner->getImage(), '$this') === 0 ||
-            strcasecmp($owner->getImage(), $class->getImage()) === 0
-        );
+            0 === strcasecmp($owner->getImage(), '$this') ||
+            0 === strcasecmp($owner->getImage(), $class->getImage())
+        ;
     }
 }

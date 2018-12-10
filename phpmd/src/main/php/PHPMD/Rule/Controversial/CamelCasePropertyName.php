@@ -37,6 +37,7 @@
  * @author Manuel Pichler <mapi@phpmd.org>
  * @copyright 2008-2017 Manuel Pichler. All rights reserved.
  * @license http://www.opensource.org/licenses/bsd-license.php BSD License
+ *
  * @since      1.1.0
  */
 
@@ -52,6 +53,7 @@ use PHPMD\Rule\ClassAware;
  * @author     Francis Besset <francis.besset@gmail.com>
  * @copyright 2008-2017 Manuel Pichler. All rights reserved.
  * @license http://www.opensource.org/licenses/bsd-license.php BSD License
+ *
  * @since      1.1.0
  */
 class CamelCasePropertyName extends AbstractRule implements ClassAware
@@ -61,14 +63,13 @@ class CamelCasePropertyName extends AbstractRule implements ClassAware
      * and emits a rule violation.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return void
      */
     public function apply(AbstractNode $node)
     {
         $allowUnderscore = $this->getBooleanProperty('allow-underscore');
 
         $pattern = '/^\$[a-zA-Z][a-zA-Z0-9]*$/';
-        if ($allowUnderscore == true) {
+        if (true == $allowUnderscore) {
             $pattern = '/^\$[_]?[a-zA-Z][a-zA-Z0-9]*$/';
         }
 

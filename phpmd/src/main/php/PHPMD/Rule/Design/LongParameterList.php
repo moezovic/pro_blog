@@ -60,7 +60,6 @@ class LongParameterList extends AbstractRule implements FunctionAware, MethodAwa
      * node against a configured threshold.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return void
      */
     public function apply(AbstractNode $node)
     {
@@ -76,7 +75,7 @@ class LongParameterList extends AbstractRule implements FunctionAware, MethodAwa
                 $node->getType(),
                 $node->getName(),
                 $count,
-                $threshold
+                $threshold,
             )
         );
     }

@@ -60,7 +60,6 @@ class EvalExpression extends AbstractRule implements MethodAware, FunctionAware
      * and emits a rule violation when it exists.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return void
      */
     public function apply(AbstractNode $node)
     {

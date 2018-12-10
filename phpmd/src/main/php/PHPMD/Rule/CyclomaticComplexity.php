@@ -59,7 +59,6 @@ class CyclomaticComplexity extends AbstractRule implements FunctionAware, Method
      * a configured threshold.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return void
      */
     public function apply(AbstractNode $node)
     {
@@ -75,7 +74,7 @@ class CyclomaticComplexity extends AbstractRule implements FunctionAware, Method
                 $node->getType(),
                 $node->getName(),
                 $ccn,
-                $threshold
+                $threshold,
             )
         );
     }

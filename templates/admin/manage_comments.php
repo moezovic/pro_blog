@@ -56,5 +56,5 @@ if (isset($_SESSION['name'])) {
     </div>
     <?php
 } else {
-    throw new Exception("L'access à cette page est reservé aux membres enregistrés");
-}
+        throw new Exception("L'access à cette page est reservé aux membres enregistrés");
+    }

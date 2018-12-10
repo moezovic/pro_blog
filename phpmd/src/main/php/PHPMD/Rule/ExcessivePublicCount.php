@@ -59,7 +59,6 @@ class ExcessivePublicCount extends AbstractRule implements ClassAware
      * class and checks that value against a configured threshold.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return void
      */
     public function apply(AbstractNode $node)
     {
@@ -74,7 +73,7 @@ class ExcessivePublicCount extends AbstractRule implements ClassAware
                 $node->getType(),
                 $node->getName(),
                 $cis,
-                $threshold
+                $threshold,
             )
         );
     }

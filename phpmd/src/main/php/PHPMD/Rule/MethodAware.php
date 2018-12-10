@@ -42,7 +42,7 @@
 namespace PHPMD\Rule;
 
 /**
- * This interface marks a rule implementation as method aware,
+ * This interface marks a rule implementation as method aware,.
  *
  * @author Manuel Pichler <mapi@phpmd.org>
  * @copyright 2008-2017 Manuel Pichler. All rights reserved.

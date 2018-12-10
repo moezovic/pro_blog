@@ -63,7 +63,7 @@ class ASTNode extends \PHPMD\AbstractNode
      * Constructs a new ast node instance.
      *
      * @param \PDepend\Source\AST\ASTNode $node
-     * @param string $fileName
+     * @param string                      $fileName
      */
     public function __construct(\PDepend\Source\AST\ASTNode $node, $fileName)
     {
@@ -77,7 +77,8 @@ class ASTNode extends \PHPMD\AbstractNode
      * instance.
      *
      * @param \PHPMD\Rule $rule
-     * @return boolean
+     *
+     * @return bool
      * @SuppressWarnings("PMD.UnusedFormalParameter")
      */
     public function hasSuppressWarningsAnnotationFor(Rule $rule)

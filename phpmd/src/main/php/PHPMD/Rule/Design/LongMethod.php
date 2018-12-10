@@ -61,7 +61,6 @@ class LongMethod extends AbstractRule implements FunctionAware, MethodAware
      * methode node against a configured threshold.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return void
      */
     public function apply(AbstractNode $node)
     {
@@ -85,7 +84,7 @@ class LongMethod extends AbstractRule implements FunctionAware, MethodAware
                 $node->getType(),
                 $node->getName(),
                 $loc,
-                $threshold
+                $threshold,
             )
         );
     }

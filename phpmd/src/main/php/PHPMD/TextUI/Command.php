@@ -46,7 +46,7 @@ use PHPMD\RuleSetFactory;
 use PHPMD\Writer\StreamWriter;
 
 /**
- * This class provides a command line interface for PHPMD
+ * This class provides a command line interface for PHPMD.
  *
  * @author Manuel Pichler <mapi@phpmd.org>
  * @copyright 2008-2017 Manuel Pichler. All rights reserved.
@@ -57,9 +57,9 @@ class Command
     /**
      * Exit codes used by the phpmd command line tool.
      */
-    const EXIT_SUCCESS   = 0,
-          EXIT_EXCEPTION = 1,
-          EXIT_VIOLATION = 2;
+    const EXIT_SUCCESS = 0;
+    const EXIT_EXCEPTION = 1;
+    const EXIT_VIOLATION = 2;
 
     /**
      * This method creates a PHPMD instance and configures this object based
@@ -74,13 +74,15 @@ class Command
      * <b>EXIT_SUCCESS</b> even if any violation is found.
      *
      * @param \PHPMD\TextUI\CommandLineOptions $opts
-     * @param \PHPMD\RuleSetFactory $ruleSetFactory
-     * @return integer
+     * @param \PHPMD\RuleSetFactory            $ruleSetFactory
+     *
+     * @return int
      */
     public function run(CommandLineOptions $opts, RuleSetFactory $ruleSetFactory)
     {
         if ($opts->hasVersion()) {
-            fwrite(STDOUT, sprintf('PHPMD %s', $this->getVersion()) . PHP_EOL);
+            fwrite(STDOUT, sprintf('PHPMD %s', $this->getVersion()).PHP_EOL);
+
             return self::EXIT_SUCCESS;
         }
 
@@ -110,18 +112,18 @@ class Command
         $phpmd->setOptions(
             array_filter(
                 array(
-                    'coverage' => $opts->getCoverageReport()
+                    'coverage' => $opts->getCoverageReport(),
                 )
             )
         );
 
         $extensions = $opts->getExtensions();
-        if ($extensions !== null) {
+        if (null !== $extensions) {
             $phpmd->setFileExtensions(explode(',', $extensions));
         }
 
         $ignore = $opts->getIgnore();
-        if ($ignore !== null) {
+        if (null !== $ignore) {
             $phpmd->setIgnorePattern(explode(',', $ignore));
         }
 
@@ -135,6 +137,7 @@ class Command
         if ($phpmd->hasViolations() && !$opts->ignoreViolationsOnExit()) {
             return self::EXIT_VIOLATION;
         }
+
         return self::EXIT_SUCCESS;
     }
 
@@ -145,13 +148,14 @@ class Command
      */
     private function getVersion()
     {
-        $build = __DIR__ . '/../../../../../build.properties';
+        $build = __DIR__.'/../../../../../build.properties';
 
         $version = '@package_version@';
         if (file_exists($build)) {
             $data = @parse_ini_file($build);
             $version = $data['project.version'];
         }
+
         return $version;
     }
 
@@ -159,9 +163,9 @@ class Command
      * The main method that can be used by a calling shell script, the return
      * value can be used as exit code.
      *
-     * @param array $args The raw command line arguments array.
+     * @param array $args the raw command line arguments array
      *
-     * @return integer
+     * @return int
      */
     public static function main(array $args)
     {
@@ -172,9 +176,10 @@ class Command
 
             $exitCode = $command->run($options, $ruleSetFactory);
         } catch (\Exception $e) {
-            fwrite(STDERR, $e->getMessage() . PHP_EOL);
+            fwrite(STDERR, $e->getMessage().PHP_EOL);
             $exitCode = self::EXIT_EXCEPTION;
         }
+
         return $exitCode;
     }
 }

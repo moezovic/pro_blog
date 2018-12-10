@@ -67,7 +67,6 @@ class TooManyMethods extends AbstractRule implements ClassAware
      * this number against a configured threshold.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return void
      */
     public function apply(AbstractNode $node)
     {
@@ -87,7 +86,7 @@ class TooManyMethods extends AbstractRule implements ClassAware
                 $node->getType(),
                 $node->getName(),
                 $nom,
-                $threshold
+                $threshold,
             )
         );
     }
@@ -96,16 +95,18 @@ class TooManyMethods extends AbstractRule implements ClassAware
      * Counts all methods within the given class/interface node.
      *
      * @param \PHPMD\Node\AbstractTypeNode $node
-     * @return integer
+     *
+     * @return int
      */
     private function countMethods(AbstractTypeNode $node)
     {
         $count = 0;
         foreach ($node->getMethodNames() as $name) {
-            if (preg_match($this->ignoreRegexp, $name) === 0) {
+            if (0 === preg_match($this->ignoreRegexp, $name)) {
                 ++$count;
             }
         }
+
         return $count;
     }
 }

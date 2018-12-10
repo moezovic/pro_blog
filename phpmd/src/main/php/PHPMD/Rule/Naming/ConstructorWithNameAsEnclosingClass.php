@@ -62,20 +62,19 @@ class ConstructorWithNameAsEnclosingClass extends AbstractRule implements Method
      * (php4 style constructor).
      *
      * @param \PHPMD\AbstractNode $node
-     * @return void
      */
     public function apply(AbstractNode $node)
     {
         if ($node->getNode()->getParent() instanceof ASTTrait) {
             return;
         }
-        if (strcasecmp($node->getName(), $node->getParentName()) !== 0) {
+        if (0 !== strcasecmp($node->getName(), $node->getParentName())) {
             return;
         }
         if ($node->getParentType() instanceof InterfaceNode) {
             return;
         }
-        if ($node->getNamespaceName() !== '+global') {
+        if ('+global' !== $node->getNamespaceName()) {
             return;
         }
 

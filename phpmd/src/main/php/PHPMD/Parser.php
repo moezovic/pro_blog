@@ -102,7 +102,7 @@ class Parser extends AbstractASTVisitor implements CodeAwareGenerator
     /**
      * Constructs a new parser adapter instance.
      *
-     * @param \PDepend\Engine $pdepend The context php depend instance.
+     * @param \PDepend\Engine $pdepend the context php depend instance
      */
     public function __construct(Engine $pdepend)
     {
@@ -113,7 +113,6 @@ class Parser extends AbstractASTVisitor implements CodeAwareGenerator
      * Parses the projects source and reports all detected errors and violations.
      *
      * @param \PHPMD\Report $report
-     * @return void
      */
     public function parse(Report $report)
     {
@@ -131,7 +130,6 @@ class Parser extends AbstractASTVisitor implements CodeAwareGenerator
      * Adds a new analysis rule-set to this adapter.
      *
      * @param \PHPMD\RuleSet $ruleSet
-     * @return void
      */
     public function addRuleSet(RuleSet $ruleSet)
     {
@@ -142,7 +140,6 @@ class Parser extends AbstractASTVisitor implements CodeAwareGenerator
      * Sets the violation report used by the rule-set.
      *
      * @param \PHPMD\Report $report
-     * @return void
      */
     public function setReport(Report $report)
     {
@@ -153,9 +150,9 @@ class Parser extends AbstractASTVisitor implements CodeAwareGenerator
      * Adds an analyzer to log. If this logger accepts the given analyzer it
      * with return <b>true</b>, otherwise the return value is <b>false</b>.
      *
-     * @param \PDepend\Metrics\Analyzer $analyzer The analyzer to log.
+     * @param \PDepend\Metrics\Analyzer $analyzer the analyzer to log
      *
-     * @return boolean
+     * @return bool
      */
     public function log(Analyzer $analyzer)
     {
@@ -165,8 +162,7 @@ class Parser extends AbstractASTVisitor implements CodeAwareGenerator
     /**
      * Closes the logger process and writes the output file.
      *
-     * @return void
-     * @throws \PDepend\Report\NoLogOutputException If the no log target exists.
+     * @throws \PDepend\Report\NoLogOutputException if the no log target exists
      */
     public function close()
     {
@@ -205,7 +201,6 @@ class Parser extends AbstractASTVisitor implements CodeAwareGenerator
      * Visits a class node.
      *
      * @param \PDepend\Source\AST\ASTClass $node
-     * @return void
      */
     public function visitClass(ASTClass $node)
     {
@@ -221,11 +216,10 @@ class Parser extends AbstractASTVisitor implements CodeAwareGenerator
      * Visits a function node.
      *
      * @param \PDepend\Source\AST\ASTFunction $node
-     * @return void
      */
     public function visitFunction(ASTFunction $node)
     {
-        if ($node->getCompilationUnit()->getFileName() === null) {
+        if (null === $node->getCompilationUnit()->getFileName()) {
             return;
         }
 
@@ -236,7 +230,6 @@ class Parser extends AbstractASTVisitor implements CodeAwareGenerator
      * Visits an interface node.
      *
      * @param \PDepend\Source\AST\ASTInterface $node
-     * @return void
      */
     public function visitInterface(ASTInterface $node)
     {
@@ -252,11 +245,10 @@ class Parser extends AbstractASTVisitor implements CodeAwareGenerator
      * Visits a method node.
      *
      * @param \PDepend\Source\AST\ASTMethod $node
-     * @return void
      */
     public function visitMethod(ASTMethod $node)
     {
-        if ($node->getCompilationUnit()->getFileName() === null) {
+        if (null === $node->getCompilationUnit()->getFileName()) {
             return;
         }
 
@@ -267,7 +259,6 @@ class Parser extends AbstractASTVisitor implements CodeAwareGenerator
      * Sets the context code nodes.
      *
      * @param \PDepend\Source\AST\ASTArtifactList $artifacts
-     * @return void
      */
     public function setArtifacts(ASTArtifactList $artifacts)
     {
@@ -278,7 +269,6 @@ class Parser extends AbstractASTVisitor implements CodeAwareGenerator
      * Applies all rule-sets to the given <b>$node</b> instance.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return void
      */
     private function apply(AbstractNode $node)
     {
@@ -294,7 +284,6 @@ class Parser extends AbstractASTVisitor implements CodeAwareGenerator
      * <b>$node</b>.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return void
      */
     private function collectMetrics(AbstractNode $node)
     {

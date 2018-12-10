@@ -47,6 +47,7 @@ namespace PHPMD;
  * @author Manuel Pichler <mapi@phpmd.org>
  * @copyright 2008-2017 Manuel Pichler. All rights reserved.
  * @license http://www.opensource.org/licenses/bsd-license.php BSD License
+ *
  * @since     1.1.0
  */
 interface Rule
@@ -67,7 +68,6 @@ interface Rule
      * Sets the name for this rule instance.
      *
      * @param string $name
-     * @return void
      */
     public function setName($name);
 
@@ -82,7 +82,6 @@ interface Rule
      * Sets the version since when this rule is available.
      *
      * @param string $since
-     * @return void
      */
     public function setSince($since);
 
@@ -97,7 +96,6 @@ interface Rule
      * Sets the violation message text for this rule.
      *
      * @param string $message
-     * @return void
      */
     public function setMessage($message);
 
@@ -112,7 +110,6 @@ interface Rule
      * Sets an url will external information for this rule.
      *
      * @param string $externalInfoUrl
-     * @return void
      */
     public function setExternalInfoUrl($externalInfoUrl);
 
@@ -127,7 +124,6 @@ interface Rule
      * Sets the description text for this rule instance.
      *
      * @param string $description
-     * @return void
      */
     public function setDescription($description);
 
@@ -142,22 +138,20 @@ interface Rule
      * Adds a code example for this rule.
      *
      * @param string $example
-     * @return void
      */
     public function addExample($example);
 
     /**
      * Returns the priority of this rule.
      *
-     * @return integer
+     * @return int
      */
     public function getPriority();
 
     /**
      * Set the priority of this rule.
      *
-     * @param integer $priority
-     * @return void
+     * @param int $priority
      */
     public function setPriority($priority);
 
@@ -172,7 +166,6 @@ interface Rule
      * Sets the name of the parent rule set instance.
      *
      * @param string $ruleSetName
-     * @return void
      */
     public function setRuleSetName($ruleSetName);
 
@@ -187,7 +180,6 @@ interface Rule
      * Sets the violation report for this rule.
      *
      * @param \PHPMD\Report $report
-     * @return void
      */
     public function setReport(\PHPMD\Report $report);
 
@@ -196,7 +188,6 @@ interface Rule
      *
      * @param string $name
      * @param string $value
-     * @return void
      */
     public function addProperty($name, $value);
 
@@ -205,8 +196,10 @@ interface Rule
      * exception when no property with <b>$name</b> exists.
      *
      * @param string $name
-     * @return boolean
-     * @throws \OutOfBoundsException When no property for <b>$name</b> exists.
+     *
+     * @return bool
+     *
+     * @throws \OutOfBoundsException when no property for <b>$name</b> exists
      */
     public function getBooleanProperty($name);
 
@@ -215,8 +208,10 @@ interface Rule
      * exception when no property with <b>$name</b> exists.
      *
      * @param string $name
-     * @return integer
-     * @throws \OutOfBoundsException When no property for <b>$name</b> exists.
+     *
+     * @return int
+     *
+     * @throws \OutOfBoundsException when no property for <b>$name</b> exists
      */
     public function getIntProperty($name);
 
@@ -225,7 +220,6 @@ interface Rule
      * rule implementations. All extending classes must implement this method.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return void
      */
     public function apply(AbstractNode $node);
 }

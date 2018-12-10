@@ -57,8 +57,6 @@ class HTMLRenderer extends AbstractRenderer
     /**
      * This method will be called on all renderers before the engine starts the
      * real report processing.
-     *
-     * @return void
      */
     public function start()
     {
@@ -81,7 +79,6 @@ class HTMLRenderer extends AbstractRenderer
      * phase.
      *
      * @param \PHPMD\Report $report
-     * @return void
      */
     public function renderReport(Report $report)
     {
@@ -90,7 +87,7 @@ class HTMLRenderer extends AbstractRenderer
         $writer = $this->getWriter();
         foreach ($report->getRuleViolations() as $violation) {
             $writer->write('<tr');
-            if (++$index % 2 === 1) {
+            if (1 === ++$index % 2) {
                 $writer->write(' bgcolor="lightgrey"');
             }
             $writer->write('>');
@@ -138,8 +135,6 @@ class HTMLRenderer extends AbstractRenderer
     /**
      * This method will be called the engine has finished the report processing
      * for all registered renderers.
-     *
-     * @return void
      */
     public function end()
     {
@@ -151,7 +146,7 @@ class HTMLRenderer extends AbstractRenderer
      * This method will render a html table with occurred processing errors.
      *
      * @param \PHPMD\Report $report
-     * @return void
+     *
      * @since 1.2.1
      */
     private function glomProcessingErrors(Report $report)
@@ -170,13 +165,13 @@ class HTMLRenderer extends AbstractRenderer
         $index = 0;
         foreach ($report->getErrors() as $error) {
             $writer->write('<tr');
-            if (++$index % 2 === 1) {
+            if (1 === ++$index % 2) {
                 $writer->write(' bgcolor="lightgrey"');
             }
             $writer->write('>');
-            $writer->write('<td>' . $error->getFile() . '</td>');
-            $writer->write('<td>' . htmlentities($error->getMessage()) . '</td>');
-            $writer->write('</tr>' . PHP_EOL);
+            $writer->write('<td>'.$error->getFile().'</td>');
+            $writer->write('<td>'.htmlentities($error->getMessage()).'</td>');
+            $writer->write('</tr>'.PHP_EOL);
         }
 
         $writer->write('</table>');

@@ -106,7 +106,7 @@ class MethodNode extends AbstractCallableNode
      * Returns <b>true</b> when the underlying method is declared as abstract or
      * is declared as child of an interface.
      *
-     * @return boolean
+     * @return bool
      */
     public function isAbstract()
     {
@@ -118,13 +118,15 @@ class MethodNode extends AbstractCallableNode
      * instance.
      *
      * @param \PHPMD\Rule $rule
-     * @return boolean
+     *
+     * @return bool
      */
     public function hasSuppressWarningsAnnotationFor(Rule $rule)
     {
         if (parent::hasSuppressWarningsAnnotationFor($rule)) {
             return true;
         }
+
         return $this->getParentType()->hasSuppressWarningsAnnotationFor($rule);
     }
 
@@ -144,7 +146,7 @@ class MethodNode extends AbstractCallableNode
         if ($parentNode instanceof ASTClass) {
             return new ClassNode($parentNode);
         }
-        
+
         return new InterfaceNode($parentNode);
     }
 
@@ -152,7 +154,8 @@ class MethodNode extends AbstractCallableNode
      * Returns <b>true</b> when this method is the initial method declaration.
      * Otherwise this method will return <b>false</b>.
      *
-     * @return boolean
+     * @return bool
+     *
      * @since 1.2.1
      */
     public function isDeclaration()

@@ -57,14 +57,14 @@ use PHPMD\Rule;
 class CommandLineOptions
 {
     /**
-     * Error code for invalid input
+     * Error code for invalid input.
      */
     const INPUT_ERROR = 23;
 
     /**
      * The minimum rule priority.
      *
-     * @var integer
+     * @var int
      */
     protected $minimumPriority = Rule::LOWEST_PRIORITY;
 
@@ -127,14 +127,15 @@ class CommandLineOptions
     /**
      * Should the shell show the current phpmd version?
      *
-     * @var boolean
+     * @var bool
      */
     protected $version = false;
 
     /**
      * Should PHPMD run in strict mode?
      *
-     * @var boolean
+     * @var bool
+     *
      * @since 1.2.0
      */
     protected $strict = false;
@@ -142,7 +143,7 @@ class CommandLineOptions
     /**
      * Should PHPMD exit without error code even if violation is found?
      *
-     * @var boolean
+     * @var bool
      */
     protected $ignoreViolationsOnExit = false;
 
@@ -158,6 +159,7 @@ class CommandLineOptions
      *
      * @param array $args
      * @param array $availableRuleSets
+     *
      * @throws \InvalidArgumentException
      */
     public function __construct(array $args, array $availableRuleSets = array())
@@ -168,7 +170,7 @@ class CommandLineOptions
         $this->availableRuleSets = $availableRuleSets;
 
         $arguments = array();
-        while (($arg = array_shift($args)) !== null) {
+        while (null !== ($arg = array_shift($args))) {
             switch ($arg) {
                 case '--minimumpriority':
                     $this->minimumPriority = (int) array_shift($args);
@@ -185,17 +187,20 @@ class CommandLineOptions
                 case '--extensions':
                     $this->logDeprecated('extensions', 'suffixes');
                     /* Deprecated: We use the suffixes option now */
+                    // no break
                 case '--suffixes':
                     $this->extensions = array_shift($args);
                     break;
                 case '--ignore':
                     $this->logDeprecated('ignore', 'exclude');
                     /* Deprecated: We use the exclude option now */
+                    // no break
                 case '--exclude':
                     $this->ignore = array_shift($args);
                     break;
                 case '--version':
                     $this->version = true;
+
                     return;
                 case '--strict':
                     $this->strict = true;
@@ -219,9 +224,9 @@ class CommandLineOptions
             throw new \InvalidArgumentException($this->usage(), self::INPUT_ERROR);
         }
 
-        $this->inputPath    = (string) array_shift($arguments);
+        $this->inputPath = (string) array_shift($arguments);
         $this->reportFormat = (string) array_shift($arguments);
-        $this->ruleSets     = (string) array_shift($arguments);
+        $this->ruleSets = (string) array_shift($arguments);
     }
 
     /**
@@ -267,7 +272,7 @@ class CommandLineOptions
     }
 
     /**
-     * Returns a ruleset filename or a comma-separated string of ruleset
+     * Returns a ruleset filename or a comma-separated string of ruleset.
      *
      * @return string
      */
@@ -279,7 +284,7 @@ class CommandLineOptions
     /**
      * Returns the minimum rule priority.
      *
-     * @return integer
+     * @return int
      */
     public function getMinimumPriority()
     {
@@ -322,7 +327,7 @@ class CommandLineOptions
     /**
      * Was the <b>--version</b> passed to PHPMD's command line interface?
      *
-     * @return boolean
+     * @return bool
      */
     public function hasVersion()
     {
@@ -332,7 +337,8 @@ class CommandLineOptions
     /**
      * Was the <b>--strict</b> option passed to PHPMD's command line interface?
      *
-     * @return boolean
+     * @return bool
+     *
      * @since 1.2.0
      */
     public function hasStrict()
@@ -343,7 +349,7 @@ class CommandLineOptions
     /**
      * Was the <b>--ignore-violations-on-exit</b> passed to PHPMD's command line interface?
      *
-     * @return boolean
+     * @return bool
      */
     public function ignoreViolationsOnExit()
     {
@@ -362,8 +368,10 @@ class CommandLineOptions
      * </ul>
      *
      * @param string $reportFormat
+     *
      * @return \PHPMD\AbstractRenderer
-     * @throws \InvalidArgumentException When the specified renderer does not exist.
+     *
+     * @throws \InvalidArgumentException when the specified renderer does not exist
      */
     public function createRenderer($reportFormat = null)
     {
@@ -407,6 +415,7 @@ class CommandLineOptions
 
     /**
      * @return \PHPMD\AbstractRenderer
+     *
      * @throws \InvalidArgumentException
      */
     protected function createCustomRenderer()
@@ -423,10 +432,10 @@ class CommandLineOptions
         }
 
         // Try to load a custom renderer
-        $fileName = strtr($this->reportFormat, '_\\', '//') . '.php';
+        $fileName = strtr($this->reportFormat, '_\\', '//').'.php';
 
         $fileHandle = @fopen($fileName, 'r', true);
-        if (is_resource($fileHandle) === false) {
+        if (false === is_resource($fileHandle)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     'Can\'t find the custom report class: %s',
@@ -449,28 +458,28 @@ class CommandLineOptions
      */
     public function usage()
     {
-        return 'Mandatory arguments:' . \PHP_EOL .
-               '1) A php source code filename or directory. Can be a comma-' .
-               'separated string' . \PHP_EOL .
-               '2) A report format' . \PHP_EOL .
-               '3) A ruleset filename or a comma-separated string of ruleset' .
-               'filenames' . \PHP_EOL . \PHP_EOL .
-               'Available formats: xml, text, html.' . \PHP_EOL .
-               'Available rulesets: ' . implode(', ', $this->availableRuleSets) . '.' . \PHP_EOL . \PHP_EOL .
-               'Optional arguments that may be put after the mandatory arguments:' .
-               \PHP_EOL .
-               '--minimumpriority: rule priority threshold; rules with lower ' .
-               'priority than this will not be used' . \PHP_EOL .
-               '--reportfile: send report output to a file; default to STDOUT' .
-               \PHP_EOL .
-               '--suffixes: comma-separated string of valid source code ' .
-               'filename extensions, e.g. php,phtml' . \PHP_EOL .
-               '--exclude: comma-separated string of patterns that are used to ' .
-               'ignore directories' . \PHP_EOL .
-                '--strict: also report those nodes with a @SuppressWarnings ' .
-               'annotation' . \PHP_EOL .
-                '--ignore-violations-on-exit: will exit with a zero code, ' .
-                'even if any violations are found' . \PHP_EOL;
+        return 'Mandatory arguments:'.\PHP_EOL.
+               '1) A php source code filename or directory. Can be a comma-'.
+               'separated string'.\PHP_EOL.
+               '2) A report format'.\PHP_EOL.
+               '3) A ruleset filename or a comma-separated string of ruleset'.
+               'filenames'.\PHP_EOL.\PHP_EOL.
+               'Available formats: xml, text, html.'.\PHP_EOL.
+               'Available rulesets: '.implode(', ', $this->availableRuleSets).'.'.\PHP_EOL.\PHP_EOL.
+               'Optional arguments that may be put after the mandatory arguments:'.
+               \PHP_EOL.
+               '--minimumpriority: rule priority threshold; rules with lower '.
+               'priority than this will not be used'.\PHP_EOL.
+               '--reportfile: send report output to a file; default to STDOUT'.
+               \PHP_EOL.
+               '--suffixes: comma-separated string of valid source code '.
+               'filename extensions, e.g. php,phtml'.\PHP_EOL.
+               '--exclude: comma-separated string of patterns that are used to '.
+               'ignore directories'.\PHP_EOL.
+                '--strict: also report those nodes with a @SuppressWarnings '.
+               'annotation'.\PHP_EOL.
+                '--ignore-violations-on-exit: will exit with a zero code, '.
+                'even if any violations are found'.\PHP_EOL;
     }
 
     /**
@@ -478,7 +487,6 @@ class CommandLineOptions
      *
      * @param string $deprecatedName
      * @param string $newName
-     * @return void
      */
     protected function logDeprecated($deprecatedName, $newName)
     {
@@ -488,7 +496,7 @@ class CommandLineOptions
             $newName
         );
 
-        fwrite(STDERR, $message . PHP_EOL . PHP_EOL);
+        fwrite(STDERR, $message.PHP_EOL.PHP_EOL);
     }
 
     /**
@@ -497,9 +505,12 @@ class CommandLineOptions
      * the given <b>$inputFile</b> not exists, this method will throw an
      * exception.
      *
-     * @param string $inputFile Specified input file name.
+     * @param string $inputFile specified input file name
+     *
      * @return string
-     * @throws \InvalidArgumentException If the specified input file does not exist.
+     *
+     * @throws \InvalidArgumentException if the specified input file does not exist
+     *
      * @since 1.1.0
      */
     protected function readInputFile($inputFile)

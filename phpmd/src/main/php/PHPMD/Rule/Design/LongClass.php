@@ -59,7 +59,6 @@ class LongClass extends AbstractRule implements ClassAware
      * threshold.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return void
      */
     public function apply(AbstractNode $node)
     {

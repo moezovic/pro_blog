@@ -37,6 +37,7 @@
  * @author Manuel Pichler <mapi@phpmd.org>
  * @copyright 2008-2017 Manuel Pichler. All rights reserved.
  * @license http://www.opensource.org/licenses/bsd-license.php BSD License
+ *
  * @since      0.2.5
  */
 
@@ -53,6 +54,7 @@ use PHPMD\Rule\ClassAware;
  * @author Manuel Pichler <mapi@phpmd.org>
  * @copyright 2008-2017 Manuel Pichler. All rights reserved.
  * @license http://www.opensource.org/licenses/bsd-license.php BSD License
+ *
  * @since      0.2.5
  */
 class WeightedMethodCount extends AbstractRule implements ClassAware
@@ -62,12 +64,11 @@ class WeightedMethodCount extends AbstractRule implements ClassAware
      * a configured threshold.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return void
      */
     public function apply(AbstractNode $node)
     {
         $threshold = $this->getIntProperty('maximum');
-        $actual    = $node->getMetric('wmc');
+        $actual = $node->getMetric('wmc');
 
         if ($actual >= $threshold) {
             $this->addViolation($node, array($node->getName(), $actual, $threshold));

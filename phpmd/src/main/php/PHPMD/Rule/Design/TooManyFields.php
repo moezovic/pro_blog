@@ -59,7 +59,6 @@ class TooManyFields extends AbstractRule implements ClassAware
      * this number against a configured threshold.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return void
      */
     public function apply(AbstractNode $node)
     {
@@ -74,7 +73,7 @@ class TooManyFields extends AbstractRule implements ClassAware
                 $node->getType(),
                 $node->getName(),
                 $vars,
-                $threshold
+                $threshold,
             )
         );
     }

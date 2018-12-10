@@ -71,13 +71,12 @@ class ShortVariable extends AbstractRule implements ClassAware, MethodAware, Fun
      * length.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return void
      */
     public function apply(AbstractNode $node)
     {
         $this->resetProcessed();
 
-        if ($node->getType() === 'class') {
+        if ('class' === $node->getType()) {
             $fields = $node->findChildrenOfType('FieldDeclaration');
             foreach ($fields as $field) {
                 $declarators = $field->findChildrenOfType('VariableDeclarator');
@@ -105,7 +104,6 @@ class ShortVariable extends AbstractRule implements ClassAware, MethodAware, Fun
      * configured threshold or if the given node is an allowed context.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return void
      */
     protected function checkNodeImage(AbstractNode $node)
     {
@@ -119,7 +117,6 @@ class ShortVariable extends AbstractRule implements ClassAware, MethodAware, Fun
      * Template method that performs the real node image check.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return void
      */
     protected function checkMinimumLength(AbstractNode $node)
     {
@@ -143,7 +140,7 @@ class ShortVariable extends AbstractRule implements ClassAware, MethodAware, Fun
     }
 
     /**
-     * Gets array of exceptions from property
+     * Gets array of exceptions from property.
      *
      * @return array
      */
@@ -164,7 +161,8 @@ class ShortVariable extends AbstractRule implements ClassAware, MethodAware, Fun
      * variable names in catch-statements.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return boolean
+     *
+     * @return bool
      */
     private function isNameAllowedInContext(AbstractNode $node)
     {
@@ -179,8 +177,9 @@ class ShortVariable extends AbstractRule implements ClassAware, MethodAware, Fun
      * the given type.
      *
      * @param \PHPMD\AbstractNode $node
-     * @param string $type
-     * @return boolean
+     * @param string              $type
+     *
+     * @return bool
      */
     private function isChildOf(AbstractNode $node, $type)
     {
@@ -191,13 +190,12 @@ class ShortVariable extends AbstractRule implements ClassAware, MethodAware, Fun
             }
             $parent = $parent->getParent();
         }
+
         return false;
     }
 
     /**
      * Resets the already processed nodes.
-     *
-     * @return void
      */
     protected function resetProcessed()
     {
@@ -208,7 +206,6 @@ class ShortVariable extends AbstractRule implements ClassAware, MethodAware, Fun
      * Flags the given node as already processed.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return void
      */
     protected function addProcessed(AbstractNode $node)
     {
@@ -219,7 +216,8 @@ class ShortVariable extends AbstractRule implements ClassAware, MethodAware, Fun
      * Checks if the given node was already processed.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return boolean
+     *
+     * @return bool
      */
     protected function isNotProcessed(AbstractNode $node)
     {

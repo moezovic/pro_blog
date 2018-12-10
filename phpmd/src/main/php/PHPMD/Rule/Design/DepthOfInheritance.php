@@ -59,7 +59,6 @@ class DepthOfInheritance extends AbstractRule implements ClassAware
      * node.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return void
      */
     public function apply(AbstractNode $node)
     {
@@ -70,10 +69,10 @@ class DepthOfInheritance extends AbstractRule implements ClassAware
             $threshold = $this->getIntProperty('minimum');
             $comparision = 2;
         }
-        
+
         $dit = $node->getMetric('dit');
-        if (($comparision === 1 && $dit > $threshold) ||
-            ($comparision === 2 && $dit >= $threshold)
+        if ((1 === $comparision && $dit > $threshold) ||
+            (2 === $comparision && $dit >= $threshold)
         ) {
             $this->addViolation(
                 $node,
@@ -81,7 +80,7 @@ class DepthOfInheritance extends AbstractRule implements ClassAware
                     $node->getType(),
                     $node->getName(),
                     $dit,
-                    $threshold
+                    $threshold,
                 )
             );
         }

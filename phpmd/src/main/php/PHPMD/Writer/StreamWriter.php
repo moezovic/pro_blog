@@ -53,7 +53,7 @@ use PHPMD\AbstractWriter;
 class StreamWriter extends AbstractWriter
 {
     /**
-     * The stream resource handle
+     * The stream resource handle.
      *
      * @var resource
      */
@@ -66,15 +66,15 @@ class StreamWriter extends AbstractWriter
      */
     public function __construct($streamResourceOrUri)
     {
-        if (is_resource($streamResourceOrUri) === true) {
+        if (true === is_resource($streamResourceOrUri)) {
             $this->stream = $streamResourceOrUri;
         } else {
             $dirName = dirname($streamResourceOrUri);
-            if (file_exists($dirName) === false) {
+            if (false === file_exists($dirName)) {
                 mkdir($dirName, 0777, true);
             }
-            if (file_exists($dirName) === false) {
-                $message = 'Cannot find output directory "' . $dirName . '".';
+            if (false === file_exists($dirName)) {
+                $message = 'Cannot find output directory "'.$dirName.'".';
                 throw new \RuntimeException($message);
             }
 
@@ -87,7 +87,7 @@ class StreamWriter extends AbstractWriter
      */
     public function __destruct()
     {
-        if ($this->stream !== STDOUT && is_resource($this->stream) === true) {
+        if (STDOUT !== $this->stream && true === is_resource($this->stream)) {
             @fclose($this->stream);
         }
         $this->stream = null;
@@ -97,7 +97,6 @@ class StreamWriter extends AbstractWriter
      * Writes the given <b>$data</b> fragment to the wrapper output stream.
      *
      * @param string $data
-     * @return void
      */
     public function write($data)
     {

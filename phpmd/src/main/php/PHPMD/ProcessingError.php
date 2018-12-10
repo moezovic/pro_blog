@@ -37,6 +37,7 @@
  * @author Manuel Pichler <mapi@phpmd.org>
  * @copyright 2008-2017 Manuel Pichler. All rights reserved.
  * @license http://www.opensource.org/licenses/bsd-license.php BSD License
+ *
  * @since     1.2.1
  */
 
@@ -48,6 +49,7 @@ namespace PHPMD;
  * @author Manuel Pichler <mapi@phpmd.org>
  * @copyright 2008-2017 Manuel Pichler. All rights reserved.
  * @license http://www.opensource.org/licenses/bsd-license.php BSD License
+ *
  * @since     1.2.1
  */
 class ProcessingError
@@ -74,7 +76,7 @@ class ProcessingError
     public function __construct($message)
     {
         $this->message = $message;
-        $this->file    = $this->extractFile($message);
+        $this->file = $this->extractFile($message);
     }
 
     /**
@@ -103,6 +105,7 @@ class ProcessingError
      * as a mandatory property to PDepend's exceptions.
      *
      * @param string $message
+     *
      * @return string
      */
     private function extractFile($message)
@@ -113,6 +116,7 @@ class ProcessingError
         if (isset($match[1])) {
             return $match[1];
         }
+
         return '';
     }
 }

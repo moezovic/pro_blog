@@ -62,7 +62,6 @@ class BooleanArgumentFlag extends AbstractRule implements MethodAware, FunctionA
      * This method checks if a method/function has boolean flag arguments and warns about them.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return void
      */
     public function apply(AbstractNode $node)
     {
@@ -80,6 +79,6 @@ class BooleanArgumentFlag extends AbstractRule implements MethodAware, FunctionA
 
     private function isBooleanValue(ASTValue $value = null)
     {
-        return $value && $value->isValueAvailable() && ($value->getValue() === true || $value->getValue() === false);
+        return $value && $value->isValueAvailable() && (true === $value->getValue() || false === $value->getValue());
     }
 }

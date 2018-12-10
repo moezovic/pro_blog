@@ -53,7 +53,8 @@ class RuleSet implements \IteratorAggregate
     /**
      * Should this rule set force the strict mode.
      *
-     * @var boolean
+     * @var bool
+     *
      * @since 1.2.0
      */
     private $strict = false;
@@ -92,10 +93,10 @@ class RuleSet implements \IteratorAggregate
      * @var array(string=>string)
      */
     private $applyTo = array(
-        'PHPMD\\Rule\\ClassAware'     => 'PHPMD\\Node\\ClassNode',
-        'PHPMD\\Rule\\FunctionAware'  => 'PHPMD\\Node\\FunctionNode',
+        'PHPMD\\Rule\\ClassAware' => 'PHPMD\\Node\\ClassNode',
+        'PHPMD\\Rule\\FunctionAware' => 'PHPMD\\Node\\FunctionNode',
         'PHPMD\\Rule\\InterfaceAware' => 'PHPMD\\Node\\InterfaceNode',
-        'PHPMD\\Rule\\MethodAware'    => 'PHPMD\\Node\\MethodNode',
+        'PHPMD\\Rule\\MethodAware' => 'PHPMD\\Node\\MethodNode',
     );
 
     /**
@@ -104,10 +105,10 @@ class RuleSet implements \IteratorAggregate
      * @var array(string=>array)
      */
     private $rules = array(
-        'PHPMD\\Node\\ClassNode'     =>  array(),
-        'PHPMD\\Node\\FunctionNode'  =>  array(),
-        'PHPMD\\Node\\InterfaceNode' =>  array(),
-        'PHPMD\\Node\\MethodNode'    =>  array(),
+        'PHPMD\\Node\\ClassNode' => array(),
+        'PHPMD\\Node\\FunctionNode' => array(),
+        'PHPMD\\Node\\InterfaceNode' => array(),
+        'PHPMD\\Node\\MethodNode' => array(),
     );
 
     /**
@@ -123,9 +124,7 @@ class RuleSet implements \IteratorAggregate
     /**
      * Sets the file name where the definition of this rule-set comes from.
      *
-     * @param string $fileName The file name.
-     *
-     * @return void
+     * @param string $fileName the file name
      */
     public function setFileName($fileName)
     {
@@ -145,9 +144,7 @@ class RuleSet implements \IteratorAggregate
     /**
      * Sets the name of this rule-set.
      *
-     * @param string $name The name of this rule-set.
-     *
-     * @return void
+     * @param string $name the name of this rule-set
      */
     public function setName($name)
     {
@@ -167,9 +164,7 @@ class RuleSet implements \IteratorAggregate
     /**
      * Sets the description text for this rule-set instance.
      *
-     * @param string $description The description text.
-     *
-     * @return void
+     * @param string $description the description text
      */
     public function setDescription($description)
     {
@@ -179,7 +174,6 @@ class RuleSet implements \IteratorAggregate
     /**
      * Activates the strict mode for this rule set instance.
      *
-     * @return void
      * @since 1.2.0
      */
     public function setStrict()
@@ -201,7 +195,6 @@ class RuleSet implements \IteratorAggregate
      * Sets the violation report used by the rule-set.
      *
      * @param \PHPMD\Report $report
-     * @return void
      */
     public function setReport(Report $report)
     {
@@ -212,6 +205,7 @@ class RuleSet implements \IteratorAggregate
      * This method returns a rule by its name or <b>null</b> if it doesn't exist.
      *
      * @param string $name
+     *
      * @return \PHPMD\Rule
      */
     public function getRuleByName($name)
@@ -221,6 +215,7 @@ class RuleSet implements \IteratorAggregate
                 return $rule;
             }
         }
+
         return null;
     }
 
@@ -235,7 +230,7 @@ class RuleSet implements \IteratorAggregate
         $result = array();
         foreach ($this->rules as $rules) {
             foreach ($rules as $rule) {
-                if (in_array($rule, $result, true) === false) {
+                if (false === in_array($rule, $result, true)) {
                     $result[] = $rule;
                 }
             }
@@ -248,7 +243,6 @@ class RuleSet implements \IteratorAggregate
      * Adds a new rule to this rule-set.
      *
      * @param \PHPMD\Rule $rule
-     * @return void
      */
     public function addRule(Rule $rule)
     {
@@ -263,7 +257,6 @@ class RuleSet implements \IteratorAggregate
      * Applies all registered rules that match against the concrete node type.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return void
      */
     public function apply(AbstractNode $node)
     {

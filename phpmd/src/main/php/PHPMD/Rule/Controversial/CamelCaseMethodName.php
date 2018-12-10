@@ -37,6 +37,7 @@
  * @author Manuel Pichler <mapi@phpmd.org>
  * @copyright 2008-2017 Manuel Pichler. All rights reserved.
  * @license http://www.opensource.org/licenses/bsd-license.php BSD License
+ *
  * @since      1.1.0
  */
 
@@ -52,6 +53,7 @@ use PHPMD\Rule\MethodAware;
  * @author    Francis Besset <francis.besset@gmail.com>
  * @copyright 2008-2017 Manuel Pichler. All rights reserved.
  * @license http://www.opensource.org/licenses/bsd-license.php BSD License
+ *
  * @since     1.1.0
  */
 class CamelCaseMethodName extends AbstractRule implements MethodAware
@@ -79,7 +81,6 @@ class CamelCaseMethodName extends AbstractRule implements MethodAware
      * and emits a rule violation.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return void
      */
     public function apply(AbstractNode $node)
     {
@@ -98,7 +99,7 @@ class CamelCaseMethodName extends AbstractRule implements MethodAware
 
     private function isValid($methodName)
     {
-        if ($this->getBooleanProperty('allow-underscore-test') && strpos($methodName, 'test') === 0) {
+        if ($this->getBooleanProperty('allow-underscore-test') && 0 === strpos($methodName, 'test')) {
             return preg_match('/^test[a-zA-Z0-9]*([_][a-z][a-zA-Z0-9]*)?$/', $methodName);
         }
 

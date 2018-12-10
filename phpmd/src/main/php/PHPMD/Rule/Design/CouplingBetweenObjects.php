@@ -37,6 +37,7 @@
  * @author Manuel Pichler <mapi@phpmd.org>
  * @copyright 2008-2017 Manuel Pichler. All rights reserved.
  * @license http://www.opensource.org/licenses/bsd-license.php BSD License
+ *
  * @since      1.1.0
  */
 
@@ -52,6 +53,7 @@ use PHPMD\Rule\ClassAware;
  * @author Manuel Pichler <mapi@phpmd.org>
  * @copyright 2008-2017 Manuel Pichler. All rights reserved.
  * @license http://www.opensource.org/licenses/bsd-license.php BSD License
+ *
  * @since      1.1.0
  */
 class CouplingBetweenObjects extends AbstractRule implements ClassAware
@@ -61,7 +63,6 @@ class CouplingBetweenObjects extends AbstractRule implements ClassAware
      * rule implementations. All extending classes must implement this method.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return void
      */
     public function apply(AbstractNode $node)
     {

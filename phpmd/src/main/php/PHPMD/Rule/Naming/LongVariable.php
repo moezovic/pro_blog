@@ -71,13 +71,12 @@ class LongVariable extends AbstractRule implements ClassAware, MethodAware, Func
      * length.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return void
      */
     public function apply(AbstractNode $node)
     {
         $this->resetProcessed();
 
-        if ($node->getType() === 'class') {
+        if ('class' === $node->getType()) {
             $fields = $node->findChildrenOfType('FieldDeclaration');
             foreach ($fields as $field) {
                 if ($field->isPrivate()) {
@@ -109,7 +108,6 @@ class LongVariable extends AbstractRule implements ClassAware, MethodAware, Func
      * configured threshold.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return void
      */
     protected function checkNodeImage(AbstractNode $node)
     {
@@ -123,7 +121,6 @@ class LongVariable extends AbstractRule implements ClassAware, MethodAware, Func
      * Template method that performs the real node image check.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return void
      */
     protected function checkMaximumLength(AbstractNode $node)
     {
@@ -142,7 +139,8 @@ class LongVariable extends AbstractRule implements ClassAware, MethodAware, Func
      * moment the only context is a static member.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return boolean
+     *
+     * @return bool
      */
     private function isNameAllowedInContext(AbstractNode $node)
     {
@@ -154,8 +152,9 @@ class LongVariable extends AbstractRule implements ClassAware, MethodAware, Func
      * the given type.
      *
      * @param \PHPMD\AbstractNode $node
-     * @param string $type
-     * @return boolean
+     * @param string              $type
+     *
+     * @return bool
      */
     private function isChildOf(AbstractNode $node, $type)
     {
@@ -166,13 +165,12 @@ class LongVariable extends AbstractRule implements ClassAware, MethodAware, Func
             }
             $parent = $parent->getParent();
         }
+
         return false;
     }
 
     /**
      * Resets the already processed nodes.
-     *
-     * @return void
      */
     protected function resetProcessed()
     {
@@ -183,7 +181,6 @@ class LongVariable extends AbstractRule implements ClassAware, MethodAware, Func
      * Flags the given node as already processed.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return void
      */
     protected function addProcessed(AbstractNode $node)
     {
@@ -194,7 +191,8 @@ class LongVariable extends AbstractRule implements ClassAware, MethodAware, Func
      * Checks if the given node was already processed.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return boolean
+     *
+     * @return bool
      */
     protected function isNotProcessed(AbstractNode $node)
     {

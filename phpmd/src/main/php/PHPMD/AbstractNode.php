@@ -54,15 +54,14 @@ use PHPMD\Node\ASTNode;
 abstract class AbstractNode
 {
     /**
-     *
-     * @var \PDepend\Source\AST\ASTArtifact|\PDepend\Source\AST\ASTNode $node
+     * @var \PDepend\Source\AST\ASTArtifact|\PDepend\Source\AST\ASTNode
      */
     private $node = null;
 
     /**
      * The collected metrics for this node.
      *
-     * @var array(string=>mixed) $_metrics
+     * @var array(string=>mixed)
      */
     private $metrics = null;
 
@@ -81,10 +80,12 @@ abstract class AbstractNode
      * to the underlying PDepend ast node.
      *
      * @param string $name
-     * @param array $args
+     * @param array  $args
+     *
      * @return mixed
-     * @throws \BadMethodCallException When the underlying PDepend node
-     *         does not contain a method named <b>$name</b>.
+     *
+     * @throws \BadMethodCallException when the underlying PDepend node
+     *                                 does not contain a method named <b>$name</b>
      */
     public function __call($name, array $args)
     {
@@ -104,16 +105,17 @@ abstract class AbstractNode
      */
     public function getParent()
     {
-        if (($node = $this->node->getParent()) === null) {
+        if (null === ($node = $this->node->getParent())) {
             return null;
         }
+
         return new ASTNode($node, $this->getFileName());
     }
 
     /**
      * Returns a child node at the given index.
      *
-     * @param integer $index The child offset.
+     * @param int $index the child offset
      *
      * @return \PHPMD\Node\ASTNode
      */
@@ -129,15 +131,17 @@ abstract class AbstractNode
      * Returns the first child of the given type or <b>null</b> when this node
      * has no child of the given type.
      *
-     * @param string $type The searched child type.
+     * @param string $type the searched child type
+     *
      * @return \PHPMD\AbstractNode
      */
     public function getFirstChildOfType($type)
     {
-        $node = $this->node->getFirstChildOfType('PDepend\Source\AST\AST' . $type);
-        if ($node === null) {
+        $node = $this->node->getFirstChildOfType('PDepend\Source\AST\AST'.$type);
+        if (null === $node) {
             return null;
         }
+
         return new ASTNode($node, $this->getFileName());
     }
 
@@ -145,30 +149,34 @@ abstract class AbstractNode
      * Searches recursive for all children of this node that are of the given
      * type.
      *
-     * @param string $type The searched child type.
+     * @param string $type the searched child type
+     *
      * @return \PHPMD\AbstractNode[]
      */
     public function findChildrenOfType($type)
     {
-        $children = $this->node->findChildrenOfType('PDepend\Source\AST\AST' . $type);
+        $children = $this->node->findChildrenOfType('PDepend\Source\AST\AST'.$type);
 
         $nodes = array();
         foreach ($children as $child) {
             $nodes[] = new ASTNode($child, $this->getFileName());
         }
+
         return $nodes;
     }
 
     /**
      * Tests if this node represents the the given type.
      *
-     * @param string $type The expected node type.
-     * @return boolean
+     * @param string $type the expected node type
+     *
+     * @return bool
      */
     public function isInstanceOf($type)
     {
-        $class = 'PDepend\Source\AST\AST' . $type;
-        return ($this->node instanceof $class);
+        $class = 'PDepend\Source\AST\AST'.$type;
+
+        return $this->node instanceof $class;
     }
 
     /**
@@ -195,7 +203,7 @@ abstract class AbstractNode
     /**
      * Returns the begin line for this node in the php source code file.
      *
-     * @return integer
+     * @return int
      */
     public function getBeginLine()
     {
@@ -205,7 +213,7 @@ abstract class AbstractNode
     /**
      * Returns the end line for this node in the php source code file.
      *
-     * @return integer
+     * @return int
      */
     public function getEndLine()
     {
@@ -240,6 +248,7 @@ abstract class AbstractNode
     public function getType()
     {
         $type = explode('\\', get_class($this));
+
         return preg_replace('(node$)', '', strtolower(array_pop($type)));
     }
 
@@ -247,7 +256,7 @@ abstract class AbstractNode
      * This method will return the metric value for the given identifier or
      * <b>null</b> when no such metric exists.
      *
-     * @param string $name The metric name or abbreviation.
+     * @param string $name the metric name or abbreviation
      *
      * @return mixed
      */
@@ -256,18 +265,18 @@ abstract class AbstractNode
         if (isset($this->metrics[$name])) {
             return $this->metrics[$name];
         }
+
         return null;
     }
 
     /**
      * This method will set the metrics for this node.
      *
-     * @param array(string=>mixed) $metrics The collected node metrics.
-     * @return void
+     * @param array(string=>mixed) $metrics The collected node metrics
      */
     public function setMetrics(array $metrics)
     {
-        if ($this->metrics === null) {
+        if (null === $this->metrics) {
             $this->metrics = $metrics;
         }
     }
@@ -277,7 +286,8 @@ abstract class AbstractNode
      * instance.
      *
      * @param \PHPMD\Rule $rule
-     * @return boolean
+     *
+     * @return bool
      */
     abstract public function hasSuppressWarningsAnnotationFor(Rule $rule);
 

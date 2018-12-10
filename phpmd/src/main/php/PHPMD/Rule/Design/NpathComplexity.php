@@ -61,7 +61,6 @@ class NpathComplexity extends AbstractRule implements FunctionAware, MethodAware
      * configured threshold.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return void
      */
     public function apply(AbstractNode $node)
     {
@@ -77,7 +76,7 @@ class NpathComplexity extends AbstractRule implements FunctionAware, MethodAware
                 $node->getType(),
                 $node->getName(),
                 $npath,
-                $threshold
+                $threshold,
             )
         );
     }

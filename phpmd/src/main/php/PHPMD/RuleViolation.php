@@ -109,22 +109,22 @@ class RuleViolation
     /**
      * Constructs a new rule violation instance.
      *
-     * @param \PHPMD\Rule $rule
+     * @param \PHPMD\Rule         $rule
      * @param \PHPMD\AbstractNode $node
-     * @param string $violationMessage
-     * @param mixed $metric
+     * @param string              $violationMessage
+     * @param mixed               $metric
      */
     public function __construct(Rule $rule, AbstractNode $node, $violationMessage, $metric = null)
     {
-        $this->rule        = $rule;
-        $this->node        = $node;
-        $this->metric      = $metric;
+        $this->rule = $rule;
+        $this->node = $node;
+        $this->metric = $metric;
         $this->description = $violationMessage;
 
         if ($node instanceof AbstractTypeNode) {
             $this->className = $node->getName();
         } elseif ($node instanceof MethodNode) {
-            $this->className  = $node->getParentName();
+            $this->className = $node->getParentName();
             $this->methodName = $node->getName();
         } elseif ($node instanceof FunctionNode) {
             $this->functionName = $node->getName();
@@ -174,7 +174,7 @@ class RuleViolation
     /**
      * Returns the first line of the node that causes this rule violation.
      *
-     * @return integer
+     * @return int
      */
     public function getBeginLine()
     {
@@ -184,7 +184,7 @@ class RuleViolation
     /**
      * Returns the last line of the node that causes this rule violation.
      *
-     * @return integer
+     * @return int
      */
     public function getEndLine()
     {

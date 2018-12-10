@@ -61,7 +61,6 @@ class ConstantNamingConventions extends AbstractRule implements ClassAware, Inte
      * the image only contains upper case characters.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return void
      */
     public function apply(AbstractNode $node)
     {

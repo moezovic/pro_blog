@@ -37,6 +37,7 @@
  * @author Manuel Pichler <mapi@phpmd.org>
  * @copyright 2008-2017 Manuel Pichler. All rights reserved.
  * @license http://www.opensource.org/licenses/bsd-license.php BSD License
+ *
  * @since      1.1.0
  */
 
@@ -53,6 +54,7 @@ use PHPMD\Rule\MethodAware;
  * @author     Francis Besset <francis.besset@gmail.com>
  * @copyright 2008-2017 Manuel Pichler. All rights reserved.
  * @license http://www.opensource.org/licenses/bsd-license.php BSD License
+ *
  * @since      1.1.0
  */
 class CamelCaseParameterName extends AbstractRule implements MethodAware, FunctionAware
@@ -62,7 +64,6 @@ class CamelCaseParameterName extends AbstractRule implements MethodAware, Functi
      * and emits a rule violation.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return void
      */
     public function apply(AbstractNode $node)
     {

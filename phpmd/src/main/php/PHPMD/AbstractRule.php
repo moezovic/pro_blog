@@ -55,7 +55,7 @@ abstract class AbstractRule implements Rule
     /**
      * The name for this rule instance.
      *
-     * @var string $_name
+     * @var string
      */
     private $name = '';
 
@@ -104,7 +104,7 @@ abstract class AbstractRule implements Rule
     /**
      * The priority of this rule.
      *
-     * @var integer
+     * @var int
      */
     private $priority = self::LOWEST_PRIORITY;
 
@@ -135,9 +135,7 @@ abstract class AbstractRule implements Rule
     /**
      * Sets the name for this rule instance.
      *
-     * @param string $name The rule name.
-     *
-     * @return void
+     * @param string $name the rule name
      */
     public function setName($name)
     {
@@ -157,9 +155,7 @@ abstract class AbstractRule implements Rule
     /**
      * Sets the version since when this rule is available.
      *
-     * @param string $since The version number.
-     *
-     * @return void
+     * @param string $since the version number
      */
     public function setSince($since)
     {
@@ -180,8 +176,6 @@ abstract class AbstractRule implements Rule
      * Sets the violation message text for this rule.
      *
      * @param string $message The violation message
-     *
-     * @return void
      */
     public function setMessage($message)
     {
@@ -201,9 +195,7 @@ abstract class AbstractRule implements Rule
     /**
      * Sets an url will external information for this rule.
      *
-     * @param string $externalInfoUrl The info url.
-     *
-     * @return void
+     * @param string $externalInfoUrl the info url
      */
     public function setExternalInfoUrl($externalInfoUrl)
     {
@@ -223,9 +215,7 @@ abstract class AbstractRule implements Rule
     /**
      * Sets the description text for this rule instance.
      *
-     * @param string $description The description text.
-     *
-     * @return void
+     * @param string $description the description text
      */
     public function setDescription($description)
     {
@@ -245,9 +235,7 @@ abstract class AbstractRule implements Rule
     /**
      * Adds a code example for this rule.
      *
-     * @param string $example The code example.
-     *
-     * @return void
+     * @param string $example the code example
      */
     public function addExample($example)
     {
@@ -257,7 +245,7 @@ abstract class AbstractRule implements Rule
     /**
      * Returns the priority of this rule.
      *
-     * @return integer
+     * @return int
      */
     public function getPriority()
     {
@@ -267,9 +255,7 @@ abstract class AbstractRule implements Rule
     /**
      * Set the priority of this rule.
      *
-     * @param integer $priority The rule priority
-     *
-     * @return void
+     * @param int $priority The rule priority
      */
     public function setPriority($priority)
     {
@@ -289,9 +275,7 @@ abstract class AbstractRule implements Rule
     /**
      * Sets the name of the parent rule set instance.
      *
-     * @param string $ruleSetName The rule-set name.
-     *
-     * @return void
+     * @param string $ruleSetName the rule-set name
      */
     public function setRuleSetName($ruleSetName)
     {
@@ -312,7 +296,6 @@ abstract class AbstractRule implements Rule
      * Sets the violation report for this rule.
      *
      * @param \PHPMD\Report $report
-     * @return void
      */
     public function setReport(Report $report)
     {
@@ -324,7 +307,6 @@ abstract class AbstractRule implements Rule
      *
      * @param string $name
      * @param string $value
-     * @return void
      */
     public function addProperty($name, $value)
     {
@@ -336,15 +318,17 @@ abstract class AbstractRule implements Rule
      * exception when no property with <b>$name</b> exists.
      *
      * @param string $name
-     * @return boolean
-     * @throws \OutOfBoundsException When no property for <b>$name</b> exists.
+     *
+     * @return bool
+     *
+     * @throws \OutOfBoundsException when no property for <b>$name</b> exists
      */
     public function getBooleanProperty($name)
     {
         if (isset($this->properties[$name])) {
             return in_array($this->properties[$name], array('true', 'on', 1));
         }
-        throw new \OutOfBoundsException('Property "' . $name . '" does not exist.');
+        throw new \OutOfBoundsException('Property "'.$name.'" does not exist.');
     }
 
     /**
@@ -352,33 +336,35 @@ abstract class AbstractRule implements Rule
      * exception when no property with <b>$name</b> exists.
      *
      * @param string $name
-     * @return integer
-     * @throws \OutOfBoundsException When no property for <b>$name</b> exists.
+     *
+     * @return int
+     *
+     * @throws \OutOfBoundsException when no property for <b>$name</b> exists
      */
     public function getIntProperty($name)
     {
         if (isset($this->properties[$name])) {
             return (int) $this->properties[$name];
         }
-        throw new \OutOfBoundsException('Property "' . $name . '" does not exist.');
+        throw new \OutOfBoundsException('Property "'.$name.'" does not exist.');
     }
-
 
     /**
      * Returns the raw string value of a configured property or throws an
      * exception when no property with <b>$name</b> exists.
      *
      * @param string $name
+     *
      * @return string
-     * @throws \OutOfBoundsException When no property for <b>$name</b> exists.
+     *
+     * @throws \OutOfBoundsException when no property for <b>$name</b> exists
      */
     public function getStringProperty($name)
     {
         if (isset($this->properties[$name])) {
             return $this->properties[$name];
         }
-        throw new \OutOfBoundsException('Property "' . $name . '" does not exist.');
-
+        throw new \OutOfBoundsException('Property "'.$name.'" does not exist.');
     }
 
     /**
@@ -386,19 +372,18 @@ abstract class AbstractRule implements Rule
      * for the given <b>$node</b> instance.
      *
      * @param \PHPMD\AbstractNode $node
-     * @param array $args
-     * @param mixed $metric
-     * @return void
+     * @param array               $args
+     * @param mixed               $metric
      */
     protected function addViolation(
         AbstractNode $node,
         array $args = array(),
         $metric = null
     ) {
-        $search  = array();
+        $search = array();
         $replace = array();
         foreach ($args as $index => $value) {
-            $search[]  = '{' . $index . '}';
+            $search[] = '{'.$index.'}';
             $replace[] = $value;
         }
 
@@ -413,7 +398,6 @@ abstract class AbstractRule implements Rule
      * rule implementations. All extending classes must implement this method.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return void
      */
     abstract public function apply(AbstractNode $node);
 }

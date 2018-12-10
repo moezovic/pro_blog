@@ -61,13 +61,14 @@ class ParserFactory
      * @var array
      */
     private $phpmd2pdepend = array(
-        'coverage'  =>  'coverage-report'
+        'coverage' => 'coverage-report',
     );
 
     /**
      * Creates the used {@link \PHPMD\Parser} analyzer instance.
      *
      * @param \PHPMD\PHPMD $phpmd
+     *
      * @return \PHPMD\Parser
      */
     public function create(PHPMD $phpmd)
@@ -87,10 +88,10 @@ class ParserFactory
     {
         $application = new Application();
 
-        if (file_exists(getcwd() . '/pdepend.xml')) {
-            $application->setConfigurationFile(getcwd() . '/pdepend.xml');
-        } elseif (file_exists(getcwd() . '/pdepend.xml.dist')) {
-            $application->setConfigurationFile(getcwd() . '/pdepend.xml.dist');
+        if (file_exists(getcwd().'/pdepend.xml')) {
+            $application->setConfigurationFile(getcwd().'/pdepend.xml');
+        } elseif (file_exists(getcwd().'/pdepend.xml.dist')) {
+            $application->setConfigurationFile(getcwd().'/pdepend.xml.dist');
         }
 
         return $application->getEngine();
@@ -100,7 +101,8 @@ class ParserFactory
      * Configures the given PDepend\Engine instance based on some user settings.
      *
      * @param \PDepend\Engine $pdepend
-     * @param \PHPMD\PHPMD $phpmd
+     * @param \PHPMD\PHPMD    $phpmd
+     *
      * @return \PDepend\Engine
      */
     private function init(Engine $pdepend, PHPMD $phpmd)
@@ -117,8 +119,7 @@ class ParserFactory
      * Configures the input source.
      *
      * @param \PDepend\Engine $pdepend
-     * @param \PHPMD\PHPMD $phpmd
-     * @return void
+     * @param \PHPMD\PHPMD    $phpmd
      */
     private function initInput(Engine $pdepend, PHPMD $phpmd)
     {
@@ -135,8 +136,7 @@ class ParserFactory
      * Initializes the ignored files and path's.
      *
      * @param \PDepend\Engine $pdepend
-     * @param \PHPMD\PHPMD $phpmd
-     * @return void
+     * @param \PHPMD\PHPMD    $phpmd
      */
     private function initIgnores(Engine $pdepend, PHPMD $phpmd)
     {
@@ -151,8 +151,7 @@ class ParserFactory
      * Initializes the accepted php source file extensions.
      *
      * @param \PDepend\Engine $pdepend
-     * @param \PHPMD\PHPMD $phpmd
-     * @return void
+     * @param \PHPMD\PHPMD    $phpmd
      */
     private function initExtensions(Engine $pdepend, PHPMD $phpmd)
     {
@@ -167,8 +166,7 @@ class ParserFactory
      * Initializes additional options for pdepend.
      *
      * @param \PDepend\Engine $pdepend
-     * @param \PHPMD\PHPMD $phpmd
-     * @return void
+     * @param \PHPMD\PHPMD    $phpmd
      */
     private function initOptions(Engine $pdepend, PHPMD $phpmd)
     {

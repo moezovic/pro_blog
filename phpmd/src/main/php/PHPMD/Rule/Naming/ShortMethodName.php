@@ -61,7 +61,6 @@ class ShortMethodName extends AbstractRule implements MethodAware, FunctionAware
      * length.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return void
      */
     public function apply(AbstractNode $node)
     {
@@ -81,13 +80,13 @@ class ShortMethodName extends AbstractRule implements MethodAware, FunctionAware
             array(
                 $node->getParentName(),
                 $node->getName(),
-                $threshold
+                $threshold,
             )
         );
     }
 
     /**
-     * Gets array of exceptions from property
+     * Gets array of exceptions from property.
      *
      * @return array
      */

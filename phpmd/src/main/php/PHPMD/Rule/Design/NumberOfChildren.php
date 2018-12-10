@@ -59,7 +59,6 @@ class NumberOfChildren extends AbstractRule implements ClassAware
      * node.
      *
      * @param \PHPMD\AbstractNode $node
-     * @return void
      */
     public function apply(AbstractNode $node)
     {
@@ -72,7 +71,7 @@ class NumberOfChildren extends AbstractRule implements ClassAware
                     $node->getType(),
                     $node->getName(),
                     $nocc,
-                    $threshold
+                    $threshold,
                 )
             );
         }

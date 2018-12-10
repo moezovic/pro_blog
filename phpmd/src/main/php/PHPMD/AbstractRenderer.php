@@ -71,7 +71,6 @@ abstract class AbstractRenderer
      * Returns the associated output writer instance.
      *
      * @param \PHPMD\AbstractWriter $writer
-     * @return void
      */
     public function setWriter(AbstractWriter $writer)
     {
@@ -81,8 +80,6 @@ abstract class AbstractRenderer
     /**
      * This method will be called on all renderers before the engine starts the
      * real report processing.
-     *
-     * @return void
      */
     public function start()
     {
@@ -94,15 +91,12 @@ abstract class AbstractRenderer
      * phase.
      *
      * @param \PHPMD\Report $report
-     * @return void
      */
     abstract public function renderReport(Report $report);
 
     /**
      * This method will be called the engine has finished the report processing
      * for all registered renderers.
-     *
-     * @return void
      */
     public function end()
     {

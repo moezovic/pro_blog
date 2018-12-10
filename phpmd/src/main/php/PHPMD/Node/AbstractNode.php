@@ -64,13 +64,15 @@ abstract class AbstractNode extends \PHPMD\AbstractNode
      * instance.
      *
      * @param \PHPMD\Rule $rule
-     * @return boolean
+     *
+     * @return bool
      */
     public function hasSuppressWarningsAnnotationFor(Rule $rule)
     {
-        if ($this->annotations === null) {
+        if (null === $this->annotations) {
             $this->annotations = new Annotations($this);
         }
+
         return $this->annotations->suppresses($rule);
     }
 }

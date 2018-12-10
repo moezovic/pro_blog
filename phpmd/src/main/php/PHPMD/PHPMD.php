@@ -42,7 +42,7 @@
 namespace PHPMD;
 
 /**
- * This is the main facade of the PHP PMD application
+ * This is the main facade of the PHP PMD application.
  *
  * @author Manuel Pichler <mapi@phpmd.org>
  * @copyright 2008-2017 Manuel Pichler. All rights reserved.
@@ -75,12 +75,13 @@ class PHPMD
      * @var string
      */
     private $input;
-    
+
     /**
      * This property will be set to <b>true</b> when an error or a violation
      * was found in the processed source code.
      *
-     * @var boolean
+     * @var bool
+     *
      * @since 0.2.5
      */
     private $violations = false;
@@ -89,6 +90,7 @@ class PHPMD
      * Additional options for PHPMD or one of it's parser backends.
      *
      * @var array
+     *
      * @since 1.2.0
      */
     private $options = array();
@@ -97,7 +99,8 @@ class PHPMD
      * This method will return <b>true</b> when the processed source code
      * contains violations.
      *
-     * @return boolean
+     * @return bool
+     *
      * @since 0.2.5
      */
     public function hasViolations()
@@ -119,6 +122,7 @@ class PHPMD
      * Returns an array with valid php source file extensions.
      *
      * @return array(string)
+     *
      * @since 0.2.0
      */
     public function getFileExtensions()
@@ -129,9 +133,7 @@ class PHPMD
     /**
      * Sets a list of filename extensions for valid php source code files.
      *
-     * @param array(string) $fileExtensions Extensions without leading dot.
-     *
-     * @return void
+     * @param array(string) $fileExtensions Extensions without leading dot
      */
     public function setFileExtensions(array $fileExtensions)
     {
@@ -142,6 +144,7 @@ class PHPMD
      * Returns an array with string patterns that mark a file path as invalid.
      *
      * @return array(string)
+     *
      * @since 0.2.0
      */
     public function getIgnorePattern()
@@ -153,9 +156,7 @@ class PHPMD
      * Sets a list of ignore patterns that is used to exclude directories from
      * the source analysis.
      *
-     * @param array(string) $ignorePatterns List of ignore patterns.
-     *
-     * @return void
+     * @param array(string) $ignorePatterns List of ignore patterns
      */
     public function setIgnorePattern(array $ignorePatterns)
     {
@@ -178,8 +179,7 @@ class PHPMD
     /**
      * Sets additional options for PHPMD or one of it's parser backends.
      *
-     * @param array $options Additional backend or PHPMD options.
-     * @return void
+     * @param array $options additional backend or PHPMD options
      */
     public function setOptions(array $options)
     {
@@ -191,11 +191,10 @@ class PHPMD
      * path. It will apply rules defined in the comma-separated <b>$ruleSets</b>
      * argument. The result will be passed to all given renderer instances.
      *
-     * @param string $inputPath
-     * @param string $ruleSets
+     * @param string                    $inputPath
+     * @param string                    $ruleSets
      * @param \PHPMD\AbstractRenderer[] $renderers
-     * @param \PHPMD\RuleSetFactory $ruleSetFactory
-     * @return void
+     * @param \PHPMD\RuleSetFactory     $ruleSetFactory
      */
     public function processFiles(
         $inputPath,
@@ -203,7 +202,6 @@ class PHPMD
         array $renderers,
         RuleSetFactory $ruleSetFactory
     ) {
-
         // Merge parsed excludes
         $this->ignorePatterns = array_merge($this->ignorePatterns, $ruleSetFactory->getIgnorePattern($ruleSets));
 
@@ -212,7 +210,7 @@ class PHPMD
         $report = new Report();
 
         $factory = new ParserFactory();
-        $parser  = $factory->create($this);
+        $parser = $factory->create($this);
 
         foreach ($ruleSetFactory->createRuleSets($ruleSets) as $ruleSet) {
             $parser->addRuleSet($ruleSet);
@@ -225,7 +223,7 @@ class PHPMD
         foreach ($renderers as $renderer) {
             $renderer->start();
         }
-        
+
         foreach ($renderers as $renderer) {
             $renderer->renderReport($report);
         }

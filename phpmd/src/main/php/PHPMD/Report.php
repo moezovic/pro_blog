@@ -76,6 +76,7 @@ class Report
      * Errors that occurred while parsing the source.
      *
      * @var array
+     *
      * @since 1.2.1
      */
     private $errors = array();
@@ -84,7 +85,6 @@ class Report
      * Adds a rule violation to this report.
      *
      * @param \PHPMD\RuleViolation $violation
-     * @return void
      */
     public function addRuleViolation(RuleViolation $violation)
     {
@@ -104,12 +104,13 @@ class Report
     /**
      * Returns <b>true</b> when this report does not contain any errors.
      *
-     * @return boolean
+     * @return bool
+     *
      * @since 0.2.5
      */
     public function isEmpty()
     {
-        return (count($this->ruleViolations) === 0);
+        return 0 === count($this->ruleViolations);
     }
 
     /**
@@ -139,7 +140,7 @@ class Report
      * Adds a processing error that occurred while parsing the source.
      *
      * @param \PHPMD\ProcessingError $error
-     * @return void
+     *
      * @since 1.2.1
      */
     public function addError(ProcessingError $error)
@@ -151,7 +152,8 @@ class Report
      * Returns <b>true</b> when the report contains at least one processing
      * error. Otherwise this method will return <b>false</b>.
      *
-     * @return boolean
+     * @return bool
+     *
      * @since 1.2.1
      */
     public function hasErrors()
@@ -164,6 +166,7 @@ class Report
      * added to this report.
      *
      * @return \Iterator
+     *
      * @since 1.2.1
      */
     public function getErrors()
@@ -173,8 +176,6 @@ class Report
 
     /**
      * Starts the time tracking of this report instance.
-     *
-     * @return void
      */
     public function start()
     {
@@ -183,8 +184,6 @@ class Report
 
     /**
      * Stops the time tracking of this report instance.
-     *
-     * @return void
      */
     public function end()
     {

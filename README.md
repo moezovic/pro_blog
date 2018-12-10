@@ -1,4 +1,4 @@
-#Building a professional blog from scratch.
+# Building a professional blog from scratch.
 
 This blog was entirely programmed manually.
 
@@ -6,7 +6,8 @@ This blog was entirely programmed manually.
 
 This blog is following the MVC architecture, so the data manipulation, the views and the controllers are doing their work independantly with no interference between each other.
 
-##USE IT LOCALLY
+## USE IT LOCALLY
+
 Clone the project on your machine
 Import the sql folder with you SGBD tool
 Edit the dev.php to meet your local machine requirement (depending on you OS)

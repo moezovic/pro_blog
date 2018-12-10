@@ -2,6 +2,9 @@
 
 namespace ProBlog\config;
 
+/**
+ * The autoloading class.
+ */
 class Autoloader
 {
     public static function register()

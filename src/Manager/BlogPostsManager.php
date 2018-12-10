@@ -4,6 +4,11 @@ namespace ProBlog\src\Manager;
 
 use ProBlog\src\model\BlogPost;
 
+/**
+ * The BlogPostsManager class.
+ *
+ * manage the blog posts table in the DB.
+ */
 class BlogPostsManager extends Manager
 {
     public function getBlogPosts()

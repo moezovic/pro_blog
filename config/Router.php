@@ -7,19 +7,24 @@ use ProBlog\src\controller\ErrorController;
 use ProBlog\src\controller\HomeController;
 use ProBlog\src\controller\SessionController;
 
+/**
+ * The Routing class.
+ *
+ * Routes towards the 4 controllers.
+ */
 class Router
 {
-    private $controllerObj;
-    private $homeControllerObj;
-    private $errorControllerObj;
-    private $sessionControllerObj;
+    private $_controllerObj;
+    private $_homeControllerObj;
+    private $_errorControllerObj;
+    private $_sessionControllerObj;
 
     public function __construct()
     {
-        $this->controllerObj = new Controller();
-        $this->homeControllerObj = new HomeController();
-        $this->errorControllerObj = new ErrorController();
-        $this->sessionControllerObj = new SessionController();
+        $this->_controllerObj = new Controller();
+        $this->_homeControllerObj = new HomeController();
+        $this->_errorControllerObj = new ErrorController();
+        $this->_sessionControllerObj = new SessionController();
     }
 
     public function run()
@@ -30,53 +35,53 @@ class Router
 
                 if (isset($_GET['bp'])) {
                     if ('list' === $_GET['bp']) {
-                        $this->controllerObj->blogPosts();
+                        $this->_controllerObj->blogPosts();
                     } elseif ('single' === $_GET['bp']) {
-                        $this->controllerObj->singleBlogPost($_GET['postId']);
+                        $this->_controllerObj->singleBlogPost($_GET['postId']);
                     } elseif ('new' === $_GET['bp']) {
                         if (!empty($_POST['title']) && !empty($_POST['topic_sentence']) && !empty($_POST['main_content']) && !empty($_POST['author'])) {
-                            $this->controllerObj->addBlogPost();
+                            $this->_controllerObj->addBlogPost();
                         } else {
                             throw new \Exception();
                         }
                     } elseif ('update' === $_GET['bp']) {
                         if (!empty($_POST['title']) && !empty($_POST['topic_sentence']) && !empty($_POST['main_content']) && !empty($_POST['author'])) {
                             if (isset($_GET['id'])) {
-                                $this->controllerObj->updateBlogPost($_GET['id']);
+                                $this->_controllerObj->updateBlogPost($_GET['id']);
                             }
                         }
                     } elseif ('delete' === $_GET['bp']) {
                         if (isset($_GET['id'])) {
-                            $this->controllerObj->deleteBlogPost($_GET['id']);
+                            $this->_controllerObj->deleteBlogPost($_GET['id']);
                         } else {
                             throw new \Exception();
                         }
                     } else {
-                        $this->errorControllerObj->unknown();
+                        $this->_errorControllerObj->unknown();
                     }
                 } elseif (isset($_GET['comments'])) {
                     if ('new' === $_GET['comments']) {
                         if (isset($_GET['id'])) {
                             if (!empty($_POST['commentary']) && !empty($_POST['name'] && $_POST['redirection'])) {
-                                $this->controllerObj->addPendingComment($_GET['id']);
+                                $this->_controllerObj->addPendingComment($_GET['id']);
                             } else {
                                 throw new \Exception();
                             }
                         }
                     } elseif ('validate' === $_GET['comments']) {
                         if (isset($_GET['id'])) {
-                            $this->controllerObj->validateComment($_GET['id']);
+                            $this->_controllerObj->validateComment($_GET['id']);
                         } else {
                             throw new \Exception();
                         }
                     } elseif ('delete' === $_GET['comments']) {
                         if (isset($_GET['id'])) {
-                            $this->controllerObj->deleteComment($_GET['id']);
+                            $this->_controllerObj->deleteComment($_GET['id']);
                         } else {
                             throw new \Exception();
                         }
                     } else {
-                        $this->errorControllerObj->unknown();
+                        $this->_errorControllerObj->unknown();
                     }
                 }
 
@@ -84,57 +89,57 @@ class Router
 
                 elseif (isset($_GET['access'])) {
                     if ('connexion' === $_GET['access']) {
-                        $this->sessionControllerObj->connexion();
+                        $this->_sessionControllerObj->connexion();
                     } elseif ('subscribe' === $_GET['access']) {
-                        $this->sessionControllerObj->subscription();
+                        $this->_sessionControllerObj->subscription();
                     } elseif ('newadmin' === $_GET['access']) {
                         if (!empty($_POST['name']) && !empty($_POST['pswd']) && !empty($_POST['pswd-verify'])) {
                             if ($_POST['pswd'] === $_POST['pswd-verify']) {
-                                $this->sessionControllerObj->addNewAdmin();
+                                $this->_sessionControllerObj->addNewAdmin();
                             } else {
                                 throw new \Exception();
                             }
                         } else {
-                            $this->errorControllerObj->unknown();
+                            $this->_errorControllerObj->unknown();
                         }
                     } elseif ('authentify' === $_GET['access']) {
                         if (!empty($_POST['name']) && !empty($_POST['password'])) {
-                            $this->sessionControllerObj->adminAccess();
+                            $this->_sessionControllerObj->adminAccess();
                         } else {
-                            $this->errorControllerObj->unknown();
+                            $this->_errorControllerObj->unknown();
                         }
                     } elseif ('connected' === $_GET['access']) {
                         if (isset($_GET['admin'])) {
                             if ('add_blogpost' === $_GET['admin']) {
-                                $this->sessionControllerObj->addBlogPost();
+                                $this->_sessionControllerObj->addBlogPost();
                             } elseif ('manage_blogposts' === $_GET['admin']) {
-                                $this->sessionControllerObj->manageBlogPosts();
+                                $this->_sessionControllerObj->manageBlogPosts();
                             } elseif ('manage_comments' === $_GET['admin']) {
-                                $this->sessionControllerObj->manageComments();
+                                $this->_sessionControllerObj->manageComments();
                             } elseif ('edit' === $_GET['admin']) {
-                                $this->sessionControllerObj->editBlogPost($_GET['id']);
+                                $this->_sessionControllerObj->editBlogPost($_GET['id']);
                             } else {
-                                $this->errorControllerObj->unknown();
+                                $this->_errorControllerObj->unknown();
                             }
                         } else {
-                            $this->errorControllerObj->unknown();
+                            $this->_errorControllerObj->unknown();
                         }
                     } elseif ('sessionend' === $_GET['access']) {
-                        $this->sessionControllerObj->destroySession();
+                        $this->_sessionControllerObj->destroySession();
                     } else {
-                        $this->errorControllerObj->unknown();
+                        $this->_errorControllerObj->unknown();
                     }
                 } else {
-                    $this->errorControllerObj->unknown();
+                    $this->_errorControllerObj->unknown();
                 }
             }
             // routes to the home page controller
             else {
-                $this->homeControllerObj->toHomePage();
+                $this->_homeControllerObj->toHomePage();
             }
         } catch (\Exception $e) {
             // echo $e->getMessage();
-            $this->errorControllerObj->error($e);
+            $this->_errorControllerObj->error($e);
         }
     }
 }

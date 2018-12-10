@@ -4,6 +4,11 @@ namespace ProBlog\src\Manager;
 
 use ProBlog\src\model\Comments;
 
+/**
+ * The CommentsManager class.
+ *
+ * manage the comments table in the DB.
+ */
 class CommentsManager extends Manager
 {
     public function getComments($postId)

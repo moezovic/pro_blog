@@ -6,6 +6,11 @@ require_once '../config/dev.php';
 
 use PDO;
 
+/**
+ * The Manager class.
+ *
+ * Handles the creation and verification of the PDO.
+ */
 class Manager
 {
     private $connection;

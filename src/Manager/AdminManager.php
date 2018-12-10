@@ -4,6 +4,11 @@ namespace ProBlog\src\Manager;
 
 use ProBlog\src\model\Administrators;
 
+/**
+ * The AdminManager class.
+ *
+ * manage the administrator table in the DB.
+ */
 class AdminManager extends Manager
 {
     public function getAdmin()

@@ -1,5 +1,5 @@
 <?php
-include 'Somefile';
+require 'Somefile';
 
 const CONSTANT1 = 1;
 const CONSTANT2 = 2;

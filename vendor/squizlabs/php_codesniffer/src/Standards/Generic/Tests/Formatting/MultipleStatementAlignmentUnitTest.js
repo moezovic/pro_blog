@@ -85,8 +85,7 @@ var spinButtonWidget = WidgetStore.get(spinButtonid);
 var position = spinButtonWidget.getValue();
 var posForamatsList = WidgetStore.get([self.id, '-positionFormats-list'].join(''));
 
-dfx.stripTags = function(content, allowedTags)
-{
+dfx.stripTags = function (content, allowedTags) {
     var match;
     var re = 'blah';
 };
@@ -98,15 +97,15 @@ var foo  = {};
 foo.blah = 'blah';
 
 var script = document.createElement('script');
-script.onload = function()
-{
+script.onload = function () {
     clearTimeout(t);
 };
 
 stream.match(stream.sol() ? /^\s*\/\/.*/ : /^\s+\/\/.*/);
-function() {
-    if (condition)
+function () {
+    if (condition) {
         foo = .4
+    }
 }
 
 x = x << y;

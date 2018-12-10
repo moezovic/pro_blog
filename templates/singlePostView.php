@@ -1,18 +1,14 @@
-<?php 
-session_start(); 
+<?php
+session_start();
 
 $this->title = "détail d'articles";
 
 // customize menu links
 
 if (isset($_SESSION['name'])) {
-    $this->menu = true; 
-}
-else
-{
-    
+    $this->menu = true;
+} else {
     $this->menu = false;
-
 }
 ?>
 
@@ -63,9 +59,8 @@ if (0 < count($comments)) {
                     </th>
                 </thead>
                 <tbody>
-                <?php 
-                foreach ($comments as $comment) 
-                {
+                <?php
+                foreach ($comments as $comment) {
                     ?>
                         <tr>
                         <td><?php echo $comment->getAuthor(); ?></td>
@@ -73,8 +68,7 @@ if (0 < count($comments)) {
                         <td><?php echo $comment->getInsertDate(); ?></td>
                     </tr>
                     <?php
-                }
-                ?>
+                } ?>
                  </tbody>
             </table>
         </div>
@@ -82,12 +76,12 @@ if (0 < count($comments)) {
 
     <hr>
     <?php
-} 
+}
 ?>
 
 <div class="container">
 
-    <form method="POST" action="index.php?action&comments=new&id=<?php echo $blogPost->getId();?>" class="form">
+    <form method="POST" action="index.php?action&comments=new&id=<?php echo $blogPost->getId(); ?>" class="form">
 
         <div class="form-group ">
             <label for="commentary">Commentaire</label>

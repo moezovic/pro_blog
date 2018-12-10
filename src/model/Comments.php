@@ -1,9 +1,9 @@
-<?php 
- namespace ProBlog\src\model;
+<?php
+
+namespace ProBlog\src\model;
 
 class Comments
 {
-
     private $id;
     private $blog_post_id;
     private $content;
@@ -59,8 +59,4 @@ class Comments
     {
         $this->insert_date = $time;
     }
-
 }
-
-
-

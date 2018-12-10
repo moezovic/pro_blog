@@ -1,50 +1,56 @@
 <?php
 /**
-* Comment
-*/
+ * Comment
+ */
 
 
-include $blah;
-
-
-/**
-* Comment
-*/
+require $blah;
 
 
 /**
-* Comment
-*/
+ * Comment
+ */
+
+
+/**
+ * Comment
+ */
 function foo()
 {
 }//end foo()
 
-function func1() {
+function func1()
+{
 
 }//end func1()
 
 
-function func2() {
+function func2()
+{
 
 }//end func2()
 
-function func3() {
+function func3()
+{
 
 }//end func3()
 
 
 class MyClass
 {
-    function func1() {
+    function func1()
+    {
 
     }//end func1()
 
 
-    function func2() {
+    function func2()
+    {
 
     }//end func2()
 
-    function func3() {
+    function func3()
+    {
 
     }//end func3()
 }//end class
@@ -65,18 +71,21 @@ class MyClass
 {
 
 
-    function func1() {
+    function func1()
+    {
 
     }//end func1()
 
 
-    function func2() {
+    function func2()
+    {
 
     }//end func2()
 
 
 
-    function func3() {
+    function func3()
+    {
 
     }//end func3()
 
@@ -102,7 +111,8 @@ interface MyInterface
 
 class MyClass
 {
-    function func1() {
+    function func1()
+    {
 
     }//end func1()
 }//end class
@@ -130,7 +140,8 @@ class MyClass
      *
      * @return boolean
      */
-    function func1() {
+    function func1()
+    {
 
     }//end func1()
 
@@ -139,7 +150,8 @@ class MyClass
      *
      * @return boolean
      */
-    function func2() {
+    function func2()
+    {
 
     }//end func2()
 
@@ -149,7 +161,8 @@ class MyClass
      *
      * @return boolean
      */
-    function func3() {
+    function func3()
+    {
 
     }//end func3()
 
@@ -198,7 +211,8 @@ class MyClass
      *
      * @return boolean
      */
-    function func1() {
+    function func1()
+    {
 
     }//end func1()
 
@@ -247,7 +261,8 @@ class MyClass
      *
      * @return boolean
      */
-    function func1() {
+    function func1()
+    {
 
     }//end func1()
 
@@ -265,19 +280,20 @@ preg_replace_callback(
     'hello-world'
 );
 
-$callback = function ($bar) use ($foo)
-            {
+$callback = function ($bar) use ($foo) {
                 $bar += $foo;
-            };
+};
 
 class MyClass
 {
-    function func1() {
+    function func1()
+    {
     }
 }
 
 
-function test() {
+function test()
+{
 
 }//end test()
 
@@ -286,24 +302,28 @@ if ($foo) {
     /**
      * Comment
      */
-    function foo() {
+    function foo()
+    {
         // Code here
     }
     /**
      * Comment
      */
-    function bar() {
+    function bar()
+    {
         // Code here
     }
 }
 
 // foo
-function foo() {
+function foo()
+{
 }
 
 
 // phpcs:disable Standard.Category.Sniff -- for reasons.
-function bar() {
+function bar()
+{
 }
 
 
@@ -318,7 +338,8 @@ class MyClass
      *
      * @return boolean
      */
-    private static function func1() {
+    private static function func1()
+    {
 
     }//end func1()
 
@@ -327,39 +348,63 @@ class MyClass
      *
      * @return boolean
      */
-    private static function func2() {
+    private static function func2()
+    {
 
     }//end func1()
 
 
 }//end class
 
-class MyClass {
-    function a(){}
-    function b(){}
-    function c(){}
+class MyClass
+{
+    function a()
+    {
+    }
+    function b()
+    {
+    }
+    function c()
+    {
+    }
 }
 
 // phpcs:set Squiz.WhiteSpace.FunctionSpacing spacing 1
 // phpcs:set Squiz.WhiteSpace.FunctionSpacing spacingBeforeFirst 1
 // phpcs:set Squiz.WhiteSpace.FunctionSpacing spacingAfterLast 1
 
-class MyClass {
-    function a(){}
-    function b(){}
-    function c(){}
+class MyClass
+{
+    function a()
+    {
+    }
+    function b()
+    {
+    }
+    function c()
+    {
+    }
 }
 
-$util->setLogger(new class {
-    public function a(){}
-    private function b(){}
-    protected function c(){}
-});
+$util->setLogger(
+    new class {
+        public function a()
+        {
+        }
+        private function b()
+        {
+        }
+        protected function c()
+        {
+        }
+    }
+);
 
 ?>
 
 <?php
-function functionInEmbeddedPHP() {
+function functionInEmbeddedPHP()
+{
 
 }
 
@@ -376,7 +421,9 @@ class MyClass
      *
      * @return boolean
      */
-    function func1() {}
+    function func1()
+    {
+    }
 
 }//end class
 
@@ -390,7 +437,9 @@ class MyClass
      *
      * @return boolean
      */
-    function func1() {}
+    function func1()
+    {
+    }
 
 }//end class
 
@@ -402,12 +451,16 @@ class MyClass
      *
      * @return boolean
      */
-    function func1() {}
+    function func1()
+    {
+    }
     // phpcs:disable Standard.Category.Sniff -- for reasons.
     /**
      * Function comment.
      *
      * @return boolean
      */
-    function func2() {}
+    function func2()
+    {
+    }
 }//end class

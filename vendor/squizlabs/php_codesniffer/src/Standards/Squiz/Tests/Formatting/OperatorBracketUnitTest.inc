@@ -105,8 +105,10 @@ class MyClass
 
 }//end class
 
-if ($index < -1) $index = 0;
-if ($index < - 1) $index = 0;
+if ($index < -1) { $index = 0;
+}
+if ($index < - 1) { $index = 0;
+}
 
 $three = ceil($one / $two);
 $three = ceil(($one / $two) / $four);
@@ -117,18 +119,18 @@ $four = -0.25;
 $three = ceil($one[1] / $two);
 
 switch ($number % 10) {
-    case -1:
-        $suffix = 'st';
+case -1:
+    $suffix = 'st';
     break;
 }
 
 $expectedPermission = array(
                        'granted'        => 4,
                        'denied'         => 1,
-                       'cascade'        => TRUE,
+                       'cascade'        => true,
                        'blockergranted' => 2,
                        'blockerdenied'  => - 3,
-                       'effective'      => TRUE,
+                       'effective'      => true,
                       );
 
 $value = (int) isset($blah) + 2;

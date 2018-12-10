@@ -1,16 +1,12 @@
-<?php 
+<?php
 session_start();
-$this->title ="Modifier un article";
-$this->custom = "custom-menu";
+$this->title = 'Modifier un article';
+$this->custom = 'custom-menu';
 
 if (isset($_SESSION['name'])) {
-    $this->menu = true; 
-}
-else
-{
-    
+    $this->menu = true;
+} else {
     $this->menu = false;
-
 }
 
 if (isset($_SESSION['name'])) {

@@ -1,3 +1,3 @@
 <div class="clear"></div>
-    <?php include('inc.php'); ?>
+    <?php require 'inc.php'; ?>
 </div>

@@ -7,15 +7,27 @@ class MyClass
     public   static  $var = null;
     protected  $var = null;
 
-    private function myFunction() {}
-    public static function myFunction() {}
+    private function myFunction()
+    {
+    }
+    public static function myFunction()
+    {
+    }
 
-    private   function myFunction() {}
-    public  static function myFunction() {}
-    private static   function myFunction() {}
+    private   function myFunction()
+    {
+    }
+    public  static function myFunction()
+    {
+    }
+    private static   function myFunction()
+    {
+    }
 
     private  static
-        function myFunction() {}
+    function myFunction()
+    {
+    }
 
     public static function output()
     {
@@ -42,8 +54,10 @@ if ($geometry instanceof static      || $geometry instanceof static) {
     echo 'foo';
 }
 
-class MyClass1 {
-    use HelloWorld { sayHello as private; }
+class MyClass1
+{
+    use HelloWorld { sayHello as private; 
+    }
 }
 
 abstract class Foo

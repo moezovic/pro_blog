@@ -1,10 +1,12 @@
 <?php
-if (Function_Exists('myFunction') === TRUE) {
+if (Function_Exists('myFunction') === true) {
     $retval = MyFunction(true);
     $keys = Array_Keys($array);
 }
 
-function getType() {}
+function getType()
+{
+}
 
 $obj = new Date();
 
@@ -12,11 +14,15 @@ $count = $object->Count();
 $count = $object::Count();
 $count = $object->count();
 $count = $object::count();
-class MyClass {
-    public function Count() {}
+class MyClass
+{
+    public function Count()
+    {
+    }
 }
 
-function &Sort() {
+function &Sort()
+{
 
 }
 

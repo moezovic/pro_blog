@@ -2,8 +2,7 @@
 /**
  * @see something
  */
-if (@in_array($array, $needle))
-{
+if (@in_array($array, $needle)) {
     echo '@';
 }
 ?>

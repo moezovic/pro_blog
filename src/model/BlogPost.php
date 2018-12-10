@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace ProBlog\src\model;
 
@@ -70,5 +70,4 @@ class BlogPost
     {
         $this->update_time = $time;
     }
-
 }

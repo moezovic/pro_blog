@@ -33,7 +33,7 @@ $var = [
     ];
 
 $var = array(
-    'one' => function() {
+    'one' => function () {
         $foo = [1,2,3];
         $bar = [
             1,

@@ -12,37 +12,34 @@ class VariableCommentUnitTest
      * @see otherFunctions()
      * @see anotherFunctions()
      */
-     public $variableName = array();
+    public $variableName = array();
 
 
      // Not "/**" style comment.
      //
      // @var   string
-     private  $_incorrectCommentStyle = '';
+    private  $_incorrectCommentStyle = '';
 
 
-     protected $noComment = '';
+    protected $noComment = '';
 
 
     /**
-     *
      * Extra newline before short comment.
      *
      * @var string
      */
-     public $extraNewlineBeforeShort = '';
+    public $extraNewlineBeforeShort = '';
 
 
     /**
      * Extra newline between short description.
      *
-     *
-     *
      * Long description.
      *
      * @var string
      */
-     private $_extraNewlineBetween = '';
+    private $_extraNewlineBetween = '';
 
 
     /**
@@ -51,18 +48,18 @@ class VariableCommentUnitTest
      * Long description,
      * with two var tags.
      *
-     *
      * @var string
      * @var array
      */
-     protected $extraNewlineBeforeTags = '';
+    protected $extraNewlineBeforeTags = '';
 
 
     /**
      * No newline before tags, var tag missing.
+     *
      * @see otherFunctions()
      */
-     protected $noNewlineBeforeTags = '';
+    protected $noNewlineBeforeTags = '';
 
 
     /**
@@ -72,18 +69,18 @@ class VariableCommentUnitTest
      *
      * @var
      */
-     public $singleLineFullStopShortComment = '';
+    public $singleLineFullStopShortComment = '';
 
 
     /**
      * Incorrect tag indentation.
      *
-     * @var     string
-     * @see        otherFunctions()
+     * @var string
+     * @see otherFunctions()
      * @see anotherFunctions()
      * @see
      */
-     public $singleLineFullStopShortComment = '';
+    public $singleLineFullStopShortComment = '';
 
 
     /**
@@ -92,7 +89,7 @@ class VariableCommentUnitTest
      * @var     string
      * @summary unknown tag
      */
-     public $missingSinceTag = '';
+    public $missingSinceTag = '';
 
 
     /**
@@ -131,19 +128,19 @@ class VariableCommentUnitTest
      $emptyVarDoc = '';
 
      /**
-     * Var type checking (int v.s. integer).
-     *
-     * @var int
-     */
-     private $_varSimpleTypeCheck;
+      * Var type checking (int v.s. integer).
+      *
+      * @var int
+      */
+    private $_varSimpleTypeCheck;
 
 
      /**
-     * Var type checking (array(int => string) v.s. array(int => string)).
-     *
-     * @var array(int => string)
-     */
-     private $_varArrayTypeCheck;
+      * Var type checking (array(int => string) v.s. array(int => string)).
+      *
+      * @var array(int => string)
+      */
+    private $_varArrayTypeCheck;
 
 
     /**
@@ -151,7 +148,7 @@ class VariableCommentUnitTest
      *
      * @var Boolean
      */
-     public $CapBoolTag = true;
+    public $CapBoolTag = true;
 
 
     /**
@@ -159,7 +156,7 @@ class VariableCommentUnitTest
      *
      * @var BOOLEAN
      */
-     public $CapBoolTag2 = true;
+    public $CapBoolTag2 = true;
 
 
     /**
@@ -167,7 +164,7 @@ class VariableCommentUnitTest
      *
      * @var Double
      */
-     public $CapDoubleTag = 1;
+    public $CapDoubleTag = 1;
 
 
     /**
@@ -175,7 +172,7 @@ class VariableCommentUnitTest
      *
      * @var DOUBLE
      */
-     public $CapDoubleTag2 = 1;
+    public $CapDoubleTag2 = 1;
 
 
     /**
@@ -183,7 +180,7 @@ class VariableCommentUnitTest
      *
      * @var Real
      */
-     public $CapRealTag = 1;
+    public $CapRealTag = 1;
 
 
     /**
@@ -191,7 +188,7 @@ class VariableCommentUnitTest
      *
      * @var REAL
      */
-     public $CapRealTag2 = 1;
+    public $CapRealTag2 = 1;
 
 
     /**
@@ -199,7 +196,7 @@ class VariableCommentUnitTest
      *
      * @var Float
      */
-     public $CapFloatTag = 1;
+    public $CapFloatTag = 1;
 
 
     /**
@@ -207,7 +204,7 @@ class VariableCommentUnitTest
      *
      * @var FLOAT
      */
-     public $CapFloatTag2 = 1;
+    public $CapFloatTag2 = 1;
 
 
     /**
@@ -215,7 +212,7 @@ class VariableCommentUnitTest
      *
      * @var Int
      */
-     public $CapIntTag = 1;
+    public $CapIntTag = 1;
 
 
     /**
@@ -223,7 +220,7 @@ class VariableCommentUnitTest
      *
      * @var INT
      */
-     public $CapIntTag2 = 1;
+    public $CapIntTag2 = 1;
 
 
     /**
@@ -231,7 +228,7 @@ class VariableCommentUnitTest
      *
      * @var Integer
      */
-     public $CapIntTag3 = 1;
+    public $CapIntTag3 = 1;
 
 
     /**
@@ -239,7 +236,7 @@ class VariableCommentUnitTest
      *
      * @var INTEGER
      */
-     public $CapIntTag4 = 1;
+    public $CapIntTag4 = 1;
 
 
     /**
@@ -247,7 +244,7 @@ class VariableCommentUnitTest
      *
      * @var Array
      */
-     public $CapVarTag = [];
+    public $CapVarTag = [];
 
 
     /**
@@ -255,7 +252,7 @@ class VariableCommentUnitTest
      *
      * @var ARRAY
      */
-     public $CapVarTag2 = [];
+    public $CapVarTag2 = [];
 
 
     /**
@@ -263,7 +260,7 @@ class VariableCommentUnitTest
      *
      * @var Array()
      */
-     public $CapVarTag3 = [];
+    public $CapVarTag3 = [];
 
 
     /**
@@ -271,29 +268,29 @@ class VariableCommentUnitTest
      *
      * @var ARRAY()
      */
-     public $CapVarTag4 = [];
+    public $CapVarTag4 = [];
 
 
      /**
-     * Var type checking (STRING v.s. string).
-     *
-     * @var STRING
-     */
-     private $_varCaseTypeCheck;
+      * Var type checking (STRING v.s. string).
+      *
+      * @var STRING
+      */
+    private $_varCaseTypeCheck;
 
 
     /**
      * @var integer
      */
-     private $_varWithNoShortComment;
+    private $_varWithNoShortComment;
 
-     protected $noComment2 = '';
+    protected $noComment2 = '';
 
 
      /**
-     * @var int Var type checking (int v.s. integer) with single-line comment.
-     */
-     private $_varSimpleTypeCheckSingleLine;
+      * @var int Var type checking (int v.s. integer) with single-line comment.
+      */
+    private $_varSimpleTypeCheckSingleLine;
 
 
 }//end class
@@ -303,26 +300,25 @@ class VariableCommentUnitTest
  * VariableCommentUnitTest2.
  *
  * Long description goes here.
- *
  */
 class VariableCommentUnitTest2
 {
 
-   public $hello;
+    public $hello;
 
-    /** Comment starts here.
+    /**
+     * Comment starts here.
      *
      * @var string
-     *
      */
-     private $_varCaseTypeCheck;
+    private $_varCaseTypeCheck;
 
      /**
       * 这是一条测试评论.
       *
       * @var string
       */
-     public $foo;
+    public $foo;
 
 }//end class
 
@@ -340,6 +336,6 @@ class Foo
      *
      * @var array
      */
-     public static $variableName = array();
+    public static $variableName = array();
 
 }

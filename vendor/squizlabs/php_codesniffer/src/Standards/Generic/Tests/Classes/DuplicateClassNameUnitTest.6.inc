@@ -1,12 +1,15 @@
 <?php
-class Test{
-    public function testOne(){
-     ?>
+class Test
+{
+    public function testOne()
+    {
+        ?>
      <p>some html here</p>
-    <?php 
-   }
+        <?php 
+    }
 }
 
-class Test{
+class Test
+{
 
 }

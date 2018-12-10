@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace ProBlog\src\controller;
 
@@ -7,7 +7,7 @@ use ProBlog\src\Manager\AdminManager;
 use ProBlog\src\Manager\BlogPostsManager;
 use ProBlog\src\Manager\CommentsManager;
 
-Class SessionController
+class SessionController
 {
     private $adminObj;
     private $viewObj;
@@ -19,7 +19,7 @@ Class SessionController
         $this->viewObj = new View();
         $this->adminObj = new AdminManager();
         $this->blogPostObj = new BlogPostsManager();
-        $this->commentDAO = new CommentsManager;
+        $this->commentDAO = new CommentsManager();
     }
 
     public function subscription()
@@ -46,7 +46,7 @@ Class SessionController
     public function manageComments()
     {
         $pendingComments = $this->commentDAO->getAllPending();
-        $this->viewObj->render('admin/manage_comments', ['pendingComments'=>$pendingComments]);
+        $this->viewObj->render('admin/manage_comments', ['pendingComments' => $pendingComments]);
     }
 
     public function editBlogPost($blogPostId)
@@ -63,7 +63,6 @@ Class SessionController
 
     public function destroySession()
     {
-        
         $this->viewObj->render('home', []);
     }
 
@@ -72,15 +71,12 @@ Class SessionController
         $name = htmlspecialchars($_POST['name']);
         $password = htmlspecialchars($_POST['password']);
         $adminsList = $this->adminObj->getAdmin();
-        foreach ($adminsList as $admin) 
-        {
+        foreach ($adminsList as $admin) {
             $adminName = $admin->getName();
             $adminPass = $admin->getPassword();
             if ($adminName == $name && password_verify($password, $adminPass)) {
-                
                 return $this->viewObj->render('home', ['session' => $adminName]);
             }
         }
     }
-
 }

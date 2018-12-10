@@ -7,10 +7,10 @@ class PHP_CodeSniffer_File
      *
      * long desc here
      *
-     * @param int $stackPtr   The position in @ @unknown the stack of the token
-     *                        that opened the scope
-     * @param int $detph    How many scope levels down we are.
-     * @param int    $index    The index
+     * @param  int $stackPtr The position in @ @unknown the stack of the token
+     *                       that opened the scope
+     * @param  int $detph    How many scope levels down we are.
+     * @param  int $index    The index
      * @return
      * @throws
      */
@@ -32,13 +32,9 @@ class PHP_CodeSniffer_File
 
 
     /**
-     *
-     *
      * A simple function comment
      *
-     *
      * Long description with extra blank line before and after
-     *
      *
      * @return void
      */
@@ -50,6 +46,7 @@ class PHP_CodeSniffer_File
 
     /**
      * A simple function comment
+     *
      * @return void
      */
     public function missingNewlinesBeforeTags()
@@ -108,7 +105,6 @@ class PHP_CodeSniffer_File
 
     /**
      * no return tag
-     *
      */
     public function noReturn($one)
     {
@@ -120,9 +116,9 @@ class PHP_CodeSniffer_File
      * Param not immediate
      *
      * @return
-     * @param   int   $threeSpaces
-     * @param int     $superfluous
-     * @param missing
+     * @param  int     $threeSpaces
+     * @param  int     $superfluous
+     * @param  missing
      * @param
      */
     public function missingDescription($threeSpaces)
@@ -134,9 +130,9 @@ class PHP_CodeSniffer_File
     /**
      * Param not immediate
      *
-     * @param int      $one   comment
-     * @param int      $two   comment
-     * @param string   $three comment
+     * @param int    $one   comment
+     * @param int    $two   comment
+     * @param string $three comment
      *
      * @return void
      */
@@ -177,9 +173,6 @@ function tagBeforeComment()
 
 /**
  * no return tag
- *
- *
- *
  */
 function noReturnOutsideClass()
 {
@@ -193,7 +186,7 @@ function noReturnOutsideClass()
  * @param int $one comment
  *
  * @return void
- * @fine  Unknown tag
+ * @fine   Unknown tag
  */
 function missingTwoParamComment($one, $two, $three)
 {
@@ -217,7 +210,9 @@ function emptyFunctionDocComment()
  * @access public
  * @return bool
  */
-function myFunction($arg1) {}
+function myFunction($arg1)
+{
+}
 
 
 /**
@@ -231,7 +226,9 @@ function myFunction($arg1) {}
 
 echo $blah;
 
-function myFunction($arg1) {}
+function myFunction($arg1)
+{
+}
 
 /**
  * Test function.
@@ -241,9 +238,12 @@ function myFunction($arg1) {}
  * @throws MyException
  * @throws MyException When I feel like it
  */
-function myFunction() {}
+function myFunction()
+{
+}
 
-abstract class MyClass {
+abstract class MyClass
+{
     /**
      * An abstract function.
      *
@@ -268,19 +268,21 @@ function foo(&$tokens, $tokenizer, $eolChar)
 
 /**
  * Gettext.
- *
  */
-function _() {
+function _()
+{
     return $foo;
 }
 
-class Baz {
+class Baz
+{
     /**
      * The PHP5 constructor
      *
      * No return tag
      */
-    public function __construct() {
+    public function __construct()
+    {
 
     }
 }
@@ -294,7 +296,8 @@ class Baz {
  *
  * @return void
  */
-function completeStep($status, array $array = [Class1::class, 'test'], $note = '') {
+function completeStep($status, array $array = [Class1::class, 'test'], $note = '')
+{
     echo 'foo';
 }
 
@@ -306,7 +309,8 @@ function completeStep($status, array $array = [Class1::class, 'test'], $note = '
  *
  * @return void
  */
-function myFunction(string $name1, string ...$name2) {
+function myFunction(string $name1, string ...$name2)
+{
 }
 
 
@@ -318,7 +322,8 @@ function myFunction(string $name1, string ...$name2) {
  *
  * @return void
  */
-function myFunction(string $name1, string ...$name2) {
+function myFunction(string $name1, string ...$name2)
+{
 }
 
 /**
@@ -331,19 +336,19 @@ function myFunction(string $name1, string ...$name2) {
  *
  * @return
  *   Return value
- *
  */
-function foo($bar) {
+function foo($bar)
+{
 }
 
 /**
  * Processes the test.
  *
  * @param PHP_CodeSniffer\Files\File $phpcsFile The PHP_CodeSniffer file where the
- *                                        token occurred.
- * @param int                        $stackPtr The position in the tokens stack
- *                                    where the listening token type
- *                                           was found.
+ *                                              token occurred.
+ * @param int                        $stackPtr  The position in the tokens stack
+ *                                              where the listening token type
+ *                                              was found.
  *
  * @return void
  * @see    register()
@@ -357,11 +362,11 @@ function process(File $phpcsFile, $stackPtr)
  * Processes the test.
  *
  * @param int $phpcsFile The PHP_CodeSniffer
- *                   file where the
- *                                        token occurred.
+ *                       file where the
+ *                       token occurred.
  * @param int $stackPtr  The position in the tokens stack
- *                                    where the listening token type
- *                                           was found.
+ *                       where the listening token type
+ *                       was found.
  *
  * @return void
  * @see    register()

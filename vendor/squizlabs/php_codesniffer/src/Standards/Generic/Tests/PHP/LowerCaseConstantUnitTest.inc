@@ -4,48 +4,57 @@
 function myFunction($arg1, $arg2=true)
 {
 }
-function myFunction($arg1, $arg2=TRUE)
+function myFunction($arg1, $arg2=true)
 {
 }
-function myFunction($arg1, $arg2=True)
+function myFunction($arg1, $arg2=true)
 {
 }
 
-if ($variable === true) { }
-if ($variable === TRUE) { }
-if ($variable === True) { }
+if ($variable === true) { 
+}
+if ($variable === true) { 
+}
+if ($variable === true) { 
+}
 
 
 // False
 function myFunction($arg1, $arg2=false)
 {
 }
-function myFunction($arg1, $arg2=FALSE)
+function myFunction($arg1, $arg2=false)
 {
 }
-function myFunction($arg1, $arg2=False)
+function myFunction($arg1, $arg2=false)
 {
 }
 
-if ($variable === false) { }
-if ($variable === FALSE) { }
-if ($variable === False) { }
+if ($variable === false) { 
+}
+if ($variable === false) { 
+}
+if ($variable === false) { 
+}
 
 
 // Null
 function myFunction($arg1, $arg2=null)
 {
 }
-function myFunction($arg1, $arg2=NULL)
+function myFunction($arg1, $arg2=null)
 {
 }
-function myFunction($arg1, $arg2=Null)
+function myFunction($arg1, $arg2=null)
 {
 }
 
-if ($variable === null) { }
-if ($variable === NULL) { }
-if ($variable === Null) { }
+if ($variable === null) { 
+}
+if ($variable === null) { 
+}
+if ($variable === null) { 
+}
 
 $x = new stdClass();
 $x->NULL = 7;
@@ -55,7 +64,9 @@ new \Zend\Log\Writer\NULL();
 
 namespace False;
 
-class True extends Null implements False {}
+class True extends Null implements False
+{
+}
 
 use True\Something;
 use Something\True;
@@ -67,8 +78,8 @@ class MyClass
     }
 }
 
-$x = $f?FALSE:true;
-$x = $f? FALSE:true;
+$x = $f?false:true;
+$x = $f? false:true;
 
 class MyClass
 {
@@ -78,6 +89,8 @@ class MyClass
 
 var_dump(MyClass::TRUE);
 
-function tRUE() {}
+function tRUE()
+{
+}
 
 $input->getFilterChain()->attachByName('Null', ['type' => Null::TYPE_STRING]);

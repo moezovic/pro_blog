@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace ProBlog\src\controller;
 
@@ -6,7 +6,6 @@ use ProBlog\src\model\View;
 
 class HomeController
 {
-
     private $viewObj;
 
     public function __construct()
@@ -18,5 +17,4 @@ class HomeController
     {
         $this->viewObj->render('home', []);
     }
-
 }

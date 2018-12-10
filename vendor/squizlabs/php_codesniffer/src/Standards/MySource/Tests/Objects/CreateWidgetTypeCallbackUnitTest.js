@@ -1,7 +1,6 @@
 SampleWidgetType.prototype = {
 
-    create: function(callback)
-    {
+    create: function (callback) {
         if (x === 1) {
             return;
         }
@@ -26,9 +25,11 @@ SampleWidgetType.prototype = {
         callback.call(self);
 
         var self = this;
-        this.createChildren(null, function() {
-            callback.call(self, div);
-        });
+        this.createChildren(
+            null, function () {
+                callback.call(self, div);
+            }
+        );
 
         // Never good to return a vaue.
         return something;
@@ -40,13 +41,11 @@ SampleWidgetType.prototype = {
 
 AnotherSampleWidgetType.prototype = {
 
-    create: function(input)
-    {
+    create: function (input) {
         return;
     }
 
-    getSomething: function(input)
-    {
+    getSomething: function (input) {
         return 1;
     }
 
@@ -55,8 +54,7 @@ AnotherSampleWidgetType.prototype = {
 
 NoCreateWidgetType.prototype = {
 
-    getSomething: function(input)
-    {
+    getSomething: function (input) {
         return;
     }
 
@@ -65,8 +63,7 @@ NoCreateWidgetType.prototype = {
 
 SomeRandom.prototype = {
 
-    create: function(input)
-    {
+    create: function (input) {
         return;
     }
 
@@ -74,8 +71,7 @@ SomeRandom.prototype = {
 
 SampleWidgetType.prototype = {
 
-    create: function(callback)
-    {
+    create: function (callback) {
         if (a === 1) {
             // This is ok because it is the last statement,
             // even though it is conditional.
@@ -88,8 +84,7 @@ SampleWidgetType.prototype = {
 
 SampleWidgetType.prototype = {
 
-    create: function(callback)
-    {
+    create: function (callback) {
         var something = callback;
 
     }
@@ -98,8 +93,7 @@ SampleWidgetType.prototype = {
 
 SampleWidgetType.prototype = {
 
-    create: function(callback)
-    {
+    create: function (callback) {
         // Also valid because we are passing the callback to
         // someone else to call.
         if (y === 1) {
@@ -115,8 +109,7 @@ SampleWidgetType.prototype = {
 
 SampleWidgetType.prototype = {
 
-    create: function(callback)
-    {
+    create: function (callback) {
         // Also valid because we are passing the callback to
         // someone else to call.
         if (y === 1) {
@@ -131,8 +124,7 @@ SampleWidgetType.prototype = {
 
 SampleWidgetType.prototype = {
 
-    create: function(callback)
-    {
+    create: function (callback) {
         if (a === 1) {
             // This is ok because it is the last statement,
             // even though it is conditional.
@@ -146,8 +138,7 @@ SampleWidgetType.prototype = {
 
 SampleWidgetType.prototype = {
 
-    create: function(callback)
-    {
+    create: function (callback) {
         if (dfx.isFn(callback) === true) {
             callback.call(this, cont);
             return;
@@ -159,11 +150,12 @@ SampleWidgetType.prototype = {
 
 SampleWidgetType.prototype = {
 
-    create: function(callback)
-    {
-        dfx.foreach(items, function(item) {
-            return true;
-        });
+    create: function (callback) {
+        dfx.foreach(
+            items, function (item) {
+                return true;
+            }
+        );
 
         if (dfx.isFn(callback) === true) {
             callback.call(this);
@@ -174,13 +166,14 @@ SampleWidgetType.prototype = {
 
 SampleWidgetType.prototype = {
 
-    create: function(callback)
-    {
+    create: function (callback) {
         var self = this;
-        this.createChildren(null, function() {
-            callback.call(self, div);
-            return;
-        });
+        this.createChildren(
+            null, function () {
+                callback.call(self, div);
+                return;
+            }
+        );
     }
 
 };

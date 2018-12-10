@@ -1,48 +1,55 @@
 <?php
 /**
-* Some info about the class here
- *
+ * Some info about the class here
  */
 class MyClass
 {
     /**
      * Some info about the function here.
      *
-     *@return void
+     * @return void
      */
-    function myFunction() {}
+    function myFunction()
+    {
+    }
 }
 
 /**
-  *  Some info about the class here
-  *
-  */
-class MyClass
-{
-    /**
-      *Some info about the function here.
-      *
-      *  @return void
-      */
-    function myFunction() {}
-}
-
-/**
- * Some info about the class here
-  *
-*/
+ *  Some info about the class here
+ */
 class MyClass
 {
     /**
      * Some info about the function here.
-      *
-    * @return void
+     *
+     * @return void
      */
-    function myFunction() {}
+    function myFunction()
+    {
+    }
 }
 
-/** @var Database $mockedDatabase */
-/** @var Container $mockedContainer */
+/**
+ * Some info about the class here
+ */
+class MyClass
+{
+    /**
+     * Some info about the function here.
+     *
+     * @return void
+     */
+    function myFunction()
+    {
+    }
+}
+
+/**
+ * @var Database $mockedDatabase 
+ */
+/**
+ * @var Container $mockedContainer 
+ */
 
 function myFunction()
 {
@@ -67,17 +74,22 @@ function myFunction()
  *
  * @return void
  */
-function myFunction() {}
+function myFunction()
+{
+}
 
 class MyClass2
 {
     /**
-       * Some info about the variable here.
+     * Some info about the variable here.
      */
     var $x;
 }
 
-/** ************************************************************************
+/**
+ * ************************************************************************
  * Example with no errors.
  **************************************************************************/
-function example() {}
+function example()
+{
+}

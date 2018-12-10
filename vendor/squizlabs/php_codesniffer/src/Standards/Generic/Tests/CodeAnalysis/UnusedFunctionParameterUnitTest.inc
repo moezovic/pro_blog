@@ -1,14 +1,17 @@
 <?php
 
-function foo($a, $b) {
+function foo($a, $b)
+{
     return $a * 2;
 }
 
-function baz($a, $b) {
+function baz($a, $b)
+{
     echo "baz({$a});";
 }
 
-function bar($a, $b) {
+function bar($a, $b)
+{
     $x = $b;
     for ($i = 0; $i <$a; $i++) {
         $x += $a * $i;
@@ -16,16 +19,20 @@ function bar($a, $b) {
     return $x;
 }
 
-function foobar($a, &$b) {
+function foobar($a, &$b)
+{
     return (preg_match('/foo/', $a, $b) !== 0);
 }
 
-class Foo {
-    function barfoo($a, $b) {
+class Foo
+{
+    function barfoo($a, $b)
+    {
         // Empty body means interface method in many cases.
     }
 
-    function fooBar($a, $b) {
+    function fooBar($a, $b)
+    {
         return;
     }
 }
@@ -37,7 +44,8 @@ function foo($bar)
 BAZ;
 }
 
-function foo( $parameter ) {
+function foo( $parameter )
+{
     $wango = <<<HERE
 1 Must be a HEREdoc of at least one line
 HERE;
@@ -55,14 +63,15 @@ HERE;
 HERE;
 }
 
-function foo( $parameter ) {
+function foo( $parameter )
+{
     return <<<HTML
 <?xml version="1.0"?>
 <value>$parameter</value>
 HTML;
 }
 
-print foo( 'PARAMETER' );
+print foo('PARAMETER');
 print "\n";
 
 function foo($bar)

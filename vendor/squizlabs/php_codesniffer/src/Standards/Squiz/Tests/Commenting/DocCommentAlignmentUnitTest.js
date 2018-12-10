@@ -1,48 +1,49 @@
 
 /**
-* Some info about the class here
- *
+ * Some info about the class here
  */
 foo.prototype = {
 
     /**
      * Some info about the function here.
      *
-     *@return void
+     * @return void
      */
-    bar: function() {}
+    bar: function () {}
 }
 
 /**
-  *  Some info about the class here
-  *
-  */
-foo.prototype = {
-
-    /**
-      *Some info about the function here.
-      *
-      *  @return void
-      */
-    bar: function() {}
-}
-
-/**
- * Some info about the class here
-  *
-*/
+ *  Some info about the class here
+ */
 foo.prototype = {
 
     /**
      * Some info about the function here.
-      *
-    * @return void
+     *
+     * @return void
      */
-    bar: function() {}
+    bar: function () {}
 }
 
-/** @var Database $mockedDatabase */
-/** @var Container $mockedContainer */
+/**
+ * Some info about the class here
+ */
+foo.prototype = {
+
+    /**
+     * Some info about the function here.
+     *
+     * @return void
+     */
+    bar: function () {}
+}
+
+/**
+ * @var Database $mockedDatabase 
+ */
+/**
+ * @var Container $mockedContainer 
+ */
 
 function myFunction()
 {
@@ -67,10 +68,13 @@ function myFunction()
  *
  * @return void
  */
-function myFunction() {}
+function myFunction()
+{}
 
-$.extend(Datepicker.prototype, {
-	_widgetDatepicker: function() {
-	},
-	/* Action for selecting a new month/year. */
-});
+$.extend(
+    Datepicker.prototype, {
+        _widgetDatepicker: function () {
+        },
+        /* Action for selecting a new month/year. */
+    }
+);

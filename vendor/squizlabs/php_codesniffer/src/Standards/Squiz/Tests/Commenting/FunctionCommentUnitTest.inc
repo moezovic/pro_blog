@@ -7,10 +7,10 @@ class PHP_CodeSniffer_File
      *
      * long desc here
      *
-     * @param bool   $stackPtr   The position in @ @unknown the stack of the token
-     *                             that opened the scope
-     * @param int    $detph    How many scope levels down we are.
-     * @param string    $index    The index
+     * @param  bool   $stackPtr The position in @ @unknown the stack of the token
+     *                          that opened the scope
+     * @param  int    $detph    How many scope levels down we are.
+     * @param  string $index    The index
      * @return
      * @throws
      */
@@ -32,13 +32,10 @@ class PHP_CodeSniffer_File
 
 
     /**
-     *
      * A simple function comment
      * Span multiple line
      *
-     *
      * 0Long description with extra blank line before and after
-     *
      *
      * @return void
      */
@@ -50,6 +47,7 @@ class PHP_CodeSniffer_File
 
     /**
      * -A simple function comment.
+     *
      * @return void
      */
     public function missingNewlinesBeforeTags()
@@ -108,7 +106,6 @@ class PHP_CodeSniffer_File
 
     /**
      * no return tag.
-     *
      */
     public function noReturn($one)
     {
@@ -120,9 +117,9 @@ class PHP_CodeSniffer_File
      * Param not immediate.
      *
      * @return
-     * @param   int   $threeSpaces
-     * @param integer $superfluous
-     * @param miss
+     * @param  int     $threeSpaces
+     * @param  integer $superfluous
+     * @param  miss
      * @param
      */
     public function missingDescription($threeSpaces)
@@ -134,9 +131,9 @@ class PHP_CodeSniffer_File
     /**
      * Comments not capitalised.
      *
-     * @param integer  $one    comment
-     * @param array    $two    -comment
-     * @param MyClas   $three  0comment
+     * @param integer $one   comment
+     * @param array   $two   -comment
+     * @param MyClas  $three 0comment
      *
      * @return void
      */
@@ -179,7 +176,7 @@ function tagBeforeComment()
 /**
  * no return tag.
  *
- * @see    FunctionCommentSniff.php
+ * @see FunctionCommentSniff.php
  */
 public function noReturnOutsideClass()
 {
@@ -192,7 +189,7 @@ public function noReturnOutsideClass()
  *
  * @param integer $one comment
  *
- * @see     wrong indent
+ * @see    wrong indent
  * @see
  * @return void
  * @extra  Invalid tag
@@ -355,8 +352,8 @@ class Another_Class
  * Comment param alignment test.
  *
  * @param string $varrr1 Comment1..
- * @param string  $vr2    Comment2.
- * @param string  $var3  Comment3..
+ * @param string $vr2    Comment2.
+ * @param string $var3   Comment3..
  *
  * @return void
  */
@@ -369,8 +366,8 @@ public static function paramAlign($varrr1, $vr2, $var3)
 /**
  * Comment.
  *
- * @param string $id    Comment.
- * @param array $design Comment.
+ * @param string $id     Comment.
+ * @param array  $design Comment.
  *
  * @return void
  */
@@ -388,7 +385,7 @@ public static function paint($id, array $design)
  */
 public function myFunction()
 {
-    if ($condition === FALSE) {
+    if ($condition === false) {
         echo 'hi';
     }
 
@@ -402,7 +399,7 @@ public function myFunction()
  */
 public function myFunction()
 {
-    if ($condition === FALSE) {
+    if ($condition === false) {
         echo 'hi';
         return;
     }
@@ -419,7 +416,7 @@ public function myFunction()
  */
 public function myFunction()
 {
-    if ($condition === FALSE) {
+    if ($condition === false) {
         echo 'hi';
     }
 
@@ -438,9 +435,12 @@ public function myFunction()
 
 echo $blah;
 
-function myFunction($arg1) {}
+function myFunction($arg1)
+{
+}
 
-class MyClass() {
+class MyClass()
+{
     /**
      * An abstract function.
      *
@@ -458,19 +458,19 @@ class MyClass() {
  */
 function test($test)
 {
-   if ($test === TRUE) {
-       return;
-   }
+    if ($test === true) {
+        return;
+    }
 
-   return $test;
+    return $test;
 
 }//end test()
 
 
-/** Comment.
+/**
+ * Comment.
  *
  * @return mixed
- *
  */
 function test()
 {
@@ -486,7 +486,7 @@ function test()
  */
 function test(\other\ns\item $test)
 {
-   return $test;
+    return $test;
 
 }//end test()
 
@@ -499,7 +499,7 @@ function test(\other\ns\item $test)
  */
 function test(\other\ns\item $test)
 {
-   return $test;
+    return $test;
 
 }//end test()
 
@@ -512,7 +512,7 @@ function test(\other\ns\item $test)
  */
 function test(\first\ns\item $test = \second\ns::CONSTANT)
 {
-   return $test;
+    return $test;
 
 }//end test()
 
@@ -525,7 +525,7 @@ function test(\first\ns\item $test = \second\ns::CONSTANT)
  */
 function test(\first\ns\item $test = \second\ns::CONSTANT)
 {
-   return $test;
+    return $test;
 
 }//end test()
 
@@ -538,15 +538,15 @@ preg_replace_callback(
     'hello-world'
 );
 
-$callback = function ($bar) use ($foo)
-            {
+$callback = function ($bar) use ($foo) {
                 $bar += $foo;
-            };
+};
 
 /**
  * Comment should end with '*', not '**' before the slash.
  **/
-function test123() {
+function test123()
+{
 
 }
 
@@ -559,7 +559,7 @@ function test123() {
  */
 function test($test)
 {
-   return $test;
+    return $test;
 
 }//end test()
 
@@ -608,7 +608,8 @@ public function test()
  *
  * @return void
  */
-public function usesCallable(callable $cb) {
+public function usesCallable(callable $cb)
+{
     $cb();
 }//end usesCallable()
 
@@ -647,17 +648,20 @@ public function foo(SomeClass $someclass, \OtherVendor\Package\SomeClass2 $somec
  *
  * @return string
  */
-public function _() {
+public function _()
+{
     return $foo;
 }
 
-class Baz {
+class Baz
+{
     /**
      * The PHP5 constructor
      *
      * No return tag
      */
-    public function __construct() {
+    public function __construct()
+    {
 
     }
 }
@@ -668,7 +672,9 @@ class Baz {
  * @return void
  * @throws E 
  */
-function myFunction() {}
+function myFunction()
+{
+}
 
 /**
  * Yield test
@@ -701,7 +707,8 @@ function yieldTest()
  *
  * @return void
  */
-public function specifiedArray(array $values) {
+public function specifiedArray(array $values)
+{
 
 }// end specifiedArray()
 
@@ -712,7 +719,8 @@ public function specifiedArray(array $values) {
  *
  * @return void
  */
-public function callableCallback(callable $cb) {
+public function callableCallback(callable $cb)
+{
 
 }// end callableCallback()
 
@@ -726,7 +734,8 @@ public function callableCallback(callable $cb) {
  *
  * @return void
  */
-public function myFunction (string $name1, int $name2, float $name3, bool $name4) {
+public function myFunction(string $name1, int $name2, float $name3, bool $name4)
+{
 }
 
 /**
@@ -737,7 +746,8 @@ public function myFunction (string $name1, int $name2, float $name3, bool $name4
  *
  * @return void
  */
-public function myFunction(string $name1, string ...$name2) {
+public function myFunction(string $name1, string ...$name2)
+{
 }
 
 
@@ -749,7 +759,8 @@ public function myFunction(string $name1, string ...$name2) {
  *
  * @return void
  */
-public function myFunction(string $name1, string ...$name2) {
+public function myFunction(string $name1, string ...$name2)
+{
 }
 
 /**
@@ -757,7 +768,8 @@ public function myFunction(string $name1, string ...$name2) {
  *
  * @return integer This is a description.
  */
-public function myFunction() {
+public function myFunction()
+{
     return 5;
 }
 
@@ -766,7 +778,8 @@ public function myFunction() {
  *
  * @return int This is a description.
  */
-public function myFunction() {
+public function myFunction()
+{
     return 5;
 }
 
@@ -775,7 +788,8 @@ public function myFunction() {
  *
  * @return void This is a description.
  */
-public function myFunction() {
+public function myFunction()
+{
 }
 
 /**
@@ -783,7 +797,8 @@ public function myFunction() {
  *
  * @return mixed This is a description.
  */
-public function myFunction() {
+public function myFunction()
+{
 }
 
 /**
@@ -796,9 +811,9 @@ public function myFunction() {
  *
  * @return
  *   Return value
- *
  */
-function foo($bar) {
+function foo($bar)
+{
 }
 
 /**
@@ -883,19 +898,20 @@ function yieldFromTest()
  *
  * Generates an audio element to embed sounds
  *
- * @param  mixed $src                  Either a source string or
- * an array of sources.
- * @param  mixed $unsupportedMessage   The message to display
- * if the media tag is not supported by the browser.
- * @param  mixed $attributes           HTML attributes.
+ * @param  mixed $src                Either a source string or
+ *                                   an array of sources.
+ * @param  mixed $unsupportedMessage The message to display
+ *                                   if the media tag is
+ *                                   not supported by the
+ *                                   browser.
+ * @param  mixed $attributes         HTML attributes.
  * @return string
  */
 function audio(
     $src,
     $unsupportedMessage = '',
     $attributes = '',
-)
-{
+) {
     return 'test';
 }
 
@@ -924,7 +940,8 @@ function returnArrayWithAnonymousClass()
         /**
          * @return void
          */
-        public function test() {
+        public function test()
+        {
             return;
         }
     };
@@ -979,7 +996,9 @@ class TestReturnVoid
  *
  * @return void
  */
-public static function foo(?int $a, ?array $b) {}
+public static function foo(?int $a, ?array $b)
+{
+}
 
 /**
  * Comment here.
@@ -989,14 +1008,20 @@ public static function foo(?int $a, ?array $b) {}
  *
  * @return void
  */
-public function foo(object $a, ?object $b) {}
+public function foo(object $a, ?object $b)
+{
+}
 
 /**
  * Prepares given PHP class method for later code building.
  *
- * @param integer           $foo Comment.
- *  - Additional comment.
+ * @param integer $foo Comment.
+ *                     -
+ *                     Additional
+ *                     comment.
  *
  * @return void
  */
-function foo($foo) {}
+function foo($foo)
+{
+}

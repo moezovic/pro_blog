@@ -1,20 +1,21 @@
 <?php
 function someFunctionWithAVeryLongName($firstParameter='something',
-   $secondParameter='booooo', $third=null, $fourthParameter=false,
-     $fifthParameter=123.12, $sixthParam=true
-){
+    $secondParameter='booooo', $third=null, $fourthParameter=false,
+    $fifthParameter=123.12, $sixthParam=true
+) {
 }
 
 function someFunctionWithAVeryLongName2($firstParameter='something',
-$secondParameter='booooo', $third=null, $fourthParameter=false,
-$fifthParameter=123.12, $sixthParam=true
-)  {
+    $secondParameter='booooo', $third=null, $fourthParameter=false,
+    $fifthParameter=123.12, $sixthParam=true
+) {
 }
 
-function blah() {
+function blah()
+{
 }
 
-function  blah()
+function blah()
 {
 }
 
@@ -24,7 +25,9 @@ abstract class MyClass
     public function someFunctionWithAVeryLongName($firstParameter='something',
         $secondParameter='booooo', $third=null, $fourthParameter=false,
         $fifthParameter=123.12, $sixthParam=true
-    ) /** w00t */ {
+    ) { /**
+ * w00t 
+*/ 
     }
 
     public function someFunctionWithAVeryLongName2(
@@ -41,15 +44,15 @@ abstract class MyClass
     protected abstract function processToken(
         PHP_CodeSniffer_File $phpcsFile,
         $stackPtr,
-        $currScope);
+        $currScope
+    );
 
 }
 
 function getInstalledStandards(
     $includeGeneric=false,
     $standardsDir=''
-)
-{
+) {
 }
 
 function &testFunction($arg1,
@@ -58,12 +61,13 @@ function &testFunction($arg1,
 }
 
 function testFunction($arg1,
-$arg2) {
+    $arg2
+) {
 }
 
 function validateUrl(
     $url,
-    $requireScheme=TRUE,
+    $requireScheme=true,
     array $allowedSchemes=array(
                            'http',
                            'https',
@@ -74,7 +78,7 @@ function validateUrl(
 
 function validateUrlShort(
     $url,
-    $requireScheme=TRUE,
+    $requireScheme=true,
     array $allowedSchemes=[
         'http',
         'https',
@@ -95,7 +99,7 @@ $longArgs_longVars = function (
     $longArgument,
     $longerArgument,
     $muchLongerArgument
-) use  (
+) use (
     $longVar1,
     $longerVar2,
     $muchLongerVar3
@@ -107,7 +111,7 @@ $longArgs_longVars = function (
     $longArgument,
     $longerArgument,
     $muchLongerArgument
-    )  use (
+) use (
     $longVar1,
     $longerVar2,
     $muchLongerVar3
@@ -117,8 +121,10 @@ $longArgs_longVars = function (
 
 $longArgs_longVars = function (
     $longArgument,
-    $muchLongerArgument)use(
-    $muchLongerVar3) {
+    $muchLongerArgument
+) use (
+    $muchLongerVar3
+) {
     // body
 };
 
@@ -137,13 +143,11 @@ function test()
     };
 }
 
-function
-    myFunction()
+function myFunction()
 {
 }
 
-function
-myFunction()
+function myFunction()
 {
 }
 
@@ -158,19 +162,22 @@ namespace {
     f();
 }
 
-$var = function() {return true;};
-$var = function() {return true;
+$var = function () {
+    return true;
 };
-function blah(){return true;
+$var = function () {
+    return true;
+};
+function blah()
+{
+    return true;
 }
 
-$closureWithArgsAndVars = function($arg1, $arg2) use ($var1, $var2){
+$closureWithArgsAndVars = function ($arg1, $arg2) use ($var1, $var2) {
     // body
 };
 
-function
-blah
-()
+function blah()
 {
     // body
 }
@@ -197,44 +204,40 @@ function foo(
     $param1,
     $param2,
     $param3
-): SomeClass // Comment here
-{
+): SomeClass { // Comment here
 }
 
 function foo(
     $param1,
-
     $param2,
-
     $param3
 ) : SomeClass {
 }
 
 function foo(
     $var
-)
-{
+) {
     // body
 }
 
 function foo(
     $var
-)
-/* hello */ {
+) {
+    /* hello */ 
     // body
 }
 
 function foo(
     $var
-)
-{ echo 'hi';
+) {
+    echo 'hi';
     // body
 }
 
 function foo(
     $var
-)
-/* hello */ { echo 'hi';
+) {
+    /* hello */ echo 'hi';
     // body
 }
 

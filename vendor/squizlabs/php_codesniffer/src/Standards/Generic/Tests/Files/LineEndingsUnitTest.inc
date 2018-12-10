@@ -10,9 +10,10 @@ echo 'hi';
 <?php
 function foo()
 {
-	$query->group('a.id, 
+    $query->group(
+        'a.id, 
 			uc.name, 
 			ag.title, 
 			ua.name'
-		);
+    );
 }

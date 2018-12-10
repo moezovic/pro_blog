@@ -1,5 +1,7 @@
-<?php 
+<?php
+
 namespace ProBlog\src\model;
+
 use Exception;
 
 class View
@@ -18,28 +20,22 @@ class View
             'title' => $this->title,
             'content' => $content,
             'menu' => $this->menu,
-            'custom'=>$this->custom,
+            'custom' => $this->custom,
             ]
         );
         echo $view;
-
-
     }
 
     public function renderFile($file, $data)
     {
-        if(file_exists($file)) {
+        if (file_exists($file)) {
             extract($data);
             ob_start();
             include $file;
+
             return ob_get_clean();
-        }
-        else
-        {
+        } else {
             throw new Exception('Le template est introuvable');
-              
         }
     }
 }
-
-?>

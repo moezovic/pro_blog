@@ -2,20 +2,20 @@
 );
 test();
 test($arg, $arg2);
-isset ();
-test( );
-test() ;
-test( $arg);
-empty( $arg );
-eval ( $arg );
+isset();
+test();
+test();
+test($arg);
+empty($arg);
+eval($arg);
 
 if (is_array($arg) === true) {
 
 }
 
 $something = get($arg1, $arg2);
-$something = get($arg1, $arg2) ;
-$something = get($arg1, $arg2)   ;
+$something = get($arg1, $arg2);
+$something = get($arg1, $arg2);
 
 // No errors as this test only checks for function calls.
 class TestClass extends MyClass
@@ -24,14 +24,16 @@ class TestClass extends MyClass
     const const1 = 'hello';
     const CONST2 = 'hello';
 
-    public function test () { }
+    public function test()
+    { 
+    }
 }
 
 make_foo($string/*the string*/, true/*test*/);
-make_foo($string/*the string*/, true/*test*/ );
+make_foo($string/*the string*/, true/*test*/);
 make_foo($string /*the string*/, true /*test*/);
 make_foo(/*the string*/$string, /*test*/true);
-make_foo( /*the string*/$string, /*test*/true);
+make_foo(/*the string*/$string, /*test*/true);
 
 // No errors should be throw here because
 // this is multi-line.
@@ -40,7 +42,7 @@ throw new Exception(
 );
 
 // Objects are the same as a normal call.
-$obj = new TestClass( );
+$obj = new TestClass();
 
 // Heredocs dont need to be indented.
 method_call(
@@ -54,14 +56,16 @@ fputs(
     STDOUT,
     'Examples:
     $ {$app} --all
-    $ {$app} --all');
+    $ {$app} --all'
+);
 
-fputs(STDOUT,
+fputs(
+    STDOUT,
     "Examples:
     $ {$app} --all
     $ {$app} --all",
-$something
-    );
+    $something
+);
 
 // This is not a function call.
 function &testFunction($arg1,
@@ -71,18 +75,16 @@ function &testFunction($arg1,
 
 $array = array();
 array_map(
-    function($x)
-    {
+    function ($x) {
         return trim($x);
     },
     $array
 );
 
 array_map(
-     function($x)
-     {
-         return trim($x);
-     },
+    function ($x) {
+            return trim($x);
+    },
     $array
 );
 
@@ -90,20 +92,19 @@ $bar = new stdClass(
     4,
     5,
     6
-   
 );
 
 $bar = new stdClass(
     4,
     5,
     6
-
 );
 
 $foo = new stdClass(
     1,
     2,
-    3);
+    3
+);
 
 function doSomething()
 {
@@ -116,8 +117,8 @@ function doSomething()
 }
 
 $var = myFunction(
-$foo,
-$bar
+    $foo,
+    $bar
 );
 
 // phpcs:set PEAR.Functions.FunctionCallSignature allowMultipleArguments false
@@ -126,20 +127,23 @@ fputs(
     STDOUT,
     "Examples:
     $ {$app} , --all
-    $ {$app} --all", $something
+    $ {$app} --all",
+    $something
 );
 
 $array = array();
 array_map(
-    function($x)
-    {
+    function ($x) {
         return trim($x, $y);
-    }, $foo,
+    },
+    $foo,
     $array
 );
 
 $bar = new stdClass(
-    4, /* thanks */ 5, /* PSR-2 */ 6
+    4, /* thanks */
+    5, /* PSR-2 */
+    6
 );
 
 function doSomething()
@@ -168,7 +172,7 @@ foo(
         'an',
         'array'
     ],
-[
+    [
         'this',
         'is',
         'an',
@@ -177,8 +181,8 @@ foo(
     array(
         'this',
         'is',
-'an',
-'array'
+    'an',
+    'array'
     ),
     array(
         'this',
@@ -186,12 +190,11 @@ foo(
         'an',
         'array'
      ),
-    function($x)
-    {
+    function ($x) {
         echo 'wee';
 
         return trim($x);
-   }
+    }
 );
 
 function foo()
@@ -210,12 +213,12 @@ function foo()
 
 // phpcs:set PEAR.Functions.FunctionCallSignature requiredSpacesAfterOpen 1
 // phpcs:set PEAR.Functions.FunctionCallSignature requiredSpacesBeforeClose 1
-test($arg, $arg2);
 test( $arg, $arg2 );
-test(  $arg, $arg2  );
+test( $arg, $arg2 );
+test( $arg, $arg2 );
 test();
-test( );
-test(  );
+test();
+test();
 // phpcs:set PEAR.Functions.FunctionCallSignature requiredSpacesAfterOpen 0
 // phpcs:set PEAR.Functions.FunctionCallSignature requiredSpacesBeforeClose 0
 
@@ -274,8 +277,8 @@ if (true) {
 if (true) {
     $test = '
    ' . function_0(
-    $argument_0,
-           $argument_1
+        $argument_0,
+        $argument_1
     );
 }
 
@@ -300,12 +303,14 @@ array_filter(
     }
 );
 
-foo(array(
+foo(
+    array(
     'callback' => function () {
         $foo = 'foo';
         return;
     },
-));
+    )
+);
 
 foo(
     $a,
@@ -318,41 +323,47 @@ foo(
 );
 
 test(
-        1,2,3,4
-    );
+    1, 2, 3, 4
+);
 
 class Test
 {
     public function getInstance()
     {
         return new static(
-          'arg',
-              'foo'
+            'arg',
+            'foo'
         );
     }
 
     public function getSelf()
     {
         return new self(
-         'a','b', 'c'
+            'a', 'b', 'c'
         );
     }
 }
 
-$x = $var('y',
-'x');
+$x = $var(
+    'y',
+    'x'
+);
 
-$obj->{$x}(1,
-  2);
+$obj->{$x}(
+    1,
+    2
+);
 
 return (function ($a, $b) {
     return function ($c, $d) use ($a, $b) {
         echo $a, $b, $c, $d;
     };
 })(
-  'a','b'
-)('c',
-    'd');
+    'a', 'b'
+)(
+    'c',
+    'd'
+);
 
 class Foo
 {
@@ -370,11 +381,11 @@ return (function ($a, $b) {
     return function ($c, $d) use ($a, $b) {
         echo $a, $b, $c, $d;
     };
-})('a','b')('c','d');
+})('a', 'b')('c', 'd');
 
 function foo()
 {
-     Bar(
+    Bar(
         function () {
         }
     );
@@ -382,7 +393,7 @@ function foo()
 
 $deprecated_functions = [
     'the_category_ID'
-       => function_call( // 7 spaces, not 8. This is the problem line.
+    => function_call( // 7 spaces, not 8. This is the problem line.
         $a,
         $b
     ),
@@ -390,8 +401,8 @@ $deprecated_functions = [
 
 $deprecated_functions = [
     'the_category_ID'
-         => function_call( // 7 spaces, not 8. This is the problem line.
-        $a,
-        $b
-    ),
+        => function_call( // 7 spaces, not 8. This is the problem line.
+            $a,
+            $b
+        ),
 ];

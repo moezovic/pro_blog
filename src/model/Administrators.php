@@ -9,7 +9,6 @@ class Administrators
     private $password;
     private $email;
 
-
     public function getId()
     {
         return $this->id;
@@ -49,6 +48,4 @@ class Administrators
     {
         $this->email = $email;
     }
-
-
 }

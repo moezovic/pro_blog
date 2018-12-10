@@ -1,19 +1,15 @@
-<?php 
+<?php
 session_start();
 
-$this->title = "Page introuvable";
-$this->custom = "custom-menu";
+$this->title = 'Page introuvable';
+$this->custom = 'custom-menu';
 
 // customize menu links
 
 if (isset($_SESSION['name'])) {
-    $this->menu = true; 
-}
-else
-{
-    
+    $this->menu = true;
+} else {
     $this->menu = false;
-
 }
 ?>
  

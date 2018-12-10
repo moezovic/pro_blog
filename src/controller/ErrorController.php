@@ -6,9 +6,7 @@ use ProBlog\src\model\View;
 
 class ErrorController
 {
-
     private $viewObj;
-
 
     public function __construct()
     {
@@ -22,6 +20,6 @@ class ErrorController
 
     public function error($e)
     {
-        $this->viewObj->render('error', ['e'=>$e]);
+        $this->viewObj->render('error', ['e' => $e]);
     }
 }

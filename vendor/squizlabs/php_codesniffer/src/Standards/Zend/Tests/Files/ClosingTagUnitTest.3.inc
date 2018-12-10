@@ -1,1 +1,1 @@
-<?php include($this->add('arg'))?>
+<?php require $this->add('arg')?>

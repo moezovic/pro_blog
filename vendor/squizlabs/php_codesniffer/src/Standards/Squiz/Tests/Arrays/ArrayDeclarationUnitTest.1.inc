@@ -48,8 +48,8 @@ class TestClass
                );
 
         $train = array  (
-                   TRUE,
-                  FALSE,
+                   true,
+                  false,
                   'aaa'
                  );
 
@@ -78,23 +78,23 @@ $value = array(  );
 $value = array('1'=>$one, '2'  =>  $two, '3'=> $three, '4' =>$four);
 $value = array('1'=>$one);
 
-if (in_array('1', array('1','2','3')) === TRUE) {
+if (in_array('1', array('1','2','3')) === true) {
     $value = in_array('1', array('1'  ,   '2',     '3','4'));
 }
 
 $value = array(
-          '1'=> TRUE,
-          FALSE,
+          '1'=> true,
+          false,
           '3' => 'aaa',);
 
 $value = array(
-          '1'=> TRUE,
-          FALSE,
+          '1'=> true,
+          false,
          );
 
 $value = array(
-          TRUE,
-          '1' => FALSE,
+          true,
+          '1' => false,
          );
 
 $value = array(1,
@@ -198,10 +198,10 @@ $x = array(
      );
 
 $test = array(
-         'test' => TestFunction::blah(
-             $value1,
-             $value2
-         ),
+        'test' => TestFunction::blah(
+            $value1,
+            $value2
+        ),
         );
 
 $c = array('a' => 1,);
@@ -225,7 +225,7 @@ function foo()
 
 $array = array(
           'name'       => 'contactSubject',
-          'required'   => TRUE,
+          'required'   => true,
           'validators' => array(
                            new \Zend\Validator\InArray(array('haystack' => array_keys($aSubjects))),
                           ),
@@ -302,13 +302,13 @@ $ids = array(
        );
 
 array(
- 'key1' => function($bar) {
+ 'key1' => function ($bar) {
     return $bar;
  },
- 'key2' => function($foo) {
+ 'key2' => function ($foo) {
     return $foo;
  },
- 'key3' => function($bar) {
+ 'key3' => function ($bar) {
     return $bar;
  }
 );
@@ -338,12 +338,14 @@ $fields = array(
            'id'    => array('type' => 'INT'),
            'value' => array('type' => 'VARCHAR'));
 
-get_current_screen()->add_help_tab( array(
+get_current_screen()->add_help_tab(
+    array(
                                      'id' => <<<EOD
 Here comes some text.
 EOD
-,
-                                    ) );
+    ,
+    ) 
+);
 
 $a = array
 // comment

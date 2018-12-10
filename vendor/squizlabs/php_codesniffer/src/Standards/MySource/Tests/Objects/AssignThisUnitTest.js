@@ -1,7 +1,9 @@
 var self = this;
-buttonWidget.addClickEvent(function() {
-    self.addDynamicSouce();
-});
+buttonWidget.addClickEvent(
+    function () {
+        self.addDynamicSouce();
+    }
+);
 
 var x = self;
 var y = this;

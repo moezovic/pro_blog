@@ -2,7 +2,8 @@
 function outer()
 {
     if (!function_exists('inner')) {
-        function inner() {
+        function inner()
+        {
         }
     }
 }
@@ -10,10 +11,9 @@ function outer()
 // Closures are allowed.
 function myFunc($foo)
 {
-    $callback = function ($bar) use ($foo)
-                {
+    $callback = function ($bar) use ($foo) {
                     $bar += $foo;
-                };
+    };
 }
 
 // Anon class methods are allowed.

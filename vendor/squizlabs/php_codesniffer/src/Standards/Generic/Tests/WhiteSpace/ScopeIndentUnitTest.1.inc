@@ -1,38 +1,39 @@
 phpcs:set Generic.WhiteSpace.ScopeIndent tabIndent false
 <meta name="twitter:site" content="<?php echo $metaTagsData['twitter:site']; ?>">
 <?php
-class Test {
+class Test
+{
     function __construct()
     {
-       $this->hello();
+        $this->hello();
     }
 
-   function hello()
+    function hello()
     {
         echo 'hello';
-}//end hello()
+    }//end hello()
 
     function hello2()
     {
-       if (TRUE) {
+        if (true) {
             echo 'hello'; // no error here as its more than 4 spaces.
         } else {
-        echo 'bye';
+            echo 'bye';
         }
 
-        while (TRUE) {
-           echo 'hello';
-         }
+        while (true) {
+            echo 'hello';
+        }
 
-       do {
-         echo 'hello';
-       } while (TRUE);
-   }
+        do {
+            echo 'hello';
+        } while (true);
+    }
 
     function hello3()
     {
         switch ($hello) {
-            case 'hello':
+        case 'hello':
             break;
         }
     }
@@ -55,14 +56,16 @@ class Test2
 {
     function __construct()
     {
-    //    $this->open(); // error here
+        //    $this->open(); // error here
     }
 
     public function open()
     {
         // Some inline stuff that shouldn't error
-        if (TRUE) echo 'hello';
-        foreach ($tokens as $token) echo $token;
+        if (true) { echo 'hello';
+        }
+        foreach ($tokens as $token) { echo $token;
+        }
     }
 
     /**
@@ -74,24 +77,24 @@ class Test2
     public function close()
     {
         // All ok.
-        if (TRUE) {
-            if (TRUE) {
-            } else if (FALSE) {
+        if (true) {
+            if (true) {
+            } else if (false) {
                 foreach ($tokens as $token) {
                     switch ($token) {
-                        case '1':
-                        case '2':
-                            if (true) {
+                    case '1':
+                    case '2':
+                        if (true) {
+                            if (false) {
                                 if (false) {
                                     if (false) {
-                                        if (false) {
-                                            echo 'hello';
-                                        }
+                                        echo 'hello';
                                     }
                                 }
                             }
+                        }
                         break;
-                        case '5':
+                    case '5':
                         break;
                     }
                     do {
@@ -120,10 +123,11 @@ class Test2
     *
     *
     *
-   */
+    */
 
-    /** This is a T_DOC_COMMENT
-   */
+    /**
+     * This is a T_DOC_COMMENT
+     */
 
     /*
       This T_COMMENT has a newline in it.
@@ -161,19 +165,20 @@ abstract class Test3
                 $last = count($ts) - 1;
 
                 switch ($token) {
-                    case '(':
+                case '(':
 
-                        if ($last >= 3 &&
-                            $ts[0]['token'] != T_CLASS &&
-                            $ts[$last - 2]['token'] == T_OBJECT_OPERATOR &&
-                            $ts[$last - 3]['token'] == T_VARIABLE ) {
+                    if ($last >= 3 
+                        && $ts[0]['token'] != T_CLASS 
+                        && $ts[$last - 2]['token'] == T_OBJECT_OPERATOR 
+                        && $ts[$last - 3]['token'] == T_VARIABLE 
+                    ) {
 
 
-                            if (true) {
-                                echo 'hello';
-                            }
+                        if (true) {
+                            echo 'hello';
                         }
-                        array_push($braces, $token);
+                    }
+                    array_push($braces, $token);
                     break;
                 }
             }
@@ -195,8 +200,9 @@ EOF;
     return $o;
 }
 
-if ($a === true || $a === true || $a === true || $a === true ||
-    $a === true || $a === true || $a === true || $a === true) {
+if ($a === true || $a === true || $a === true || $a === true 
+    || $a === true || $a === true || $a === true || $a === true
+) {
 
     echo 'hello';
 }
@@ -220,9 +226,9 @@ if ($true) {
 function test()
 {
     /* taken from http://de3.php.net/manual/en/reserved.php */
-    # $m[] = 'declare';
-   /* taken from http://de3.php.net/manual/en/reserved.php */
-   # $m[] = 'declare';
+    // $m[] = 'declare';
+    /* taken from http://de3.php.net/manual/en/reserved.php */
+    // $m[] = 'declare';
 }
 
 foreach ($elements as $element) {
@@ -254,53 +260,54 @@ if ($condition) {
 }
 
 switch ($foo) {
-    case 1:
-        switch ($bar) {
-            default:
-                echo $string{1};
-        }
+case 1:
+    switch ($bar) {
+    default:
+        echo $string{1};
+    }
     break;
 }
 
-function temp($foo, $bar) {
+function temp($foo, $bar)
+{
     switch ($foo) {
-        case 1:
-            switch ($bar) {
-                default:
-                return $foo;
-            }
+    case 1:
+        switch ($bar) {
+        default:
+            return $foo;
+        }
         break;
     }
 }
 
 switch ($foo) {
-    case 1:
-        switch ($bar) {
-        default:
-            if ($something) {
-                echo $string{1};
-            } else if ($else) {
-                switch ($else) {
-                default:
-                }
+case 1:
+    switch ($bar) {
+    default:
+        if ($something) {
+            echo $string{1};
+        } else if ($else) {
+            switch ($else) {
+            default:
             }
         }
+    }
     break;
 }
 
 switch ($name) {
-    case "1":
-    case "2":
-    case "3":
-        return true;
+case "1":
+case "2":
+case "3":
+    return true;
 }
 
 switch ($name) {
-    case "1":
-    case "2":
-    case "3":
-    default :
-        return true;
+case "1":
+case "2":
+case "3":
+default :
+    return true;
 }
 
 function myFunction()
@@ -314,55 +321,56 @@ function myFunction()
 }
 
 switch ($name) {
+case "1":
+    switch ($name2) {
     case "1":
-        switch ($name2) {
-            case "1":
-            break;
-            case "2":
-            break;
-        }
-    break;
+        break;
     case "2":
+        break;
+    }
+    break;
+case "2":
     break;
 }
 
 switch (true) {
-    case true: {
-    }
+case true: {
+}
     echo 'hi';
-    break;
-    case false:
-    case null:{
+break;
+case false:
+case null:{
     echo 'hi';
-    }
-    break;
+}
+break;
 }
 
 switch (true) {
-    case true: {
-        echo 'hi';
-    }
+case true: {
+    echo 'hi';
+}
     // No break here.
-    case false:
-    case true:
-    case null:{
+case false:
+case true:
+case null:{
     echo 'hi';
         echo 'hi';
-    }
-    break;
+}
+break;
 }
 
 switch (true) {
-    case true: {
-        if (true) {
-            echo 'hi';
-        }
+case true: {
+    if (true) {
+        echo 'hi';
     }
-    break;
+}
+break;
 }
 
 // Testing anon function.
-class a {
+class a
+{
     function c()
     {
         $this->doSomething(
@@ -374,27 +382,27 @@ class a {
 }
 
 some_function(
-    function() {
+    function () {
         $a = 403;
         if ($a === 404) {
-        $a = 403;
+            $a = 403;
         }
     }
 );
 
 some_function(
-   function() {
-      $a = 403;
-       if ($a === 404) {
-           $a = 403;
-       }
+    function () {
+        $a = 403;
+        if ($a === 404) {
+            $a = 403;
+        }
     }
 );
 
-$myFunction = function() {
+$myFunction = function () {
     $a = 403;
     if ($a === 404) {
-       $a = 403;
+        $a = 403;
     }
 };
 
@@ -415,9 +423,9 @@ class MyClass
 {
     public static function myFunction()
     {
-        if (empty($keywords) === FALSE) {
-    	    $keywords = 'foo';
-    	    $existing = 'foo';
+        if (empty($keywords) === false) {
+            $keywords = 'foo';
+            $existing = 'foo';
         }
 
         return $keywords;
@@ -462,16 +470,16 @@ class AnonymousFn
 <div>
 <div>
     <?php
-        if ($myvar == 'test') {
-            echo 'something';
-        }
+    if ($myvar == 'test') {
+        echo 'something';
+    }
     ?>
 <div>
 <div>
     <?php
-if ($myvar == 'test') {
-    echo 'something';
-}
+    if ($myvar == 'test') {
+        echo 'something';
+    }
     ?>
 <div>
 <body>
@@ -493,11 +501,11 @@ if (true) {
         <div>
             <div>
             <?php
-                if (true) {
-                    echo 'hello';
-                } else {
-                    echo 'goodbye';
-                }
+            if (true) {
+                echo 'hello';
+            } else {
+                echo 'goodbye';
+            }
             ?>
             </div>
         </div>
@@ -521,9 +529,9 @@ $list = [
 
 $list = [
     'fn' => function ($a) {
-                if ($a === true) {
-                    echo 'hi';
-                }
+        if ($a === true) {
+            echo 'hi';
+        }
     }
 ];
 
@@ -541,9 +549,9 @@ if ($foo) {
             ?>
                     </div>
                     <?php
-                if ($baz > 1) {
-                    echo '1';
-                }
+                    if ($baz > 1) {
+                        echo '1';
+                    }
                     ?>
                 </div>
                 <?php
@@ -558,7 +566,7 @@ if ($foo) {
 }
 
 ?>
-<title><?= CHtml::encode($this->pageTitle); ?></title>
+<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 
 <?php
 if ($foo) {
@@ -569,46 +577,52 @@ if ($foo) {
 
 $array = array();
 array_map(
-    function($x)
-    {
+    function ($x) {
         return trim($x);
     },
     $array
 );
 
-function foo(){return function(){};}
+function foo()
+{
+    return function () {
+    };
+}
 
 $mockedDatabase->expects($this->at(2))
-    ->with($this->callback(
-            function ($subject)
-            {
+    ->with(
+        $this->callback(
+            function ($subject) {
             }
         )
     );
 
-/** @var Database $mockedDatabase */
-/** @var Container $mockedContainer */
+/**
+ * @var Database $mockedDatabase 
+*/
+/**
+ * @var Container $mockedContainer 
+*/
 
 echo $string->append('foo')
-            ->appaend('bar')
-            ->appaend('baz')
-            ->outputUsing(
-                function ()
-                {
-                }
-            );
+    ->appaend('bar')
+    ->appaend('baz')
+    ->outputUsing(
+        function () {
+        }
+    );
 
 echo PHP_EOL;
 
 switch ($arg) {
-    case 1:
-        break;
-    case 2:
-        if ($arg2 == 'foo') {
-        }
-    case 3:
-    default:
-        echo 'default';
+case 1:
+    break;
+case 2:
+    if ($arg2 == 'foo') {
+    }
+case 3:
+default:
+    echo 'default';
 }
 
 if ($tokens[$stackPtr]['content']{0} === '#') {
@@ -618,9 +632,9 @@ if ($tokens[$stackPtr]['content']{0} === '#') {
 }
 
 $var = call_user_func(
-    function() {
+    function () {
         if ($foo) {
-            $new_var = function() {
+            $new_var = function () {
                 if ($a > 0) {
                     return $a++;
                 } else {
@@ -632,11 +646,11 @@ $var = call_user_func(
 );
 
 a(
-    function() {
-        $a = function() {
+    function () {
+        $a = function () {
             $b = false;
         };
-    true;
+        true;
     }
 );
 
@@ -657,19 +671,19 @@ $var = [
 ];
 
 if ($foo) {
- ?>
+    ?>
  </p>
-  <?php
+    <?php
 }
 
 function foo()
 {
     $failingTests[$testName][] = array(
                                   'comment'    => self::_replaceKeywords($failingComment, $result),
-                                  'screenshot' => Test::getScreenshotPath(
-                                      $projectid,
-                                      $result['class_name'],
-                                  ),
+                                'screenshot' => Test::getScreenshotPath(
+                                    $projectid,
+                                    $result['class_name'],
+                                ),
                                  );
 
 }
@@ -690,13 +704,13 @@ function a()
     if (true) {
         static::$a[$b] =
             static::where($c)
-                ->where($c)
-                ->where(
-                    function ($d) {
+            ->where($c)
+            ->where(
+                function ($d) {
                         $d->whereNull();
                         $d->orWhere();
-                    }
-                )
+                }
+            )
                 ->first();
 
         if (static::$a[$b] === null) {
@@ -747,14 +761,13 @@ class PHP_CodeSniffer_Tokenizers_JS
 }
 
 echo $string->
-        append('foo')->
-        appaend('bar')->
-        appaend('baz')->
-        outputUsing(
-            function ()
-            {
-            }
-        );
+        append('foo')
+    ->appaend('bar')
+    ->appaend('baz')
+    ->outputUsing(
+        function () {
+        }
+    );
 
 $str = 'the items I want to show are: ' .
     implode(
@@ -770,11 +783,15 @@ $str = 'foo'
 
 echo $str;
 
-bar([
-    'foo' => foo(function () {
-        return 'foo';
-    })
-]);
+bar(
+    [
+    'foo' => foo(
+        function () {
+            return 'foo';
+        }
+    )
+    ]
+);
 
 $domains = array_unique(
     array_map(
@@ -798,17 +815,20 @@ else :
     echo "a is neither 5 nor 6";
 endif;
 
-if ($foo):
-if ($bar) $foo = 1;
-elseif ($baz) $foo = 2;
+if ($foo) :
+    if ($bar) { $foo = 1;
+    } elseif ($baz) { $foo = 2;
+    }
 endif;
 
 $this
-    ->method(array(
+    ->method(
+        array(
         'foo' => 'bar',
-    ), 'arg', array(
+        ), 'arg', array(
         'foo' => 'bar',
-    ));
+        )
+    );
 
 class Foo
 {
@@ -820,7 +840,7 @@ class Foo
 class Foo
 {
     use Bar {
-    myMethod as renamedMethod;
+        myMethod as renamedMethod;
     }
 }
 
@@ -855,7 +875,7 @@ try {
 
 class C0
 {
-     public function m0()
+    public function m0()
     {
     }
 
@@ -869,14 +889,15 @@ namespace Foo {
     use \Foo\Bar;
     use \Foo\Baz;
 
-    function test() {
+    function test()
+    {
         return true;
     }
 
 }
 
 declare(ticks=1) {
-echo 'foo';
+    echo 'foo';
 }
 
 $a =
@@ -910,32 +931,33 @@ class foo
 }
 
 switch ($foo) {
-    case 1:
-        return array();
-    case 2:
-        return '';
-    case 3:
-        return $function();
-    case 4:
-        return $functionCall($param[0]);
-    case 5:
-        return array() + array(); // Array Merge
-    case 6:
-        // String connect
-        return $functionReturningString('') . $functionReturningString(array());
-    case 7:
-        return functionCall(
-            $withMultiLineParam[0],
-            array(),
-            $functionReturningString(
-                $withMultiLineParam[1]
-            )
-        );
-    case 8:
-        return $param[0][0];
+case 1:
+    return array();
+case 2:
+    return '';
+case 3:
+    return $function();
+case 4:
+    return $functionCall($param[0]);
+case 5:
+    return array() + array(); // Array Merge
+case 6:
+    // String connect
+    return $functionReturningString('') . $functionReturningString(array());
+case 7:
+    return functionCall(
+        $withMultiLineParam[0],
+        array(),
+        $functionReturningString(
+            $withMultiLineParam[1]
+        )
+);
+case 8:
+    return $param[0][0];
 }
 
-class Test {
+class Test
+{
 
     public
         $foo
@@ -943,25 +965,28 @@ class Test {
         ,$baz = [ ]
         ;
 
-    public function wtfindent() {
+    public function wtfindent()
+    {
     }
 }
 
 switch ($x) {
-    case 1:
-        return [1];
-    default:
-        return [2];
+case 1:
+    return [1];
+default:
+    return [2];
 }
 
 switch ($foo) {
-    case self::FOO:
-        return $this->bar($gfoo, function ($id) {
-            return FOO::bar($id);
-        }, $values);
-    case self::BAR:
-        $values = $this->bar($foo, $values);
-        break;
+case self::FOO:
+    return $this->bar(
+        $gfoo, function ($id) {
+                return FOO::bar($id);
+        }, $values
+);
+case self::BAR:
+    $values = $this->bar($foo, $values);
+    break;
 }
 
 $var = array(
@@ -997,7 +1022,7 @@ class Foo
 try {
     foo();
 } catch (\Exception $e) {
-    $foo = function() {
+    $foo = function () {
         return 'foo';
     };
 
@@ -1008,14 +1033,14 @@ try {
 if ($foo) {
     foo();
 } else if ($e) {
-    $foo = function() {
+    $foo = function () {
         return 'foo';
     };
 
     if (true) {
     }
 } else {
-    $foo = function() {
+    $foo = function () {
         return 'foo';
     };
 
@@ -1024,27 +1049,31 @@ if ($foo) {
 }
 
 switch ($parameter) {
-    case null:
-        return [
+case null:
+    return [
             'foo' => in_array(
                 'foo',
                 []
             ),
         ];
 
-    default:
-        return [];
+default:
+    return [];
 }
 
 class SomeClass
 {
     public function someFunc()
     {
-        a(function () {
-            echo "a";
-        })->b(function () {
-            echo "b";
-        });
+        a(
+            function () {
+                echo "a";
+            }
+        )->b(
+            function () {
+                    echo "b";
+            }
+        );
 
         if (true) {
             echo "c";
@@ -1053,10 +1082,12 @@ class SomeClass
     }
 }
 
-$params = self::validate_parameters(self::read_competency_framework_parameters(),
-                                    array(
+$params = self::validate_parameters(
+    self::read_competency_framework_parameters(),
+    array(
                                         'id' => $id,
-                                    ));
+    )
+);
 
 $framework = api::read_framework($params['id']);
 self::validate_context($framework->get_context());
@@ -1136,15 +1167,23 @@ $foo = [
 ];
 
 $foo
-    ->bar(foo(function () {
-    }), foo(function () {
-    }));
+    ->bar(
+        foo(
+            function () {
+            }
+        ), foo(
+            function () {
+            }
+        )
+    );
 
 echo 'foo';
 
-class Test {
+class Test
+{
 
-    public function a() {
+    public function a()
+    {
         ?>a<?php
     }
 
@@ -1160,7 +1199,7 @@ $foo = foo(
         $foo->debug(
             $a,
             $b
-    );
+        );
 
         if ($a) {
             $b = $a;
@@ -1183,19 +1222,19 @@ function test()
 }
 
 switch ($a) {
-    case 0:
-        $a = function () {
-        };
-    case 1:
-        break;
+case 0:
+    $a = function () {
+    };
+case 1:
+    break;
 }
 
 class Test
 {
     public function __construct()
     {
-if (false) {
-echo 0;
+        if (false) {
+            echo 0;
         }
     }
 }
@@ -1214,18 +1253,18 @@ return [
 ];
 
 switch ($sContext) {
-    case 'SOMETHING':
-    case 'CONSTANT':
-        do_something();
-        break;
-    case 'GLOBAL':
-    case 'GLOBAL1':
-        do_something();
-        // Fall through
-    default:
-    {
-        do_something();
-    }
+case 'SOMETHING':
+case 'CONSTANT':
+    do_something();
+    break;
+case 'GLOBAL':
+case 'GLOBAL1':
+    do_something();
+    // Fall through
+default:
+{
+    do_something();
+}
 }
 
 array_map(
@@ -1238,26 +1277,33 @@ array_map(
 /**
  * Comment.
  */
-$a(function () use ($app) {
-    echo 'hi';
-})();
+$a(
+    function () use ($app) {
+        echo 'hi';
+    }
+)();
 
 $app->run();
 
 function foo()
 {
-    $foo('some
+    $foo(
+        'some
     long description', function () {
-    });
-
-    $foo('some
-    long
-    description', function () {
-    });
+        }
+    );
 
     $foo(
-'some long description', function () {
-    });
+        'some
+    long
+    description', function () {
+        }
+    );
+
+    $foo(
+        'some long description', function () {
+        }
+    );
 }
 
 switch ( $a ) {
@@ -1266,7 +1312,7 @@ case 'a':
     /**
      * A comment.
      */
-    apply_filter( 'something', $b );
+    apply_filter('something', $b);
     break;
 
 case 'aa':
@@ -1274,14 +1320,14 @@ case 'aa':
     /*
      * A comment.
      */
-    apply_filter( 'something', $b );
+    apply_filter('something', $b);
     break;
 
 case 'b':
     $b = 3;
-?>
+    ?>
     <input name="something" value="<?php echo $b; ?>">
-<?php
+    <?php
     $b = 4;
     break;
 
@@ -1295,32 +1341,32 @@ default:
 }
 
 if ($foo) {
-if ($oo) {
-    /*
-     *
-     *
-   */
-}
-}
-
-    function foo()
-    {
-        $foo = array(
-        );
-
-        if ($foo) {
-            echo 'foo';
-        }
-
-        return false;
+    if ($oo) {
+        /*
+         *
+         *
+        */
     }
+}
+
+function foo()
+{
+    $foo = array(
+    );
+
+    if ($foo) {
+        echo 'foo';
+    }
+
+    return false;
+}
 
 ?>
 <?php
-    if (true) {
-    }
-    else if (true) {
-    }
+if (true) {
+}
+else if (true) {
+}
 
 $a = 1;
 

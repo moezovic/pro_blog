@@ -48,8 +48,8 @@ result*=4;
 $.localScroll({offset: {top: -32}});
 
 switch (result) {
-	case -1:
-		break;
+case -1:
+        break;
 }
 
 result = x?y:z;

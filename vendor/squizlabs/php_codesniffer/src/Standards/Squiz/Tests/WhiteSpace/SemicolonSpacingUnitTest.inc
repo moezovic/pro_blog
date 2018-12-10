@@ -1,7 +1,7 @@
 <?php
 $test = $this->testThis();
-$test = $this->testThis() ;
-$test = $this->testThis()           ;
+$test = $this->testThis();
+$test = $this->testThis();
 for ($var = 1   ; $var < 10  ; $var++) {
     echo $var ;
 }
@@ -21,10 +21,15 @@ $sum = $a /* + $b
  * Test that the sniff does *not* throw incorrect errors for semi-colons in
  * "empty" parts of a `for` control structure.
  */
-for ($i = 1; ; $i++) {}
-for ( ; $ptr >= 0; $ptr-- ) {}
-for ( ; ; ) {}
+for ($i = 1; ; $i++) {
+}
+for ( ; $ptr >= 0; $ptr-- ) {
+}
+for ( ; ; ) {
+}
 
 // But it should when the semi-colon in a `for` follows a comment (but shouldn't move the semi-colon).
-for ( /* Deliberately left empty. */ ; $ptr >= 0; $ptr-- ) {}
-for ( $i = 1 ; /* Deliberately left empty. */ ; $i++ ) {}
+for ( /* Deliberately left empty. */ ; $ptr >= 0; $ptr-- ) {
+}
+for ( $i = 1 ; /* Deliberately left empty. */ ; $i++ ) {
+}

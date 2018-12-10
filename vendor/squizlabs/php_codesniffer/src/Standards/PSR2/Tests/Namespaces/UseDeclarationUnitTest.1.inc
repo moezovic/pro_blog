@@ -11,7 +11,8 @@ use SomethingElse;
 // Comment here.
 use LastThing;
 
-class Foo {
+class Foo
+{
 }
 
 $var = new MyClass(

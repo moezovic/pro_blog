@@ -70,7 +70,7 @@ class MyClass
      * @var   boolean
      * @since 4.0.0
      */
-    protected $postStep = FALSE;
+    protected $postStep = false;
 
 
 }//end class
@@ -216,7 +216,8 @@ interface MyInterface
 // phpcs:set Squiz.WhiteSpace.MemberVarSpacing spacing 0
 // phpcs:set Squiz.WhiteSpace.MemberVarSpacing spacingBeforeFirst 0
 
-class phpcsCommentTest {
+class phpcsCommentTest
+{
 
 
     // phpcs:disable Standard.Category.Sniff
@@ -233,7 +234,8 @@ class phpcsCommentTest {
 // phpcs:set Squiz.WhiteSpace.MemberVarSpacing spacing 1
 // phpcs:set Squiz.WhiteSpace.MemberVarSpacing spacingBeforeFirst 1
 
-class phpcsCommentTest {
+class phpcsCommentTest
+{
 
 
     // phpcs:disable Standard.Category.Sniff

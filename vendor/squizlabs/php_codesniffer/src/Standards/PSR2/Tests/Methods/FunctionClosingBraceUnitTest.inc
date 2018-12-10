@@ -7,7 +7,8 @@ function test()
 
 function test()
 {
-    echo 'foo';}
+    echo 'foo';
+}
 
 function test()
 {
@@ -31,7 +32,8 @@ class MyClass
 
     function test()
     {
-        echo 'foo';}
+        echo 'foo';
+    }
 
     function test()
     {
@@ -54,7 +56,8 @@ $foo = function test()
 
 $foo = function test()
 {
-     echo 'foo';};
+     echo 'foo';
+};
 
 $foo = function test()
 {

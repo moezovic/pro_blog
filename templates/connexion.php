@@ -1,14 +1,10 @@
-<?php 
-$this->title ="Connexion";
+<?php
+$this->title = 'Connexion';
 
 if (isset($_SESSION['name'])) {
-    $this->menu = true; 
-}
-else
-{
-    
+    $this->menu = true;
+} else {
     $this->menu = false;
-
 }
 ?>
 

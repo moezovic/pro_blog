@@ -34,7 +34,7 @@
 
     echo $moreBody;
 
-        ?>
+    ?>
 
     <?php
     echo $moreBody; ?>
@@ -42,11 +42,11 @@
     ?>
 
             <?php
-        echo 'hi';
+            echo 'hi';
             ?>
 
     <?php
-echo 'hi';
+    echo 'hi';
     ?>
 </body>
 </html>
@@ -57,11 +57,11 @@ function test()
         ?>
         <table>
             <?php if ($foo) {
-            ?>
+                ?>
             <tr>
             </tr>
             <?php }
-            ?>
+?>
         <?php
         foreach ($bar as $bar) {
             echo $bar;
@@ -73,11 +73,11 @@ function test()
         <table>
             <?php
             if ($foo) {
-            ?>
+                ?>
             <tr>
             </tr>
-            <?php
-}
+                <?php
+            }
             ?>
         <?php
         foreach ($bar as $bar) {

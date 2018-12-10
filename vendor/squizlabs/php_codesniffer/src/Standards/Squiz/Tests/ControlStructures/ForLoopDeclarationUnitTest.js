@@ -24,7 +24,10 @@ dfx.inherits('ContentFormat', 'Widget');
 
 for (var widgetid in this.loadedContents) {
     if (dfx.isset(widget) === true) {
-        widget.loadAutoSaveCWidgetStore.setData('activeScreen', null);widget.getContents(this.loadedContents[widgetid], function() {self.widgetLoaded(widget.id);});
+        widget.loadAutoSaveCWidgetStore.setData('activeScreen', null);widget.getContents(
+            this.loadedContents[widgetid], function () {
+                self.widgetLoaded(widget.id);}
+        );
     }
 }
 

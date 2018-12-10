@@ -1,19 +1,18 @@
-<?php 
+<?php
 
 namespace ProBlog\src\Manager;
-require_once'../config/dev.php';
+
+require_once '../config/dev.php';
 
 use PDO;
 
 class Manager
 {
-
-
     private $connection;
 
     private function checkConnection()
     {
-        if ($this->connection === null) {
+        if (null === $this->connection) {
             return $this->getConnection();
         }
 
@@ -33,14 +32,12 @@ class Manager
         if ($parameters) {
             $result = $this->checkConnection()->prepare($sql);
             $result->execute($parameters);
-            return $result;
 
-        }
-        else
-        {
+            return $result;
+        } else {
             $result = $this->checkConnection()->query($sql);
+
             return $result;
         }
     }
-
 }

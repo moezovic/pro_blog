@@ -1,5 +1,7 @@
 # Building a professional blog from scratch.
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/27ae1ec89f0b4ce188e6a7f3f002af89)](https://app.codacy.com/app/moezovic/pro_blog?utm_source=github.com&utm_medium=referral&utm_content=moezovic/pro_blog&utm_campaign=Badge_Grade_Dashboard)
+
 This blog was entirely programmed manually.
 
 *Composer* was used to install PHP project inspection packages, like *PHP Code Sniffer*, and *PHP Coding Standard Fixer*.

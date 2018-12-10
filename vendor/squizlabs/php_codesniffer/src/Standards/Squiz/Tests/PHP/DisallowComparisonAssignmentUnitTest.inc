@@ -1,20 +1,20 @@
 <?php
-$var = TRUE;
+$var = true;
 $var = ($foo === $bar);
 $var = ($foo * $bar);
 $var = !$foo;
 $var = ($foo || $bar);
-$var = ($foo === TRUE);
-$var = ($foo === TRUE
-        || $bar === FALSE);
+$var = ($foo === true);
+$var = ($foo === true
+        || $bar === false);
 $var = (!$foo);
 
 $var = is_array($foo);
 $var = myFunction($one, $two);
 $var = myFunction(
-        'one',
-        'two'
-       );
+    'one',
+    'two'
+);
 
 for ($i = ($stackPtr + 1); $i < $endStatement; $i++) {
 }
@@ -25,7 +25,7 @@ $var = myFunction(!$var);
 $depthAdv = array(
              $this,
              !$directLinks,
-             FALSE,
+             false,
             );
 
 $var = myFunction(
@@ -33,7 +33,7 @@ $var = myFunction(
     array(
      $this,
      !$directLinks,
-     FALSE,
+     false,
     );
 );
 

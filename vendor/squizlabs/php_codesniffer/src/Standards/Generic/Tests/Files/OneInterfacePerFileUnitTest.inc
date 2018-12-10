@@ -1,13 +1,16 @@
 <?php
-interface foo {
-	
+interface foo
+{
+    
 }
 
-interface bar {
-	
+interface bar
+{
+    
 }
 
-interface baz {
-	
+interface baz
+{
+    
 }
 ?>

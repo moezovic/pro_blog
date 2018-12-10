@@ -2,12 +2,14 @@
 class TestClass extends MyClass
 {
 
-    function TestClass() {
+    function TestClass()
+    {
         parent::MyClass();
         parent::__construct();
     }
 
-    function __construct() {
+    function __construct()
+    {
         parent::MyClass();
         parent::__construct();
     }
@@ -17,12 +19,14 @@ class TestClass extends MyClass
 class MyClass
 {
 
-    function MyClass() {
+    function MyClass()
+    {
         parent::YourClass();
         parent::__construct();
     }
 
-    function __construct() {
+    function __construct()
+    {
         parent::YourClass();
         parent::__construct();
     }
@@ -31,7 +35,8 @@ class MyClass
 
 class MyClass extends \MyNamespace\SomeClass
 {
-    function __construct() {
+    function __construct()
+    {
         something::MyNamespace();
     }
 
@@ -50,17 +55,21 @@ class OldClass
     }
 }
 
-foo(new class extends MyClass
-{
+foo(
+    new class extends MyClass
+    {
 
-    function TestClass() {
-        parent::MyClass();
-        parent::__construct();
+        function TestClass()
+        {
+            parent::MyClass();
+            parent::__construct();
+        }
+
+        function __construct()
+        {
+            parent::MyClass();
+            parent::__construct();
+        }
+
     }
-
-    function __construct() {
-        parent::MyClass();
-        parent::__construct();
-    }
-
-});
+);

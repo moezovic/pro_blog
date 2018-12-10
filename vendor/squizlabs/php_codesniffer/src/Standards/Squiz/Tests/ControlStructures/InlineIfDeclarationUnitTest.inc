@@ -16,12 +16,12 @@ echo 'var is '.(($var < 0)
 $args = array(
          '"'.$this->id.'"',
          '"'.$this->stepInfo['title'].'"',
-         '"'.((isset($this->stepInfo['description']) === TRUE) ? $this->stepInfo['description'] : '').'"',
-         '"'.(isset($this->stepInfo['description']) === TRUE ? $this->stepInfo['description'] : '').'"',
+         '"'.((isset($this->stepInfo['description']) === true) ? $this->stepInfo['description'] : '').'"',
+         '"'.(isset($this->stepInfo['description']) === true ? $this->stepInfo['description'] : '').'"',
          '"'.$this->stepInfo['title'].'"',
         );
 
-echo (TRUE)?'Hello':'Bye';
+echo (true)?'Hello':'Bye';
 
 $array = array(
     'one' => ($test == 1) ? true : false,
@@ -29,17 +29,19 @@ $array = array(
     'three' => (($test == 1) ? true : false)
 );
 $var = ($test == 1) ? true : false;
-$var = (myFunc(1,2,3) == 1) ? true : false;
+$var = (myFunc(1, 2, 3) == 1) ? true : false;
 
-set('config', function() {
-    $foo = ($bar === "on") ? "1" : "2";
-});
+set(
+    'config', function () {
+        $foo = ($bar === "on") ? "1" : "2";
+    }
+);
 
-$config = function() {
+$config = function () {
     $foo = ($bar === "on") ? "1" : "2";
 };
 
-rand(0, 1) ? 'ěščřžýáí' : NULL;
+rand(0, 1) ? 'ěščřžýáí' : null;
 
 $c = ($argv[1]) ? : "";
 $filepath = realpath($argv[1]) ?: $argv[1];

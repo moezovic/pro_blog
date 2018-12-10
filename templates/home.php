@@ -1,30 +1,25 @@
-<?php 
+<?php
 session_start();
 
-$this->title ="Acceuil";
- 
+$this->title = 'Acceuil';
 
 if (isset($session)) {
     $_SESSION['name'] = $session;
 }
 
 if (isset($_GET['access'])) {
-    if($_GET['access'] === 'sessionend') {
+    if ('sessionend' === $_GET['access']) {
         $_SESSION = array();
         session_destroy();
     }
 }
 
 // customize menu links
- 
-if (isset($_SESSION['name'])) {
-    $this->menu = true; 
-}
-else
-{
-    
-    $this->menu = false;
 
+if (isset($_SESSION['name'])) {
+    $this->menu = true;
+} else {
+    $this->menu = false;
 }
 ?>
 

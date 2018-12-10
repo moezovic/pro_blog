@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title><?php echo $title ?></title>
+        <title><?php echo $title; ?></title>
 
         <link rel="stylesheet" type="text/css" href="css/clean-blog.min.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -59,10 +59,7 @@
               </li>
 
                 <?php
-            }
-            else
-            {
-
+            } else {
                 ?>
               <li class="nav-item">
                 <a class="nav-link" href="index.php?action&access=connexion">Connexion</a>
@@ -82,7 +79,7 @@
 <!-- Include page header and main content -->
 
         <div id="content">
-    <?php echo $content ?>
+    <?php echo $content; ?>
         </div>
 
         <!-- Footer -->

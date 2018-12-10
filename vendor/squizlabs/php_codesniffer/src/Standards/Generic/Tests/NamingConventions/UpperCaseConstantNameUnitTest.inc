@@ -24,7 +24,8 @@ $foo->define('bar');
 $foo->getBar()->define('foo');
 Foo::define('bar');
 
-class ClassConstBowOutTest {
+class ClassConstBowOutTest
+{
     const /* comment */ abc = 1;
     const // phpcs:ignore Standard.Category.Sniff
         some_constant = 2;

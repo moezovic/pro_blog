@@ -59,8 +59,10 @@ function myFunction()
 
 params['mode'] = id.replace(/WidgetType/, '');
 
-if (index < -1) index = 0;
-if (index < - 1) index = 0;
+if (index < -1) { index = 0;
+}
+if (index < - 1) { index = 0;
+}
 
 var classN = prvId.replace(/\./g, '-');
 
@@ -85,8 +87,8 @@ stepWidth = Math.round(this.width / 5);
 date.setMonth(d[2] - 1);
 
 switch (number % 10) {
-    case -1:
-        suffix = 'st';
+case -1:
+    suffix = 'st';
     break;
 }
 
@@ -113,6 +115,8 @@ if (something === true
     return false;
 }
 
-if (true === /^\d*\.?\d*$/.test(input)) return true;
+if (true === /^\d*\.?\d*$/.test(input)) { return true;
+}
 
-if ( ! /^(?:a|select)$/i.test( element.tagName ) ) return true;
+if (! /^(?:a|select)$/i.test(element.tagName) ) { return true;
+}

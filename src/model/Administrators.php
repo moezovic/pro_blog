@@ -2,53 +2,57 @@
 
 namespace ProBlog\src\model;
 
+/**
+ * The Administrators class.
+ *
+ * Used by the hydration function.
+ *
+ * Creates administrator object
+ */
 class Administrators
 {
-    private $id;
-    private $name;
-    private $password;
-    private $email;
-
+    private $_id;
+    private $_name;
+    private $_password;
+    private $_email;
 
     public function getId()
     {
-        return $this->id;
+        return $this->_id;
     }
 
     public function setId($id)
     {
-        $this->id = $id;
+        $this->_id = $id;
     }
 
     public function getName()
     {
-        return $this->name;
+        return $this->_name;
     }
 
     public function setName($name)
     {
-        $this->name = $name;
+        $this->_name = $name;
     }
 
     public function getPassword()
     {
-        return $this->password;
+        return $this->_password;
     }
 
     public function setPassword($password)
     {
-        $this->password = $password;
+        $this->_password = $password;
     }
 
     public function getEmail()
     {
-        return $this->email;
+        return $this->_email;
     }
 
     public function setEmail($email)
     {
-        $this->email = $email;
+        $this->_email = $email;
     }
-
-
 }

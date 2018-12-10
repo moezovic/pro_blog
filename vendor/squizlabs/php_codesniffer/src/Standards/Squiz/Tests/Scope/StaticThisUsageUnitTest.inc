@@ -14,8 +14,7 @@ class MyClass
         return $this->setValue($result);
     }
 
-    public static function
-    func1()
+    public static function func1()
     {
         return $this->setValue($result);
     }
@@ -36,8 +35,9 @@ class MyClass
         return $this->setValue($result);
     }
 
-    public static function func1() {
-        return function() {
+    public static function func1()
+    {
+        return function () {
             echo $this->name;
         };
     }

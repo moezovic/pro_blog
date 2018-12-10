@@ -1,22 +1,25 @@
-<?php 
+<?php
 
 namespace ProBlog\src\controller;
 
 use ProBlog\src\model\View;
 
+/**
+ * The HomeController Class.
+ *
+ * Helps to redirect towards home page.
+ */
 class HomeController
 {
-
-    private $viewObj;
+    private $_viewObj;
 
     public function __construct()
     {
-        $this->viewObj = new View();
+        $this->_viewObj = new View();
     }
 
     public function toHomePage()
     {
-        $this->viewObj->render('home', []);
+        $this->_viewObj->render('home', []);
     }
-
 }

@@ -1,6 +1,7 @@
 <html>
 <?php
-function printHead() {
+function printHead()
+{
     echo '<head></head>';
 }
 

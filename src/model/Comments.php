@@ -1,66 +1,69 @@
-<?php 
- namespace ProBlog\src\model;
+<?php
 
+namespace ProBlog\src\model;
+
+/**
+ * The Comments class.
+ *
+ * Used by the hydration function.
+ *
+ * Creates Comments object
+ */
 class Comments
 {
-
-    private $id;
-    private $blog_post_id;
-    private $content;
-    private $author;
-    private $insert_date;
+    private $_id;
+    private $_blog_post_id;
+    private $_content;
+    private $_author;
+    private $_insert_date;
 
     public function getId()
     {
-        return $this->id;
+        return $this->_id;
     }
 
     public function setId($id)
     {
-        $this->id = $id;
+        $this->_id = $id;
     }
 
     public function getBlogPostId()
     {
-        return $this->blog_post_id;
+        return $this->_blog_post_id;
     }
 
     public function setBlogPostId($postId)
     {
-        $this->blog_post_id = $postId;
+        $this->_blog_post_id = $postId;
     }
 
     public function getContent()
     {
-        return $this->content;
+        return $this->_content;
     }
 
     public function setContent($content)
     {
-        $this->content = $content;
+        $this->_content = $content;
     }
 
     public function getAuthor()
     {
-        return $this->author;
+        return $this->_author;
     }
 
     public function setAuthor($author)
     {
-        $this->author = $author;
+        $this->_author = $author;
     }
 
     public function getInsertDate()
     {
-        return $this->insert_date;
+        return $this->_insert_date;
     }
 
     public function setInsertDate($time)
     {
-        $this->insert_date = $time;
+        $this->_insert_date = $time;
     }
-
 }
-
-
-

@@ -8,9 +8,11 @@ class Test
 
     function test1()
     {
-     }
+    }
 
-    function test2() {}
+    function test2()
+    {
+    }
 
     private function _test3()
     {
@@ -21,13 +23,14 @@ class Test
 
 class Test2
 {
- }
+}
 
 
 function test2()
 {
     if ($str{0}) {
-        $chr = $str{0}; }
+        $chr = $str{0}; 
+    }
 
 
     if (!class_exists($class_name)) {
@@ -58,56 +61,57 @@ case 1:
                 break;
             default:
                 // Do something.
-            break;
+                break;
             }
         }
     }
-break;
+    break;
 case 2:
     // Do something;
     break;
 }
 
 switch ($httpResponseCode) {
-    case 100:
-    case 101:
-    case 102:
-    default:
-        return 'Unknown';
+case 100:
+case 101:
+case 102:
+default:
+    return 'Unknown';
 }
 
 switch ($httpResponseCode) {
-    case 100:
-    case 101:
-    case 102:
-        return 'Processing.';
-    default:
+case 100:
+case 101:
+case 102:
+    return 'Processing.';
+default:
     return 'Unknown';
 }
 
 switch($i) {
-case 1: {}
+case 1: {
+}
 }
 
 switch ($httpResponseCode) {
-    case 100:
-    case 101:
-    case 102:
-        exit;
-    default:
+case 100:
+case 101:
+case 102:
+    exit;
+default:
     exit;
 }
 
-if ($foo):
-    if ($bar):
+if ($foo) :
+    if ($bar) :
         $foo = 1;
-    elseif ($baz):
+    elseif ($baz) :
         $foo = 2;
     endif;
 endif;
 
-if ($foo):
-elseif ($baz): $foo = 2;
+if ($foo) :
+elseif ($baz) : $foo = 2;
 endif;
 
 ?>
@@ -119,28 +123,29 @@ endif;
 <ul>
     <?php foreach ($array as $value) : ?>
         <li><?php echo $value ?></li>
-<?php endforeach ?>
+    <?php endforeach ?>
 </ul>
 <ul>
     <?php foreach ($array as $value) : ?>
         <li><?php echo $value ?></li>
-            <?php endforeach ?>
+    <?php endforeach ?>
 </ul>
 <?php
 switch ( $a ) {
-    case 'foo':
-        do {
-            $a = 'b';
-        } while ( $a );
+case 'foo':
+    do {
+        $a = 'b';
+    } while ( $a );
     return 5;
 
-    case 'bar':
-        foreach ( $a as $b ) {
-            $e = 'b';
-        }
+case 'bar':
+    foreach ( $a as $b ) {
+        $e = 'b';
+    }
     return 5;
 }
 
 ?>
 <?php $_cartQty = $this->getSummaryCount(); ?>
-<div id="minicart" <?php if ($_cartQty == 0): ?>class="empty"<?php endif; ?>>
+<div id="minicart" <?php if ($_cartQty == 0) : ?>class="empty"<?php 
+endif; ?>>

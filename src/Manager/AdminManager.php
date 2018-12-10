@@ -1,8 +1,14 @@
-<?php  
+<?php
 
 namespace ProBlog\src\Manager;
+
 use ProBlog\src\model\Administrators;
 
+/**
+ * The AdminManager class.
+ *
+ * manage the administrator table in the DB.
+ */
 class AdminManager extends Manager
 {
     public function getAdmin()
@@ -10,8 +16,7 @@ class AdminManager extends Manager
         $sql = 'SELECT id, name, password FROM administrators';
         $result = $this->sql($sql);
         $admins = [];
-        foreach ($result as $row) 
-        {
+        foreach ($result as $row) {
             $adminId = $row['id'];
             $admins[$adminId] = $this->hydrate($row);
         }
@@ -31,28 +36,24 @@ class AdminManager extends Manager
     private function hydrate(array $row)
     {
         $adminObj = new Administrators();
-        foreach ($row as $key => $value) 
-        {
-            if(preg_match('/_/', $key)) {
+        foreach ($row as $key => $value) {
+            if (preg_match('/_/', $key)) {
                 $explodString = explode('_', $key);
-                foreach ($explodString as $index => $value) 
-                {
+                foreach ($explodString as $index => $value) {
                     $explodString[$index] = ucfirst($value);
                 }
                 $key = implode($explodString);
-            }
-            else
-            {
+            } else {
                 $key = ucfirst($key);
             }
 
             $method = 'set'.$key;
 
-            if(method_exists($adminObj, $method)) {
+            if (method_exists($adminObj, $method)) {
                 $adminObj->$method($value);
             }
         }
-        return $adminObj;
 
+        return $adminObj;
     }
 }

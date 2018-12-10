@@ -2,10 +2,10 @@
 <?php echo $var; ?>
 Some content here.
 
-<?= $var; ?>
-Some content <?= $var ?> Some more content
-<?=
+<?php echo $var; ?>
+Some content <?php echo $var ?> Some more content
+<?php echo
 $var;
 ?>
-<?=$var; ?>
+<?php echo $var; ?>
 </div>

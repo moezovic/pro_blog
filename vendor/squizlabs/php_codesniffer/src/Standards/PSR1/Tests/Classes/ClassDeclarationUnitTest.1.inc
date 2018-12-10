@@ -1,3 +1,7 @@
 <?php
-class Foo {}
-class Bar {}
+class Foo
+{
+}
+class Bar
+{
+}

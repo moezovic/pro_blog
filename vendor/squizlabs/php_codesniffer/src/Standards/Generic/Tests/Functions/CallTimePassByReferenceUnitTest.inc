@@ -1,6 +1,8 @@
 <?php
-class myclass extends yourclass implements someint {
-    function myfunc($var) {
+class myclass extends yourclass implements someint
+{
+    function myfunc($var)
+    {
         echo $var;
     }
 }
@@ -25,7 +27,7 @@ $foo(&$myvar);
 if (is_array($foo = &$this->bar())) {
 }
 
-Hooks::run( 'SecondaryDataUpdates', [ $title, $old, $recursive, $parserOutput, &$updates ] );
+Hooks::run('SecondaryDataUpdates', [ $title, $old, $recursive, $parserOutput, &$updates ]);
 
 $foo = Bar(&$fooBar);
 

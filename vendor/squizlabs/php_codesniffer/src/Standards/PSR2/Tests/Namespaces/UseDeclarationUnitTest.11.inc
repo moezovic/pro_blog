@@ -1,2 +1,4 @@
 <?php
-use Foo\Bar; class Baz {}
+use Foo\Bar; class Baz
+{
+}

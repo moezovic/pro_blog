@@ -1,24 +1,30 @@
 <?php
 
 // ok
-somefunction1($foo, $bar, [
+somefunction1(
+    $foo, $bar, [
     // ...
-], $baz);
+    ], $baz
+);
 
 // ok
-$app->get('/hello/{name}', function ($name) use ($app) {
-    return 'Hello '.$app->escape($name);
-}, array(
+$app->get(
+    '/hello/{name}', function ($name) use ($app) {
+        return 'Hello '.$app->escape($name);
+    }, array(
     '1',
     '2',
     '3',
-));
+    )
+);
 
 // error
-somefunction2($foo, $bar, [
+somefunction2(
+    $foo, $bar, [
     // ...
     ],
-$baz);
+    $baz
+);
 
 // ok
 somefunction3(// ...
@@ -31,36 +37,45 @@ somefunction3(// ...
 );
 
 // ok
-somefunction4('
+somefunction4(
+    '
     this should not
     give an error
     because it\'s actually
     one line call
     with multi-line string
-');
+'
+);
 
 // ok
-somefunction5("hey,
+somefunction5(
+    "hey,
 multi-line string with some
-extra args", $foo, 12);
+extra args", $foo, 12
+);
 
 // error
-somefunction6('
+somefunction6(
+    '
     but args in a new line
     are not ok…
     ',
     $foo
 );
 
-$this->setFoo(true
+$this->setFoo(
+    true
     ? 1
     : 2, false, array(
     'value',
-    'more'));
+    'more')
+);
 
-$this->setFoo('some'
+$this->setFoo(
+    'some'
     . 'long'
-    . 'text', 'string');
+    . 'text', 'string'
+);
 
 foo(bar(), $a);
 foo();bar();
@@ -69,33 +84,41 @@ foo(
     true
 );
 
-myFunction(<<<END
+myFunction(
+    <<<END
 Foo
 END
 );
 
-var_dump(array(<<<'EOD'
+var_dump(
+    array(<<<'EOD'
 foobar!
 EOD
-));
+    )
+);
 
-myFunction(<<<END
+myFunction(
+    <<<END
 Foo
 END
-, 'bar');
+    , 'bar'
+);
 
-myFunction(<<<END
+myFunction(
+    <<<END
 Foo
 END
-,
-'bar');
+    ,
+    'bar'
+);
 
 if (array_filter(
     $commands,
     function ($cmd) use ($commandName) {
         return ($cmd['name'] == $commandName);
     }
-)) {
+)
+) {
     // Do something
 }
 
@@ -114,99 +137,117 @@ $qux = array_filter(
 );
 
 $this->listeners[] = $events->getSharedManager()->attach(
-        'Zend\Mvc\Application', MvcEvent::EVENT_DISPATCH, [$this, 'selectLayout'], 100
+    'Zend\Mvc\Application', MvcEvent::EVENT_DISPATCH, [$this, 'selectLayout'], 100
 );
 
 // phpcs:set PSR2.Methods.FunctionCallSignature requiredSpacesBeforeClose 1
-foo('Testing
-    multiline text'
- );
-
-foo('Testing
-    multiline text: ' // . $text
- );
-
-foo('Testing
-    multiline text: ' /* . $text */
- );
-
-foo('Testing
-    multiline text: ' /* . $text */
-    // . $other_text
- );
-
-foo('Testing
-    multiline text: ' /*
- . $text
-// . $text2
- */
- );
-// phpcs:set PSR2.Methods.FunctionCallSignature requiredSpacesBeforeClose 0
-
-foo('Testing
+foo(
+    'Testing
     multiline text'
 );
 
-foo('Testing
-    multiline text'
- );
+foo(
+    'Testing
+    multiline text: ' // . $text
+);
 
-foo('Testing
+foo(
+    'Testing
+    multiline text: ' /* . $text */
+);
+
+foo(
+    'Testing
+    multiline text: ' /* . $text */
+    // . $other_text
+);
+
+foo(
+    'Testing
+    multiline text: ' /*
+    . $text
+    // . $text2
+    */
+);
+// phpcs:set PSR2.Methods.FunctionCallSignature requiredSpacesBeforeClose 0
+
+foo(
+    'Testing
+    multiline text'
+);
+
+foo(
+    'Testing
+    multiline text'
+);
+
+foo(
+    'Testing
     multiline text' // hello
 );
 
-foo('Testing
+foo(
+    'Testing
     multiline text' /* hello */
 );
 
-foo('Testing
+foo(
+    'Testing
     multiline text'
     // hello
 );
 
-foo('Testing
+foo(
+    'Testing
     multiline text'
     /* hello */
 );
 
-$var = foo('Testing
+$var = foo(
+    'Testing
     multiline'
     // hi
-    ) + foo('Testing
+) + foo(
+    'Testing
     multiline'
     // hi
-    )
-;
+);
 
 class Test
 {
     public function getInstance()
     {
         return new static(
-          'arg',
-              'foo'
+            'arg',
+            'foo'
         );
     }
 
     public function getSelf()
     {
         return new self(
-         'a', 'b', 'c'
+            'a', 'b', 'c'
         );
     }
 }
 
-$x = $var('y',
-    'x');
+$x = $var(
+    'y',
+    'x'
+);
 
-$obj->{$x}(1,
-2);
+$obj->{$x}(
+    1,
+    2
+);
 
 (function ($a, $b) {
     return function ($c, $d) use ($a, $b) {
         echo $a, $b, $c, $d;
     };
 })(
-  'a','b'
-)('c',
-    'd');
+    'a', 'b'
+)(
+    'c',
+    'd'
+);

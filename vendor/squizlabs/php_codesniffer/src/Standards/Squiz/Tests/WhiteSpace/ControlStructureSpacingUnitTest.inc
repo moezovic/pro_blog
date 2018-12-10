@@ -43,30 +43,30 @@ if ($one) {
 <?php
 
 switch ($blah) {
-    case 'one':
-        if ($blah) {
-            // There are no spaces before break.
-        }
+case 'one':
+    if ($blah) {
+        // There are no spaces before break.
+    }
     break;
 
-    default:
-        if ($blah) {
-            // There are no spaces before break.
-        }
+default:
+    if ($blah) {
+        // There are no spaces before break.
+    }
     break;
 }
 
 switch ($blah) {
-    case 'one':
-        if ($blah) {
-            // There are no spaces before break.
-        }
+case 'one':
+    if ($blah) {
+        // There are no spaces before break.
+    }
     break;
 
-    default:
-        if ($blah) {
-            // Code here.
-        }
+default:
+    if ($blah) {
+        // Code here.
+    }
 }
 
 foreach ($blah as $var) {
@@ -104,36 +104,35 @@ foreach ($this->children as $child) {
 }
 
 if ($defaultPageDesign === 0
-    && $defaultCascade === TRUE
+    && $defaultCascade === true
     && $defaultChildDesign === 0
 ) {
-    $settingsUpdated = FALSE;
+    $settingsUpdated = false;
 }
 
 foreach ( $blah as $var ) {
-    if (  $blah    ) {
+    if ($blah    ) {
     }
 }
 
-if (
-    $defaultPageDesign === 0
-    && $defaultCascade === TRUE
+if ($defaultPageDesign === 0
+    && $defaultCascade === true
     && $defaultChildDesign === 0
 ) {
-    $settingsUpdated = FALSE;
+    $settingsUpdated = false;
 }
 
 $moo = 'blar';
 switch ($moo)
 {
-    case 'blar':
-        if ($moo === 'blar2') {
-            $moo = 'blar'
-        }
+case 'blar':
+    if ($moo === 'blar2') {
+        $moo = 'blar'
+    }
     return $moo;
 
-    default:
-        $moo = 'moo';
+default:
+    $moo = 'moo';
     break;
 }
 
@@ -183,10 +182,10 @@ if ($two) {
 
 switch ($moo)
 {
-    case 'blar':
-        if ($moo === 'blar2') {
-            $moo = 'blar'
-        }
+case 'blar':
+    if ($moo === 'blar2') {
+        $moo = 'blar'
+    }
 
     return $moo;
 }
@@ -207,7 +206,8 @@ if ($foo) {
     /**
      * Comment
      */
-    function foo() {
+    function foo()
+    {
         // Code here
     }
 
@@ -215,7 +215,8 @@ if ($foo) {
     /**
      * Comment
      */
-    class bar() {
+    class bar()
+    {
 
     }//end class
 
@@ -248,6 +249,6 @@ echo 'hi';
     <?php foreach($fieldset['Field'] as $field):
 
         echo 'foo';
-    ?>
+        ?>
     <?php endforeach; ?>
 <?php endforeach; ?>

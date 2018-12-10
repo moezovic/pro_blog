@@ -10,20 +10,17 @@ var good = true; // Indeed.
 
 mig.Gallery.prototype = {
 
-    init: function(cb)
-    {
+    init: function (cb) {
 
     },//end init()
 
-    imageClicked: function(id)
-    {
+    imageClicked: function (id) {
 
     }//end imageClicked()
 
 };
 
-dfx.getIframeDocument = function(iframe)
-{
+dfx.getIframeDocument = function (iframe) {
 
     return doc;
 

@@ -17,30 +17,43 @@ $size = $class->count($array);
 $class->delete($filepath);
 $class->unset($filepath);
 
-function delete() {}
-function unset() {}
-function sizeof() {}
-function count() {}
-
-trait DelProvider {
-  public function delete() {
-    //irrelevant
-  }
+function delete()
+{
+}
+function unset()
+{
+}
+function sizeof()
+{
+}
+function count()
+{
 }
 
-class LeftSideTest {
+trait DelProvider
+{
+    public function delete()
+    {
+        //irrelevant
+    }
+}
+
+class LeftSideTest
+{
     use DelProvider {
         delete as protected unsetter;
     }
 }
 
-class RightSideTest {
+class RightSideTest
+{
     use DelProvider {
         delete as delete;
     }
 }
 
-class RightSideVisTest {
+class RightSideVisTest
+{
     use DelProvider {
         delete as protected delete;
         DelProvider::delete insteadof delete;
@@ -49,9 +62,12 @@ class RightSideVisTest {
 
 namespace Something\sizeof;
 $var = new Sizeof();
-class SizeOf implements Something {}
+class SizeOf implements Something
+{
+}
 
-function mymodule_form_callback(SizeOf $sizeof) {
+function mymodule_form_callback(SizeOf $sizeof)
+{
 }
 
 ?>

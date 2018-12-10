@@ -48,8 +48,8 @@ class TestClass
                ];
 
         $train = [
-                   TRUE,
-                  FALSE,
+                   true,
+                  false,
                   'aaa'
                  ];
 
@@ -78,23 +78,23 @@ $value = [  ];
 $value = ['1'=>$one, '2'  =>  $two, '3'=> $three, '4' =>$four];
 $value = ['1'=>$one];
 
-if (in_array('1', ['1','2','3']) === TRUE) {
+if (in_array('1', ['1','2','3']) === true) {
     $value = in_array('1', ['1'  ,   '2',     '3','4']);
 }
 
 $value = [
-          '1'=> TRUE,
-          FALSE,
+          '1'=> true,
+          false,
           '3' => 'aaa',];
 
 $value = [
-          '1'=> TRUE,
-          FALSE,
+          '1'=> true,
+          false,
          ];
 
 $value = [
-          TRUE,
-          '1' => FALSE,
+          true,
+          '1' => false,
          ];
 
 $value = [1,
@@ -198,10 +198,10 @@ $x = [
      ];
 
 $test = [
-         'test' => TestFunction::blah(
-             $value1,
-             $value2
-         ),
+        'test' => TestFunction::blah(
+            $value1,
+            $value2
+        ),
         ];
 
 $c = ['a' => 1,];
@@ -217,7 +217,7 @@ function foo()
 
 $array = [
           'name'       => 'contactSubject',
-          'required'   => TRUE,
+          'required'   => true,
           'validators' => [
                            new \Zend\Validator\InArray(['haystack' => array_keys($aSubjects)]),
                           ],
@@ -294,15 +294,15 @@ $ids = [
        ];
 
 [
- 'key1' => function($bar) {
+ 'key1' => function ($bar) {
     return $bar;
  },
- 'key2' => function($foo) {
-    return $foo;
- },
- 'key3' => function($bar) {
-    return $bar;
- }
+    'key2' => function ($foo) {
+        return $foo;
+    },
+    'key3' => function ($bar) {
+        return $bar;
+    }
 ];
 
 [
@@ -330,12 +330,14 @@ $fields = [
            'id'    => ['type' => 'INT'],
            'value' => ['type' => 'VARCHAR']];
 
-get_current_screen()->add_help_tab( [
+get_current_screen()->add_help_tab(
+    [
                                      'id' => <<<EOD
 Here comes some text.
 EOD
-,
-                                    ] );
+    ,
+     ] 
+);
 
 echo [1][0];
 echo 'PHP'[0];

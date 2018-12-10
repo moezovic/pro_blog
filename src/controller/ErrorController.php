@@ -4,24 +4,27 @@ namespace ProBlog\src\controller;
 
 use ProBlog\src\model\View;
 
+/**
+ * the ErrolController Class.
+ *
+ * Helps redirect the user when error occurs.
+ */
 class ErrorController
 {
-
-    private $viewObj;
-
+    private $_viewObj;
 
     public function __construct()
     {
-        $this->viewObj = new View();
+        $this->_viewObj = new View();
     }
 
     public function unknown()
     {
-        $this->viewObj->render('unknown', []);
+        $this->_viewObj->render('unknown', []);
     }
 
     public function error($e)
     {
-        $this->viewObj->render('error', ['e'=>$e]);
+        $this->_viewObj->render('error', ['e' => $e]);
     }
 }

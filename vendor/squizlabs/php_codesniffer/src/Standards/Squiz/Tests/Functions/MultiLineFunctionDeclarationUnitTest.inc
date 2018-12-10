@@ -1,19 +1,20 @@
 <?php
 public function someFunctionWithAVeryLongName($firstParameter='something',
-   $secondParameter='booooo',
-   $third=null, $fourthParameter=false,
-     $fifthParameter=123.12,
+    $secondParameter='booooo',
+    $third=null, $fourthParameter=false,
+    $fifthParameter=123.12,
     $sixthParam=true
-){
+) {
 }
 
 function someFunctionWithAVeryLongName2(
-$firstParameter='something',
-$secondParameter='booooo',
-)  {
+    $firstParameter='something',
+    $secondParameter='booooo',
+) {
 }
 
-function blah() {
+function blah()
+{
 }
 
 function blah()
@@ -30,7 +31,9 @@ class MyClass
         $fourthParameter=false,
         $fifthParameter=123.12,
         $sixthParam=true
-    ) /** w00t */ {
+    ) { /**
+ * w00t 
+*/ 
     }
 
     public function someFunctionWithAVeryLongName2($firstParameter='something',
@@ -39,22 +42,22 @@ class MyClass
     ) {
     }
 
-     public function someFunctionWithAVeryLongName3(
-         $firstParameter, $secondParameter, $third=null
-     ) {
-     }
+    public function someFunctionWithAVeryLongName3(
+        $firstParameter, $secondParameter, $third=null
+    ) {
+    }
 
-     public function someFunctionWithAVeryLongName4(
-         $firstParameter, $secondParameter
-     ) {
-     }
+    public function someFunctionWithAVeryLongName4(
+        $firstParameter, $secondParameter
+    ) {
+    }
 
-     public function someFunctionWithAVeryLongName5(
-         $firstParameter,
-         $secondParameter=array(1,2,3),
-         $third=null
-     ) {
-     }
+    public function someFunctionWithAVeryLongName5(
+        $firstParameter,
+        $secondParameter=array(1,2,3),
+        $third=null
+    ) {
+    }
 
 }
 
@@ -79,7 +82,8 @@ $longArgs_longVars = function (
 };
 
 $longArgs_longVars = function ($longArgument,
-    $muchLongerArgument) use ($muchLongerVar3
+    $muchLongerArgument
+) use ($muchLongerVar3
 ) {
     // body
 };
@@ -108,7 +112,8 @@ if (array_filter(
     function ($cmd) use ($commandName) {
         return ($cmd['name'] == $commandName);
     }
-)) {
+)
+) {
     // Do something
 }
 
@@ -122,15 +127,16 @@ function foo( // comment
 function foo($bar = [
     1,
     2,
-], $foo)
-{
+], $foo
+) {
     // body
 }
 
 $foo = function ($bar = [
     1,
     2,
-]) use ($longVar1, $longerVar2) {
+]
+) use ($longVar1, $longerVar2) {
     // body
 };
 
@@ -138,8 +144,8 @@ function foo($bar = [
     1,
     2,
 ],
-$foo)
-{
+    $foo
+) {
     // body
 }
 
@@ -155,9 +161,7 @@ function foo(
 
 function foo(
     $param1,
-
     $param2,
-
     $param3,
 ) : SomeClass {
 }
@@ -166,14 +170,17 @@ function foo(
 function __construct(
     $foo,   // This is foo
     $bar
-) {}
+) {
+}
 
 function __construct(
     $foo /* this is foo */,
     $bar // this is bar
-) {}
+) {
+}
 
 function __construct(
     $foo,   // phpcs:ignore Standard.Category.Sniff -- for reasons.
     $bar
-) {}
+) {
+}

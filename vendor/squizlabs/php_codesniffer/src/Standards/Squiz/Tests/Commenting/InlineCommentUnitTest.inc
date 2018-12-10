@@ -14,7 +14,7 @@ function test()
     // Some code goes here.
     $code = 'hello';
 
-    # This comment is banned.
+    // This comment is banned.
     $code = 'hello';
 
 }//end test()
@@ -24,8 +24,8 @@ function test()
     It spans multiple lines.
 */
 
-# This is a long comment
-# that is banned.
+// This is a long comment
+// that is banned.
 
 
 
@@ -64,7 +64,9 @@ $code = 'hello';
 //
 $code = 'hello';
 
-/** Neither is this! **/
+/**
+ * Neither is this! 
+**/
 $code = 'hello';
 
 class MyClass
@@ -80,15 +82,15 @@ class MyClass
 
 /**
  * Comment should be ignored.
- *
  */
 final class MyClass
 {
     /**
      * Comment should be ignored.
-     *
      */
-    final public function test() {}
+    final public function test()
+    {
+    }
 }
 
 // 这是一条测试评论
@@ -105,9 +107,9 @@ final class MyClass
 
 /**
  * Comment should be ignored in PHP 5.4.
- *
  */
-trait MyTrait {
+trait MyTrait
+{
 
 }
 
@@ -115,13 +117,13 @@ $foo = 'foo'; // Var set to foo.
 
 echo $foo;
 
-//	Comment here.
+//    Comment here.
 echo $foo;
 
 /**
  * Comments about the include
  */
-include_once($blah);
+require_once $blah;
 
 // some comment without capital or full stop
 echo $foo; // An unrelated comment.
@@ -136,7 +138,9 @@ class Foo
     /**
      * Spacing is ignored above.
      */
-    function bar(){}
+    function bar()
+    {
+    }
 }
 
 /*

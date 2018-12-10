@@ -4,7 +4,8 @@ class ClassName extends ParentClass implements \ArrayAccess,  \Countable
     // constants, properties, methods
 }
 
-class ClassName extends ParentClass,AnotherParentClass implements \ArrayAccess,\Countable {
+class ClassName extends ParentClass,AnotherParentClass implements \ArrayAccess,\Countable
+{
     // constants, properties, methods
 }
 
@@ -19,7 +20,8 @@ implements \ArrayAccess, \Countable
 class ClassName extends  ParentClass  implements
    \ArrayAccess,
         \Foo\Bar\Countable,
-    \Serializable {
+    \Serializable
+{
     // constants, properties, methods
 
 }
@@ -68,8 +70,10 @@ class ClassName extends ParentClass implements
 
 class Test
 {
-    public function test() {
-        if (1) 1;
+    public function test()
+    {
+        if (1) { 1;
+        }
         1 ? (1 ? 1 : 1) : 1;
     }
 }

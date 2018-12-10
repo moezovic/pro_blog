@@ -1,5 +1,7 @@
 <?php
-/** Class doc comment */
+/**
+ * Class doc comment 
+ */
 
 class Comment
 {
@@ -18,16 +20,12 @@ class Invalid_Comment_Style1
 }//end class
 
 /**
- *
- *
  * Sample class comment.
- *
  *
  * Long description with extra blank line before and after
  *
- *
- * @version   Release: 1.0
- * @link      http://pear.php.net/package/PHP_CodeSniffer
+ * @version Release: 1.0
+ * @link    http://pear.php.net/package/PHP_CodeSniffer
  */
 
 class Extra_Description_Newlines
@@ -51,7 +49,8 @@ class Missing_Newlines_Before_Tags
  */
 class Checking_Tags
 {
-    class Sub_Class {
+    class Sub_Class
+    {
 
     }//end class
 
@@ -63,8 +62,8 @@ class Checking_Tags
  * that spans multiple line
  * and not end with a full stop
  *
- * @hello      Hello tag
- * @package    phpcs
+ * @hello   Hello tag
+ * @package phpcs
  */
 class Unknown_Hello_Tag
 {
@@ -108,7 +107,8 @@ class Incorrect_Case2
 
 }//end class
 
-/** Sample class comment.
+/**
+ * Sample class comment.
  */
 class Start_Tag_Incorrect
 {
@@ -117,7 +117,6 @@ class Start_Tag_Incorrect
 
 /**
  * 这是一条测试评论.
- *
  */
 class Space_At_end
 {

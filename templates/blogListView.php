@@ -1,18 +1,14 @@
 <?php
-session_start(); 
+session_start();
 
-$this->title ="Liste d'articles";
+$this->title = "Liste d'articles";
 
 // customize menu links
 
 if (isset($_SESSION['name'])) {
-    $this->menu = true; 
-}
-else
-{
-    
+    $this->menu = true;
+} else {
     $this->menu = false;
-
 }
 ?>
 
@@ -39,19 +35,17 @@ else
     <div class="row justify-content-center">
         <div class="card-deck justify-content-center">
 
-    <?php 
+    <?php
     $startDiv = '<div class ="row justify-content-center">';
     $endDiv = '</div>';
-    for ($i = 1; $bpCount = count($blogPosts), $i<$bpCount+1; $i++) 
-    {
-        if ($i == 1 || (($i - 1) % 3 == 0)) {
+    for ($i = 1; $bpCount = count($blogPosts), $i < $bpCount + 1; ++$i) {
+        if (1 == $i || (0 == ($i - 1) % 3)) {
             echo $startDiv;
-        }
-        ?>
+        } ?>
 
                  <div class="card text-center">
                      <div class="card-body">
-                         <h3 class="card-title"><?php echo htmlspecialchars($blogPosts[$i]->getTitle());?></h3>
+                         <h3 class="card-title"><?php echo htmlspecialchars($blogPosts[$i]->getTitle()); ?></h3>
                          <span class="card-subtitle mb-2 text-muted"><?php echo htmlspecialchars($blogPosts[$i]->getUpdateTime()); ?></span>
                          <p class="card-text"><?php echo htmlspecialchars($blogPosts[$i]->getTopicSentence()); ?></p>
                          
@@ -62,7 +56,7 @@ else
                   </div>
 
         <?php
-        if ($i % 3 == 0) {
+        if (0 == $i % 3) {
             echo $endDiv;
         }
     }

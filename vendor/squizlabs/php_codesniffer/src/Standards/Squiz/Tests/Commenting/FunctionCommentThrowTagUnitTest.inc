@@ -5,7 +5,6 @@ class FunctionCommentThrowTagUnitTest
 
     /**
      * Missing throw tag.
-     *
      */
     public function missingThrowTag()
     {
@@ -267,37 +266,44 @@ class FunctionCommentThrowTagUnitTest
     }//end okVariableMultiRethrown()
 }//end class
 
-class NamespacedException {
+class NamespacedException
+{
     /**
      * @throws \Exception
      */
-    public function foo() {
+    public function foo()
+    {
         throw new \Exception();
     }
 
     /**
      * @throws \Foo\Bar\FooBarException
      */
-    public function fooBar2() {
+    public function fooBar2()
+    {
         throw new \Foo\Bar\FooBarException();
     }
     
     /**
      * @throws FooBarException
      */
-    public function fooBar2() {
+    public function fooBar2()
+    {
         throw new \Foo\Bar\FooBarException();
     }
 }
 
-class Foo {
+class Foo
+{
     /**
      * Comment
      */
-    public function foo() {
+    public function foo()
+    {
     }//end foo()
 
-    public function bar() {
+    public function bar()
+    {
         throw new Exception();
     }
 
@@ -311,7 +317,7 @@ class Foo {
      * @return array
      * @throws ChannelException If the project is invalid.
      */
-    public static function getTestInfo($projectid=NULL)
+    public static function getTestInfo($projectid=null)
     {
         try {
             DAL::beginTransaction();
@@ -336,7 +342,7 @@ class Test
     {
         parent::setUp();
 
-        if ( !strlen($this->folderName) ) {
+        if (!strlen($this->folderName) ) {
             throw new \RuntimeException('The $this->folderName must be specified before proceeding.');
         }
     }
@@ -404,7 +410,8 @@ class A
     }
 }
 
-abstract class SomeClass {
+abstract class SomeClass
+{
     /**
      * Comment here.
      */

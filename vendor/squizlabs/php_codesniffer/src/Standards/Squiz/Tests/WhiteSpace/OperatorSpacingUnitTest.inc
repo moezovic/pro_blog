@@ -90,29 +90,36 @@ $i> $j && $k< $l && $m>= $n && $o<= $p && $q<> $r;
 $a ==$b && $c !=$d && $e ===$f && $g !==$h;
 $i >$j && $k <$l && $m >=$n && $o <=$p && $q <>$r;
 
-function myFunction($variable=0, $var2='string') {}
+function myFunction($variable=0, $var2='string')
+{
+}
 
 if (index > -1) {
 }
 
-array_walk_recursive($array, function(&$item) use (&$something) {
-});
+array_walk_recursive(
+    $array, function (&$item) use (&$something) {
+    }
+);
 
 $var = saveFile(&$model, &$foo);
 
 // This is all valid.
 $boo = -$foo;
-function foo($boo = -1) {}
+function foo($boo = -1)
+{
+}
 $foo = array('boo' => -1);
 $x = $test ? -1 : 1;
 $y = $test ? 1 : -1;
 $z = $test ?: false;
 
-$closureWithDefaultParameter = function (array $testArray=array()) {};
+$closureWithDefaultParameter = function (array $testArray=array()) {
+};
 
 switch ($foo) {
-	case -1:
-		break;
+case -1:
+    break;
 }
 
 $y = 1 * -1;
@@ -180,15 +187,21 @@ $a ??=  $b;
 
 $a = +1;
 
-function bar($boo = +1) {}
+function bar($boo = +1)
+{
+}
 
 $username = $_GET['user']??'nobody';
 
-function foo(string $bar, array $baz, ?MyClass $object) : MyClass {}
+function foo(string $bar, array $baz, ?MyClass $object) : MyClass
+{
+}
 
 declare(strict_types=1);
 
-function foo($c = ((BAR)?10:100)) {}
+function foo($c = ((BAR)?10:100))
+{
+}
 
 $res = $a ?: $b;
 $res = $a ?:  $b;
@@ -200,23 +213,29 @@ $res = $a ? :  $b;
 $res = $a  ? : $b;
 $res = $a  ? :  $b;
 
-function foo(string $a = '', ?string $b = ''): ?string {}
+function foo(string $a = '', ?string $b = ''): ?string
+{
+}
 
 // Issue #1605.
 $text = preg_replace_callback(
-		self::CHAR_REFS_REGEX,
-		[ 'Sanitizer', 'decodeCharReferencesCallback' ],
-		$text, /* limit */ -1, $count );
+    self::CHAR_REFS_REGEX,
+    [ 'Sanitizer', 'decodeCharReferencesCallback' ],
+    $text, /* limit */ -1, $count 
+);
 
-if (true || /* test */ -1 == $b) {}
+if (true || /* test */ -1 == $b) {
+}
 $y = 10 + /* test */ -2;
 
 // Issue #1604.
-Hooks::run( 'ParserOptionsRegister', [
-	&self::$defaults,
-	&self::$inCacheKey,
-	&self::$lazyOptions,
-] );
+Hooks::run(
+    'ParserOptionsRegister', [
+    &self::$defaults,
+    &self::$inCacheKey,
+    &self::$lazyOptions,
+     ] 
+);
 
 $x = $foo ? function (): int {
     return 1;
@@ -251,8 +270,11 @@ $a =
 ];
 
 $foo = is_array($bar) ? array_map(
-        function () {},
-        $bar
-    ) : $bar;
+    function () {
+    },
+    $bar
+) : $bar;
 
-function bar(): array {}
+function bar(): array
+{
+}

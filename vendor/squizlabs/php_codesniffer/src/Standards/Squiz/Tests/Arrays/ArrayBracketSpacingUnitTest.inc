@@ -11,7 +11,8 @@ $array = [
     'bar' => 'foo',
 ];
 
-if ($foo) {}
+if ($foo) {
+}
 [$a, $b] = $c;
 
 echo foo()[ 1 ];

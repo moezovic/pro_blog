@@ -65,9 +65,12 @@ $code = 'should not be here';
 /*
 */
 
-/** Not allowed */
+/**
+ * Not allowed 
+*/
 
-/**  Not allowed
+/**
+  * Not allowed
     either.
 **/
 
@@ -132,45 +135,45 @@ class MyClass
 
 /**
  * Comment should be ignored.
- *
  */
 final class MyClass
 {
     /**
      * Comment should be ignored.
-     *
      */
-    final public function test() {}
+    final public function test()
+    {
+    }
 }
 
 switch ($var) {
-    case 'foo':
-        /*
-            Foo comment.
-            This is a multiple
-            line comment for Foo.
-        */
+case 'foo':
+    /*
+        Foo comment.
+        This is a multiple
+        line comment for Foo.
+    */
 
-        echo 'Foo';
+    echo 'Foo';
     break;
 
-    default:
+default:
 
-        /*
-            Foo comment.
-            This is a multiple
-            line comment for Foo.
-        */
+    /*
+        Foo comment.
+        This is a multiple
+        line comment for Foo.
+    */
 
-        echo 'Default';
+    echo 'Default';
     break;
 }//end switch
 
 /**
  * Comment should be ignored in PHP < 5.4.
- *
  */
-trait MyTrait {
+trait MyTrait
+{
 
 }
 
@@ -200,36 +203,39 @@ class Foo
 
 }
 
-class TabTest {
-	public function bar() {
-		/*
-		 * Comment line 1.
-		 * Comment line 2.
-		*/
+class TabTest
+{
+    public function bar()
+    {
+        /*
+        * Comment line 1.
+        * Comment line 2.
+        */
 
-		if ($foo) {
-			echo 'foo';
-		}
+        if ($foo) {
+            echo 'foo';
+        }
 
-		/* Comment line 1.
-			Comment line 2.
-		*/
+        /* Comment line 1.
+        Comment line 2.
+        */
 
-		if ($foo) {
-			echo 'foo';
-		}
-	}
+        if ($foo) {
+            echo 'foo';
+        }
+    }
 }
 
-	/*
-	 * Test distinguishing between two distinct block comments which directly follow each other.
-	 */
-	/*
+    /*
+     * Test distinguishing between two distinct block comments which directly follow each other.
+     */
+    /*
      *
-	*/
+    */
 
 // Mid-line inline comment style should not be auto-fixed.
-if (true || /* test */ -1 == $b) {}
+if (true || /* test */ -1 == $b) {
+}
 $y = 10 + /* test */ -2;
 
 /*

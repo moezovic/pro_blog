@@ -10,14 +10,16 @@ Security::getRequestData($action, 'get');
 
 class Security
 {
-    function getRequestData($var) {
+    function getRequestData($var)
+    {
         echo $_REQUEST[$var];
     }
 }
 
 class Insecurity
 {
-    function getRequestData($var) {
+    function getRequestData($var)
+    {
         unset($_REQUEST[$var]);
         echo 'OMGHAX!';
     }

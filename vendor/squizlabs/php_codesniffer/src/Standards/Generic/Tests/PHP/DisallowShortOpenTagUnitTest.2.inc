@@ -1,8 +1,8 @@
 <div>
-<? echo $var; ?>
-Some content <? echo $var ?> Some more content
-<?
+<?php echo $var; ?>
+Some content <?php echo $var ?> Some more content
+<?php
 echo $var;
 ?>
-<?echo $var; ?>
+<?php echo $var; ?>
 </div>

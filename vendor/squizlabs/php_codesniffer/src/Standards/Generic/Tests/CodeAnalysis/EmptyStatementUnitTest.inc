@@ -5,10 +5,10 @@ switch ($foo) {
 }
 
 switch ($foo) {
-    case 'bar':
-        break;
-    default:
-        break;
+case 'bar':
+    break;
+default:
+    break;
 }
 
 
@@ -32,7 +32,8 @@ for ($i = 0; $i < 10; $i++) {
     }
 }
 
-foreach ($foo as $bar) {}
+foreach ($foo as $bar) {
+}
 
 foreach ($foo as $bar) {
     $bar *= 2;
@@ -49,7 +50,8 @@ do {
     }
 } while (true);
 
-while ($foo) { /* Comment in the same line */ }
+while ($foo) { /* Comment in the same line */ 
+}
 
 while ($foo) {
     try {
@@ -61,7 +63,8 @@ while ($foo) {
 
 try {
     throw Exception('Error...');
-} catch (Exception $e) {}
+} catch (Exception $e) {
+}
 
 try {
     throw Exception('Error...');
@@ -69,4 +72,6 @@ try {
     // TODO: Handle this exception later :-)
 }
 
-if (true) {} elseif (false) {}
+if (true) {
+} elseif (false) {
+}

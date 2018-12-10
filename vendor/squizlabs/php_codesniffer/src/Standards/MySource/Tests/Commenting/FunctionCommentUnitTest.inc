@@ -8,7 +8,9 @@
  * @api-privilege asset.read.content
  * @api-mustlock  false
  */
-private function functionCall() {}
+private function functionCall()
+{
+}
 
 /**
  * Short content.
@@ -17,7 +19,9 @@ private function functionCall() {}
  *
  * @api read
  */
-private function functionCall() {}
+private function functionCall()
+{
+}
 
 /**
  * Short content.
@@ -26,7 +30,9 @@ private function functionCall() {}
  *
  * @return void
  */
-private function functionCall() {}
+private function functionCall()
+{
+}
 
 /**
  * Short content.
@@ -37,27 +43,33 @@ private function functionCall() {}
  * @api           read
  * @api-mustlock  false
  */
-private function functionCall() {}
+private function functionCall()
+{
+}
 
 /**
  * Short content.
  *
  * @return void
  *
- * @api           read
+ * @api read
  *
  * @api-privilege asset.read.content
  * @api-mustlock  false
  */
-private function functionCall() {}
+private function functionCall()
+{
+}
 
 /**
  * Short content.
  *
  * @return void
- * @api read
+ * @api    read
  */
-private function functionCall() {}
+private function functionCall()
+{
+}
 
 /**
  * Test unknown tags.
@@ -67,18 +79,22 @@ private function functionCall() {}
  * @hello   hello
  * @package Test
  */
-private function functionCall() {}
+private function functionCall()
+{
+}
 
 /**
  * Short content.
  *
  * @return void
  *
- * @api read
+ * @api           read
  * @api-privilege asset.read.content
- * @api-mustlock false
+ * @api-mustlock  false
  */
-private function functionCall() {}
+private function functionCall()
+{
+}
 
 /**
  * Short content.
@@ -88,7 +104,9 @@ private function functionCall() {}
  * @api          read
  * @api-mustlock false
  */
-private function functionCall() {}
+private function functionCall()
+{
+}
 
 /**
  * Short content.
@@ -97,5 +115,7 @@ private function functionCall() {}
  *
  * @api read
  */
-private function functionCall() {}
+private function functionCall()
+{
+}
 ?>

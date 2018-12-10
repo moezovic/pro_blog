@@ -1,74 +1,80 @@
-<?php 
+<?php
 
 namespace ProBlog\src\model;
 
+/**
+ * The BlogPost class.
+ *
+ * Used by the hydration function.
+ *
+ * Creates BlogPost object
+ */
 class BlogPost
 {
-    private $id;
-    private $title;
-    private $topic_sentence;
-    private $content;
-    private $author;
-    private $update_time;
+    private $_id;
+    private $_title;
+    private $_topic_sentence;
+    private $_content;
+    private $_author;
+    private $_update_time;
 
     public function getId()
     {
-        return $this->id;
+        return $this->_id;
     }
 
     public function setId($id)
     {
-        $this->id = $id;
+        $this->_id = $id;
     }
 
     public function getTitle()
     {
-        return $this->title;
+        return $this->_title;
     }
 
     public function setTitle($title)
     {
-        $this->title = $title;
+        $this->_title = $title;
     }
 
     public function getTopicSentence()
     {
-        return $this->topic_sentence;
+        return $this->_topic_sentence;
     }
 
     public function setTopicSentence($sentence)
     {
-        $this->topic_sentence = $sentence;
+        $this->_topic_sentence = $sentence;
     }
 
     public function getContent()
     {
-        return $this->content;
+        return $this->_content;
     }
 
     public function setContent($content)
     {
-        $this->content = $content;
+        $this->_content = $content;
     }
 
     public function getAuthor()
     {
-        return $this->author;
+        return $this->_author;
     }
 
     public function setAuthor($author)
     {
-        $this->author = $author;
+        $this->_author = $author;
     }
 
     public function getUpdateTime()
     {
-        return $this->update_time;
+        return $this->_update_time;
     }
 
     public function setUpdateTime($time)
     {
-        $this->update_time = $time;
+        $this->_update_time = $time;
     }
-
 }

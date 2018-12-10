@@ -15,30 +15,28 @@
  *
  * long description
  * over multiple lines.
+ *
  * @tag1 one
  */
 
 /**
- *
  * Short description
- *
  *
  * Long description
  * over multiple lines
  *
- *
  * @tag1 one
- *
  */
 
 /*
     This is not a doc block.
  */
 
-/** Short description.
+/**
+ * Short description.
  *
- * @tag one
- * @tag2 two
+ * @tag      one
+ * @tag2     two
  * @tagThree three
  * @tagFour  four
  */
@@ -50,26 +48,14 @@
  *
  * @param
  * @param
- *
- */
-
-/**
- * Short description.
- * @param
- * @param
- * @tag one
  */
 
 /**
  * Short description.
  *
- *
  * @param
- *
  * @param
- *
- *
- * @tag one
+ * @tag   one
  */
 
 /**
@@ -77,7 +63,17 @@
  *
  * @param
  *
+ * @param
+ *
  * @tag one
+ */
+
+/**
+ * Short description.
+ *
+ * @param
+ *
+ * @tag   one
  * @param
  */
 
@@ -85,14 +81,13 @@
  * Short description.
  *
  * @groupOne one
- * @groupOne  two
+ * @groupOne two
  *
  * @group2 one
  * @group2 two
  *
- *
  * @g3
- * @g3  two
+ * @g3 two
  */
 
 /**
@@ -167,8 +162,12 @@
  * @ var Comment
  */
 
-/** @var Database $mockedDatabase */
-/** @var Container $mockedContainer */
+/**
+ * @var Database $mockedDatabase 
+ */
+/**
+ * @var Container $mockedContainer 
+ */
 
 /**
  * 这是一条测试评论.
@@ -176,15 +175,17 @@
 
 /**
  * I'm a function short-description
+ *
  * @return boolean
  */
 
 /**
  * this is a test
+ *
  * @author test
- * @param boolean $foo blah
+ * @param  boolean $foo blah
  * @return boolean
- * @param boolean $bar Blah.
+ * @param  boolean $bar Blah.
  */
 
 /**
@@ -211,6 +212,8 @@
  * étude des ...
  */
 
-/**doc comment */
+/**
+ * doc comment 
+ */
 
 /** No docblock close tag. Must be last test without new line.

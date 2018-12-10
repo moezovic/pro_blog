@@ -45,17 +45,20 @@ class SelfMemberReferenceUnitTestExample
 }
 
 
-class MyClass {
+class MyClass
+{
 
-    public static function test($value) {
+    public static function test($value)
+    {
         echo "$value\n";
     }
 
-    public static function walk() {
-        $callback = function($value, $key) {
+    public static function walk()
+    {
+        $callback = function ($value, $key) {
                         // This is valid because you cant use self:: in a closure
                         MyClass::test($value);
-                    };
+        };
 
         $array = array(1,2,3);
         array_walk($array, $callback);
@@ -82,7 +85,8 @@ class Foo
 
 namespace TYPO3\CMS\Reports;
 
-class Status {
+class Status
+{
     const NOTICE = -2;
     const INFO = -1;
     const OK = 0;
@@ -92,15 +96,18 @@ class Status {
 
 namespace TYPO3\CMS\Reports\Report\Status;
 
-class Status implements \TYPO3\CMS\Reports\ReportInterface {
-    public function getHighestSeverity(array $statusCollection) {
+class Status implements \TYPO3\CMS\Reports\ReportInterface
+{
+    public function getHighestSeverity(array $statusCollection)
+    {
         $highestSeverity = \TYPO3\CMS\Reports\Status::NOTICE;
     }
 }
 
 namespace Foo;
 
-class Bar {
+class Bar
+{
 
     function myFunction()
     {
@@ -111,7 +118,8 @@ class Bar {
 
 namespace Foo\Bar;
 
-class Baz {
+class Baz
+{
 
     function myFunction()
     {

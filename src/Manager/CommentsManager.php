@@ -67,6 +67,18 @@ class CommentsManager extends Manager
         $this->sql($sql, [':id' => $id]);
     }
 
+    public function deleteVerifiedComment($id)
+    {
+        $sql = 'DELETE FROM comments WHERE id = :id';
+        $this->sql($sql, [':id' => $id]);
+    }
+
+    public function deleteListOfComments($id)
+    {
+        $sql = 'DELETE FROM comments WHERE blog_post_id = :id';
+        $this->sql($sql, [':id' => $id]);
+    }
+
     public function hydrate(array $row)
     {
         $commentObj = new Comments();

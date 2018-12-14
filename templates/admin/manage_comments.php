@@ -1,16 +1,11 @@
 <?php
 
 session_start();
-$this->title = 'Gérer les commentaires';
-$this->custom = 'custom-menu';
+$this->_title = 'Gérer les commentaires';
+$this->_custom = 'custom-menu';
 
 if (isset($_SESSION['name'])) {
-    $this->menu = true;
-} else {
-    $this->menu = false;
-}
-
-if (isset($_SESSION['name'])) {
+    $this->_menu = true;
     ?>
     <div class="container">
         <div class="row">
@@ -55,6 +50,8 @@ if (isset($_SESSION['name'])) {
         </div>
     </div>
     <?php
+
 } else {
-        throw new Exception("L'access à cette page est reservé aux membres enregistrés");
-    }
+    $this->_menu = false;
+    throw new Exception("L'access à cette page est reservé aux membres enregistrés");
+}

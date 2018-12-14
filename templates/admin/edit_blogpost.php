@@ -1,35 +1,12 @@
 <?php
 session_start();
-$this->title = 'Modifier un article';
-$this->custom = 'custom-menu';
+$this->_title = 'Modifier un article';
+$this->_custom = 'custom-menu';
 
 if (isset($_SESSION['name'])) {
-    $this->menu = true;
-} else {
-    $this->menu = false;
-}
-
-if (isset($_SESSION['name'])) {
+    $this->_menu = true;
     ?>
-    
-    <!-- Page Header -->
-
-    <header class="masthead" style="background-image: url()">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-10 mx-auto">
-                    <div class="page-heading">
-                        <h1></h1>
-                        <span class="subheading"> </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-        <!-- Main Content -->
-
+    <!-- Main Content -->
     <div class="container">
         <div class="row">
           <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 mx-auto">
@@ -66,4 +43,9 @@ if (isset($_SESSION['name'])) {
     </div>
 
     <?php
+
+} else {
+    $this->_menu = false;
+    throw new Exception("L'access à cette page est reservé aux membres enregistrés");
 }
+

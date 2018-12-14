@@ -1,14 +1,14 @@
 <?php
 session_start();
 
-$this->title = "détail d'articles";
+$this->_title = "détail d'articles";
 
 // customize menu links
 
 if (isset($_SESSION['name'])) {
-    $this->menu = true;
+    $this->_menu = true;
 } else {
-    $this->menu = false;
+    $this->_menu = false;
 }
 ?>
 

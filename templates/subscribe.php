@@ -1,10 +1,10 @@
 <?php
-$this->title = 'Inscription';
+$this->_title = 'Inscription';
 
 if (isset($_SESSION['name'])) {
-    $this->menu = true;
+    $this->_menu = true;
 } else {
-    $this->menu = false;
+    $this->_menu = false;
 }
 
 ?>

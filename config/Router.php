@@ -39,16 +39,17 @@ class Router
                     } elseif ('single' === $_GET['bp']) {
                         $this->_controllerObj->singleBlogPost($_GET['postId']);
                     } elseif ('new' === $_GET['bp']) {
-                        if (!empty($_POST['title']) && !empty($_POST['topic_sentence']) && !empty($_POST['main_content']) && !empty($_POST['author'])) {
+                        if (!empty(trim($_POST['title'])) && !empty(trim($_POST['topic_sentence'])) && !empty(trim($_POST['main_content'])) && !empty(trim($_POST['author']))) {
                             $this->_controllerObj->addBlogPost();
                         } else {
-                            throw new \Exception();
+                            throw new \Exception('Erreur: les modifications ne seront pas prises en compte');
                         }
                     } elseif ('update' === $_GET['bp']) {
-                        if (!empty($_POST['title']) && !empty($_POST['topic_sentence']) && !empty($_POST['main_content']) && !empty($_POST['author'])) {
-                            if (isset($_GET['id'])) {
+                        if (!empty(trim($_POST['title'])) && !empty(trim($_POST['topic_sentence'])) && !empty(trim($_POST['main_content'])) && !empty(trim($_POST['author'])) && isset($_GET['id'])) {                
                                 $this->_controllerObj->updateBlogPost($_GET['id']);
-                            }
+                        }else{
+                            throw new \Exception('Erreur: les modifications ne seront pas prises en compte');
+                            
                         }
                     } elseif ('delete' === $_GET['bp']) {
                         if (isset($_GET['id'])) {
@@ -62,10 +63,10 @@ class Router
                 } elseif (isset($_GET['comments'])) {
                     if ('new' === $_GET['comments']) {
                         if (isset($_GET['id'])) {
-                            if (!empty($_POST['commentary']) && !empty($_POST['name'] && $_POST['redirection'])) {
+                            if (!empty(trim($_POST['commentary'])) && !empty($_POST['name']) && !empty(trim($_POST['redirection']))) {
                                 $this->_controllerObj->addPendingComment($_GET['id']);
                             } else {
-                                throw new \Exception();
+                                throw new \Exception('Erreur: les modifications ne seront pas prises en compte');
                             }
                         }
                     } elseif ('validate' === $_GET['comments']) {
@@ -93,7 +94,7 @@ class Router
                     } elseif ('subscribe' === $_GET['access']) {
                         $this->_sessionControllerObj->subscription();
                     } elseif ('newadmin' === $_GET['access']) {
-                        if (!empty($_POST['name']) && !empty($_POST['pswd']) && !empty($_POST['pswd-verify'])) {
+                        if (!empty(trim($_POST['name'])) && !empty(trim($_POST['pswd'])) && !empty(trim())) {
                             if ($_POST['pswd'] === $_POST['pswd-verify']) {
                                 $this->_sessionControllerObj->addNewAdmin();
                             } else {

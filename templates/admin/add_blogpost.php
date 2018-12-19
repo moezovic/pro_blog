@@ -1,18 +1,15 @@
 <?php
 
-session_start();
-$this->title = 'Ajouter un nouveau article';
-$this->custom = 'custom-menu';
+session_start(); 
+
+$this->_title = 'Ajouter un nouveau article';
+$this->_custom = 'custom-menu';
 
 if (isset($_SESSION['name'])) {
-    $this->menu = true;
-} else {
-    $this->menu = false;
-}
-
-?>
-
-<!-- Main Content -->
+    $this->_menu = true;
+    ?>
+    
+    <!-- Main Content -->
 
 <div class="container">
     <div class="row">
@@ -48,3 +45,12 @@ if (isset($_SESSION['name'])) {
     </div>
  </div>
 </div>
+
+    <?php
+} else {
+    $this->_menu = false;
+    throw new Exception("L'access à cette page est reservé aux membres enregistrés");
+}
+
+?>
+

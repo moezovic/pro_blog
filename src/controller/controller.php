@@ -64,6 +64,7 @@ class Controller
     public function deleteBlogPost($id)
     {
         $this->_blogPostDAO->deleteBlogPost($id);
+        $this->_commentDAO->deleteListOfComments($id);
         $blogPosts = $this->_blogPostDAO->getBlogPosts();
         $this->_viewObj->render('admin/manage_bp', ['blogPosts' => $blogPosts]);
     }
@@ -88,7 +89,7 @@ class Controller
 
     public function deleteComment($id)
     {
-        $this->_commentDAO->deleteSinglePending($id);
+        $this->_commentDAO->deleteVerifiedComment($id);
         $pendingComments = $this->_commentDAO->getAllPending();
         $this->_viewObj->render('admin/manage_comments', ['pendingComments' => $pendingComments]);
     }

@@ -2,7 +2,7 @@
 
 namespace ProBlog\src\Manager;
 
-require_once '../config/dev.php';
+require_once '../config/dev2.php';
 
 use PDO;
 

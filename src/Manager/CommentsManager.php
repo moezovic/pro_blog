@@ -35,8 +35,13 @@ class CommentsManager extends Manager
         $author = htmlspecialchars($_POST['name']);
         $content = htmlspecialchars($_POST['commentary']);
 
-        $sql = 'INSERT INTO pending_comments (blogpost_id, author, content, insertion_date) VALUES(:id, :author, :content, NOW())';
-        $this->sql($sql, [':id' => $postId, ':author' => $author, ':content' => $content]);
+        if (preg_match('/[a-zA-Z_]{3,}/', $author)) {
+             $sql = 'INSERT INTO pending_comments (blogpost_id, author, content, insertion_date) VALUES(:id, :author, :content, NOW())';
+             return $this->sql($sql, [':id' => $postId, ':author' => $author, ':content' => $content]);
+        }
+        throw new \Exception('Le nom de l\'auteur doit contenir au moins 3 caracteres alphabetique');
+        
+        
     }
 
     public function getAllPending()
@@ -59,6 +64,18 @@ class CommentsManager extends Manager
     public function deleteSinglePending($id)
     {
         $sql = 'DELETE FROM pending_comments WHERE id = :id';
+        $this->sql($sql, [':id' => $id]);
+    }
+
+    public function deleteVerifiedComment($id)
+    {
+        $sql = 'DELETE FROM comments WHERE id = :id';
+        $this->sql($sql, [':id' => $id]);
+    }
+
+    public function deleteListOfComments($id)
+    {
+        $sql = 'DELETE FROM comments WHERE blog_post_id = :id';
         $this->sql($sql, [':id' => $id]);
     }
 

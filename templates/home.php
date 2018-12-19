@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$this->title = 'Acceuil';
+$this->_title = 'Acceuil';
 
 if (isset($session)) {
     $_SESSION['name'] = $session;
@@ -17,9 +17,9 @@ if (isset($_GET['access'])) {
 // customize menu links
 
 if (isset($_SESSION['name'])) {
-    $this->menu = true;
+    $this->_menu = true;
 } else {
-    $this->menu = false;
+    $this->_menu = false;
 }
 ?>
 

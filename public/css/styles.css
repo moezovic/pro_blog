@@ -1,12 +1,15 @@
+#mainNav
+{
+background-color: rgba(58, 77, 95, 0.55);
+}
+
 .custom-menu
 {
-	background-color: grey;
 	margin-bottom: 150px;
 }
 
 .custom-menu + *
 {
-	
 	margin-top: 150px;
 }
 .card-deck .row{

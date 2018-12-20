@@ -37,7 +37,7 @@ if (isset($_SESSION['name'])) {
         </p>
     </div>
     <div class="row">
-            <p class="col-12"><?php echo nl2br(htmlspecialchars($blogPost->getContent())); ?></p>
+            <p class="col-12"><?php echo nl2br(htmlspecialchars(stripcslashes($blogPost->getContent()))); ?></p>
             <span class="col-12">Articlé écrit par : <strong><?php echo htmlspecialchars($blogPost->getAuthor()); ?></strong></span>
             <span class="col-12">Dernière modification le : <strong><?php echo htmlspecialchars($blogPost->getUpdateTime()); ?></strong></span>
     </div>

@@ -4,16 +4,16 @@
     <head>
         <meta charset="utf-8">
         <title><?php echo $title; ?></title>
-
+        
         <link rel="stylesheet" type="text/css" href="css/clean-blog.min.css">
+        <link rel="stylesheet" href="css/styles.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+        
+    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.15/css/mdb.min.css" rel="stylesheet">
     <script type="text/javascript" src= js/effect.js></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.15/js/mdb.min.js"></script>
-
-
     </head>
 
     <body>
